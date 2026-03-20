@@ -1,0 +1,2732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHAR | Creative Intelligence Studio</title>
+    
+    <!-- Premium Typography System -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DESIGN TOKENS --- */
+        :root {
+            --bg-base: #101318;
+            --bg-surface: #14181d;
+            --bg-surface-warm: #161a20;
+            --bg-surface-lift: #1a1f26;
+            --text-main: #f5f5f5;
+            --text-muted: #8d9198;
+            --gold: #C5A059;
+            --border-light: rgba(255, 255, 255, 0.1);
+            
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --max-width: 1480px;
+            --spacing-section: 104px;
+        }
+
+        /* --- GLOBAL BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        ul { list-style: none; }
+        
+        h1, h2, h3, h4 { font-weight: 400; font-family: var(--font-serif); }
+
+        /* --- STRICT GRID SYSTEM --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 3.25%;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 1rem 2rem;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: transform 0.35s ease, border-color 0.35s ease, color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            bottom: -40%;
+            left: -26%;
+            width: 22%;
+            transform: skewX(-18deg);
+            background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.18), rgba(255,255,255,0));
+            opacity: 0;
+            transition: left 0.55s ease, opacity 0.35s ease;
+            pointer-events: none;
+        }
+        
+        .btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(255, 255, 255, 0.025);
+            transform: translateY(-1px);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(197,160,89,0.08) inset;
+        }
+
+        .btn:hover::before {
+            left: 108%;
+            opacity: 0.65;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: absolute;
+            top: 0; left: 0; width: 100%;
+            padding: 2.5rem 5%;
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #fff;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--bg-base);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: heroDrift 18s ease-in-out infinite alternate;
+            transform: scale(1.03);
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 180px;
+            background: linear-gradient(
+                180deg,
+                rgba(11, 12, 15, 0) 0%,
+                rgba(11, 12, 15, 0.5) 38%,
+                rgba(11, 12, 15, 0.84) 72%,
+                var(--bg-base) 100%
+            );
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Subtle gradient overlay to ensure text pops without ruining image clarity */
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(circle at 50% 42%, rgba(255,255,255,0.02), rgba(0,0,0,0.14) 28%, rgba(0,0,0,0.34) 100%),
+                linear-gradient(rgba(9,10,12,0.14), rgba(9,10,12,0.34));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: min(1180px, 100%);
+            padding: 0 2rem;
+            transform: translateY(-7vh);
+        }
+
+        /* Minimal Text Hierarchy */
+        .hero-title {
+            font-size: clamp(5rem, 10vw, 9rem);
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.96rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.88);
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+            margin-bottom: 1.45rem;
+            animation: heroSubtitleGlow 8s ease-in-out infinite;
+        }
+
+        .hero-question {
+            position: absolute;
+            left: 50%;
+            bottom: 13vh;
+            transform: translateX(-50%);
+            z-index: 10;
+            font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+            font-style: normal;
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.08;
+            letter-spacing: -0.015em;
+            margin: 0;
+            width: auto;
+            max-width: none;
+            white-space: nowrap;
+            text-align: center;
+            text-shadow: 0 8px 24px rgba(0, 0, 0, 0.34);
+            animation: heroQuestionFloat 9s ease-in-out infinite;
+        }
+
+        @keyframes heroDrift {
+            0% { transform: scale(1.03) translate3d(-0.8%, 0.2%, 0); }
+            100% { transform: scale(1.06) translate3d(0.8%, -0.6%, 0); }
+        }
+
+        @keyframes heroSubtitleGlow {
+            0%, 100% { opacity: 0.86; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35); }
+            50% { opacity: 1; text-shadow: 0 1px 14px rgba(197, 160, 89, 0.18), 0 1px 10px rgba(0, 0, 0, 0.32); }
+        }
+
+        @keyframes heroQuestionFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        /* --- OPENING SECTION --- */
+        .opening-section {
+            position: relative;
+            z-index: 4;
+            padding: 82px 0 52px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #101318 0%, #11161b 100%);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .opening-hook {
+            font-size: clamp(2.05rem, 3.35vw, 2.8rem);
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            margin-bottom: 1.4rem;
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
+            text-wrap: balance;
+        }
+
+        .opening-sub {
+            font-family: var(--font-sans);
+            font-size: 0.98rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+            max-width: 940px;
+            margin: 0 auto;
+        }
+
+        /* --- BRAND READ SECTION --- */
+        .brand-read-section {
+            padding: 44px 0 72px 0;
+            background: linear-gradient(180deg, #11161b 0%, #12171c 100%);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .brand-read-shell {
+            max-width: none;
+            width: 100%;
+            margin: 0 auto;
+            border: 1px solid var(--border-light);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.005)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+
+        .brand-read-intro {
+            padding: 2.5rem 2.6rem 2.15rem 2.6rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+        }
+
+        .brand-read-kicker {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.82);
+            margin-bottom: 1rem;
+        }
+
+        .brand-read-title {
+            font-size: clamp(2.2rem, 3.6vw, 3.35rem);
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .brand-read-sub {
+            max-width: 920px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+        }
+
+        .brand-read-main {
+            display: grid;
+            grid-template-columns: minmax(280px, 340px) minmax(0, 820px);
+            gap: 0;
+            align-items: start;
+            max-width: 1180px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .brand-read-panel {
+            padding: 1.85rem 1.75rem 1.9rem;
+        }
+
+        .brand-read-panel + .brand-read-panel {
+            border-left: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .brand-read-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .brand-read-label {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(255,255,255,0.58);
+        }
+
+        .brand-read-controls {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .brand-read-chip {
+            padding: 0.78rem 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.015);
+            color: rgba(255,255,255,0.72);
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+        }
+
+        .brand-read-chip.active,
+        .brand-read-chip:hover {
+            border-color: rgba(197, 160, 89, 0.46);
+            color: var(--gold);
+            background: rgba(255,255,255,0.028);
+        }
+
+        .brand-read-input,
+        .brand-read-email {
+            width: 100%;
+            padding: 1rem 1.15rem;
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .brand-read-input:focus,
+        .brand-read-email:focus {
+            border-color: rgba(197, 160, 89, 0.46);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .brand-read-helper {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.54);
+            line-height: 1.75;
+        }
+
+        .brand-read-status {
+            min-height: 1.3rem;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.54);
+        }
+
+        .brand-read-status[data-tone="error"] {
+            color: #d4a4a4;
+        }
+
+        .brand-read-status[data-tone="success"] {
+            color: rgba(226, 195, 130, 0.9);
+        }
+
+        .brand-read-actions {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 0.25rem;
+        }
+
+        .brand-read-secondary {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            color: rgba(255,255,255,0.58);
+        }
+
+        .brand-read-cta-note {
+            font-size: 0.88rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.54);
+        }
+
+        .brand-read-result {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            align-items: stretch;
+            width: 100%;
+            max-width: 860px;
+        }
+
+        .brand-read-overview {
+            display: grid;
+            grid-template-columns: minmax(340px, 1.18fr) minmax(260px, 0.82fr);
+            gap: 1rem;
+            align-items: stretch;
+            width: 100%;
+        }
+
+        .brand-read-rail {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            width: 100%;
+        }
+
+        .brand-read-deep-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .brand-read-deep-area {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 1.9rem 2rem 2.15rem;
+        }
+
+        .brand-read-deep-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 1rem;
+            padding-top: 0.25rem;
+        }
+
+        .brand-read-deep-title {
+            font-family: var(--font-serif);
+            font-size: 1.28rem;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .brand-read-deep-note {
+            max-width: 28rem;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.52);
+        }
+
+        .brand-read-poster {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border: 1px solid rgba(197, 160, 89, 0.18);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background:
+                radial-gradient(circle at 54% 18%, rgba(255,244,224,0.08), rgba(255,255,255,0) 24%),
+                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.002)),
+                linear-gradient(180deg, #171b20 0%, #13181d 100%);
+            padding: 1.45rem;
+            overflow: hidden;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.24);
+        }
+
+        .brand-read-poster::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(11,13,16,0.34) 0%, rgba(11,13,16,0.08) 22%, rgba(11,13,16,0.02) 48%, rgba(11,13,16,0.18) 78%, rgba(11,13,16,0.42) 100%),
+                linear-gradient(180deg, rgba(7,8,11,0.1) 0%, rgba(7,8,11,0.06) 24%, rgba(7,8,11,0.16) 52%, rgba(7,8,11,0.52) 100%),
+                radial-gradient(circle at 54% 34%, rgba(237,227,210,0.12), rgba(237,227,210,0.02) 26%, rgba(0,0,0,0) 50%),
+                linear-gradient(180deg, rgba(7,8,11,0.06), rgba(7,8,11,0.22));
+            pointer-events: none;
+        }
+
+        .brand-read-poster[data-world="ruler"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Ruler.png") center / cover no-repeat,
+                linear-gradient(180deg, #171b20 0%, #11161b 100%);
+        }
+
+        .brand-read-poster[data-world="sage"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Sage.png") center / cover no-repeat,
+                linear-gradient(180deg, #171c22 0%, #12171c 100%);
+        }
+
+        .brand-read-poster[data-world="magician"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Magician.png") center / cover no-repeat,
+                linear-gradient(180deg, #15191f 0%, #0f1418 100%);
+        }
+
+        .brand-read-poster[data-world="creator"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Creator.png") center / cover no-repeat,
+                linear-gradient(180deg, #171b20 0%, #10151a 100%);
+        }
+
+        .brand-read-poster[data-world="lover"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Lover.png") center / cover no-repeat,
+                linear-gradient(180deg, #1b171b 0%, #13161b 100%);
+        }
+
+        .brand-read-poster[data-world="caregiver"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Caregiver.png") center / cover no-repeat,
+                linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0.006)),
+                linear-gradient(180deg, #171c20 0%, #12171b 100%);
+        }
+
+        .brand-read-poster[data-world="hero"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Hero.png") center / cover no-repeat,
+                linear-gradient(180deg, #171b20 0%, #101419 100%);
+        }
+
+        .brand-read-poster[data-world="rebel"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Rebel.png") center / cover no-repeat,
+                linear-gradient(180deg, #18191f 0%, #101318 100%);
+        }
+
+        .brand-read-poster[data-world="explorer"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Explorer.png") center / cover no-repeat,
+                linear-gradient(180deg, #171c22 0%, #12171c 100%);
+        }
+
+        .brand-read-poster[data-world="everyman"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Everyman.png") center / cover no-repeat,
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.006)),
+                linear-gradient(180deg, #171b20 0%, #12171c 100%);
+        }
+
+        .brand-read-poster[data-world="innocent"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Innocent.png") center / cover no-repeat,
+                linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.008)),
+                linear-gradient(180deg, #181d22 0%, #12181d 100%);
+        }
+
+        .brand-read-poster[data-world="jester"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Jester.png") center / cover no-repeat,
+                linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.006) 40%, rgba(255,255,255,0) 100%),
+                linear-gradient(180deg, #171b20 0%, #11161b 100%);
+        }
+
+        .brand-read-poster-kicker {
+            position: absolute;
+            top: 1.45rem;
+            left: 1.45rem;
+            z-index: 1;
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.64rem;
+            text-transform: uppercase;
+            letter-spacing: 0.26em;
+            color: rgba(239, 231, 217, 0.68);
+            margin-bottom: 0;
+            max-width: calc(100% - 8rem);
+            text-shadow: 0 3px 10px rgba(0,0,0,0.12);
+        }
+
+        .brand-read-poster-copy {
+            position: absolute;
+            z-index: 1;
+            left: 1.55rem;
+            right: 1.55rem;
+            top: auto;
+            bottom: 9.3rem;
+            transform: none;
+            width: auto;
+            max-width: 21ch;
+            margin: 0;
+            padding-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .brand-read-poster-title {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-size: clamp(2.75rem, 4.25vw, 3.7rem);
+            line-height: 0.9;
+            letter-spacing: -0.045em;
+            color: rgba(249, 243, 235, 0.97);
+            max-width: 7ch;
+            margin-bottom: 0.72rem;
+            text-shadow: 0 10px 28px rgba(0,0,0,0.22);
+            text-wrap: balance;
+        }
+
+        .brand-read-poster-genre {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(218, 184, 114, 0.92);
+            margin-bottom: 0;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.14);
+        }
+
+        .brand-read-poster-footer {
+            position: absolute;
+            left: 1.55rem;
+            right: 1.45rem;
+            bottom: 1.35rem;
+            z-index: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand-read-poster-tagline {
+            font-family: var(--font-serif);
+            font-size: 0.88rem;
+            line-height: 1.42;
+            color: rgba(236,229,219,0.8);
+            width: min(60%, 15rem);
+            margin: 0;
+            text-align: left;
+            text-wrap: balance;
+            text-shadow: 0 6px 18px rgba(0,0,0,0.24);
+        }
+
+        .brand-read-poster-credit {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: rgba(214, 197, 167, 0.5);
+            text-align: right;
+            white-space: nowrap;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .brand-read-mini {
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.018);
+            padding: 1.15rem 1.2rem;
+            width: 100%;
+            min-height: 215px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .brand-read-mini h4,
+        .brand-read-deep h4 {
+            font-family: var(--font-sans);
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.82);
+            margin-bottom: 0.75rem;
+        }
+
+        .brand-read-mini p,
+        .brand-read-deep p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .brand-read-deep {
+            display: none;
+            gap: 1rem;
+        }
+
+        .brand-read-deep.visible {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .brand-read-deep-card {
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.018);
+            padding: 1.15rem 1.2rem;
+            min-height: 100%;
+            min-height: 215px;
+        }
+
+        .brand-read-session {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) auto;
+            gap: 1rem 2rem;
+            padding: 1.35rem 1.45rem 1.3rem;
+            border: 1px solid rgba(197, 160, 89, 0.14);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.004)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+            align-items: center;
+        }
+
+        .brand-read-session-copy {
+            grid-column: 1;
+            margin: 0;
+            font-size: 0.98rem;
+            line-height: 1.72;
+            color: rgba(255,255,255,0.72);
+            max-width: 38rem;
+        }
+
+        .brand-read-session-kicker {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.82);
+            margin-bottom: 0.7rem;
+        }
+
+        .brand-read-session-cta {
+            grid-column: 2;
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-items: center;
+            justify-content: flex-end;
+            min-width: 0;
+        }
+
+        .brand-read-session .brand-read-actions {
+            margin-top: 0;
+        }
+
+        .brand-read-session-note {
+            grid-column: 1 / -1;
+            margin: 0;
+            padding-top: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.56);
+        }
+
+        .brand-read-session-note .brand-read-secondary {
+            font-size: inherit;
+            letter-spacing: normal;
+        }
+
+        .brand-read-email-gate {
+            border: 1px solid rgba(197, 160, 89, 0.18);
+            background: rgba(255,255,255,0.018);
+            padding: 1.15rem 1.2rem;
+            width: 100%;
+            min-width: 0;
+            min-height: 215px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-read-email-gate.hidden {
+            display: none;
+        }
+
+        .brand-read-gate-title {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.82);
+            margin-bottom: 0.75rem;
+        }
+
+        .brand-read-gate-copy {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .brand-read-gate-row {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: auto;
+        }
+
+        .brand-read-rail .brand-read-actions {
+            margin-top: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.65rem;
+        }
+
+        .brand-read-rail .brand-read-secondary {
+            font-size: 0.88rem;
+            letter-spacing: 0.02em;
+        }
+
+        .brand-read-rail .brand-read-cta-note {
+            max-width: 40rem;
+            margin-top: -0.1rem;
+        }
+
+        .btn[disabled] {
+            opacity: 0.68;
+            cursor: wait;
+            transform: none;
+        }
+
+        /* --- SECTION TITLES --- */
+        .section-header {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 2.75rem;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.02);
+        }
+
+        /* --- METHOD SECTION --- */
+        .method-section {
+            padding: 52px 0 var(--spacing-section) 0;
+            background: linear-gradient(180deg, #11161b 0%, #12171c 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .method-card {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.005)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .method-visual {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            overflow: hidden;
+            background: #171b20;
+        }
+
+        .method-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            transform: scale(1.02);
+            animation: methodSymbolDrift 14s ease-in-out infinite alternate;
+            filter: saturate(0.96) brightness(0.96);
+        }
+
+        .method-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 42%, rgba(255,255,255,0.045), rgba(255,255,255,0) 42%),
+                linear-gradient(180deg, rgba(9,10,12,0.04), rgba(9,10,12,0.22));
+            pointer-events: none;
+        }
+
+        .method-visual.strategy-visual::before {
+            background-image: url("Strategy.png");
+            background-size: 84%;
+        }
+
+        .method-visual.story-visual::before {
+            background-image: url("Story.png");
+            background-size: 84%;
+        }
+
+        .method-visual.spectacle-visual::before {
+            background-image: url("Portal.png");
+            background-size: 84%;
+        }
+
+        .method-visual .method-glow {
+            position: absolute;
+            inset: auto -18% 8% auto;
+            width: 46%;
+            height: 38%;
+            background: radial-gradient(circle, rgba(237,227,210,0.14) 0%, rgba(237,227,210,0.04) 42%, rgba(237,227,210,0) 72%);
+            mix-blend-mode: screen;
+            opacity: 0.32;
+            filter: blur(22px);
+            animation: methodGlowPulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .method-visual .method-sheen {
+            position: absolute;
+            inset: -10% auto -10% -30%;
+            width: 34%;
+            background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.12), rgba(255,255,255,0));
+            transform: skewX(-18deg);
+            opacity: 0;
+            animation: methodSheen 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes methodSymbolDrift {
+            0% { transform: scale(1.02) translate3d(-0.6%, 0.4%, 0); }
+            100% { transform: scale(1.04) translate3d(0.6%, -0.5%, 0); }
+        }
+
+        @keyframes methodGlowPulse {
+            0%, 100% { opacity: 0.22; transform: scale(0.96); }
+            50% { opacity: 0.34; transform: scale(1.02); }
+        }
+
+        @keyframes methodSheen {
+            0%, 78%, 100% { opacity: 0; left: -30%; }
+            12% { opacity: 0.28; }
+            32% { opacity: 0; left: 110%; }
+        }
+
+        /* Method Text */
+        .method-text {
+            padding: 2rem 1.4rem 1.45rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .method-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .method-text p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.15rem;
+        }
+
+        .method-text ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .method-text ul li {
+            position: relative;
+            padding-left: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .method-text ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* --- PACKAGES SECTION --- */
+        .packages-section {
+            padding: 88px 0 48px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            background: linear-gradient(180deg, #12171c 0%, #13181d 100%);
+        }
+
+        .pack-card {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
+                linear-gradient(180deg, var(--bg-surface-lift) 0%, var(--bg-surface-warm) 100%);
+            border: 1px solid var(--border-light);
+            padding: 3.5rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .pack-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.08rem;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            min-height: 1.5rem;
+            white-space: nowrap;
+        }
+
+        .pack-sub {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            min-height: 2rem;
+            display: block;
+        }
+
+        .pack-desc {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            min-height: 4.8rem;
+        }
+
+        .pack-includes-label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .pack-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            flex-grow: 1;
+        }
+
+        .pack-list li {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* --- AI LAB SECTION --- */
+        .lab-section {
+            padding: 36px 0 32px 0;
+            text-align: center;
+        }
+
+        .lab-section p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .lab-section p.lab-sub {
+            margin-bottom: 2rem;
+        }
+
+        .ai-input-wrapper {
+            max-width: 450px;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ai-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-light);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .ai-input:focus {
+            border-color: var(--gold);
+        }
+
+        /* Dynamic AI Result Card */
+        .ai-result {
+            margin: 2.25rem auto 0 auto;
+            max-width: 320px;
+            aspect-ratio: 2/3;
+            background: var(--bg-surface);
+            border: 1px solid var(--gold);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.1);
+            
+            /* Hidden by default, toggled via JS */
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+            transition: all 0.6s ease;
+        }
+
+        .ai-result.visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .ai-result h4 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .ai-result span {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* --- WORK SECTION --- */
+        .work-section {
+            padding: 44px 0 52px 0;
+            border-top: 1px solid var(--border-light);
+            background: linear-gradient(180deg, #13181d 0%, #12171c 100%);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .work-card {
+            position: relative;
+            appearance: none;
+            padding: 0;
+            width: 100%;
+            text-align: left;
+            font: inherit;
+            background: var(--bg-surface);
+            aspect-ratio: 16/10;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+            transition: border-color 0.4s ease;
+        }
+
+        .work-card-featured {
+            grid-column: span 2;
+            aspect-ratio: 16 / 8.8;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.004)),
+                linear-gradient(180deg, #171b20 0%, #12171c 100%);
+        }
+
+        .work-card-website {
+            grid-column: span 2;
+            aspect-ratio: auto;
+            min-height: 34rem;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
+                linear-gradient(180deg, #171b20 0%, #12171c 100%);
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .work-website-head {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 2rem;
+            align-items: end;
+            padding: 2rem 2rem 1.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .work-website-intro {
+            min-width: 0;
+        }
+
+        .work-website-intro .work-title {
+            position: static;
+            transform: none;
+            margin-bottom: 0.7rem;
+            font-size: clamp(2rem, 3vw, 2.65rem);
+            line-height: 0.98;
+            letter-spacing: -0.03em;
+            color: #fff;
+        }
+
+        .work-website-summary {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        .work-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+            z-index: 1;
+        }
+
+        /* High-end cinematic visual placeholders */
+        .work-grid .work-card:nth-child(2) .work-img { background-image: url('https://images.unsplash.com/photo-1542314831-c6a4d27ce66f?q=80&w=1200&auto=format&fit=crop'); }
+        .work-grid .work-card:nth-child(3) .work-img { background-image: url('https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1200&auto=format&fit=crop'); }
+        .work-grid .work-card:nth-child(4) .work-img { background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200&auto=format&fit=crop'); }
+
+        .work-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                linear-gradient(180deg, rgba(10,11,14,0.08) 0%, rgba(10,11,14,0.16) 28%, rgba(10,11,14,0.32) 58%, rgba(10,11,14,0.78) 100%),
+                linear-gradient(90deg, rgba(10,11,14,0.18) 0%, rgba(10,11,14,0.04) 28%, rgba(10,11,14,0.14) 100%);
+            z-index: 2;
+        }
+
+        .work-title {
+            position: absolute;
+            bottom: 2.5rem; left: 2.5rem;
+            z-index: 3;
+            font-size: 2rem;
+            color: #fff;
+            transform: translateY(10px);
+            transition: transform 0.4s ease;
+        }
+
+        /* Hover Effects */
+        .work-card:hover { border-color: var(--gold); }
+        .work-card:hover .work-img { transform: scale(1.05); }
+        .work-card:hover .work-title { transform: translateY(0); }
+
+        .work-sub {
+            max-width: 720px;
+            margin: -1rem auto 2.5rem auto;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .work-video-shell {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 48%, rgba(226,195,130,0.08), rgba(226,195,130,0) 38%),
+                linear-gradient(180deg, #181d22 0%, #12171c 100%);
+        }
+
+        .work-video-shell::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(11,13,16,0.18), rgba(11,13,16,0.02) 26%, rgba(11,13,16,0.16) 100%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), rgba(255,255,255,0) 44%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .work-teaser-visual {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .work-teaser-cover {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: url("Falcon.png") center / cover no-repeat;
+            transform: scale(1.03);
+            filter: saturate(0.94) contrast(1.02) brightness(0.9);
+            transition: opacity 0.45s ease;
+        }
+
+        .work-video-shell.is-ready .work-teaser-cover {
+            opacity: 0;
+        }
+
+        .work-teaser-visual iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 132%;
+            height: 132%;
+            border: 0;
+            z-index: 1;
+            transform: translate(-50%, -50%) scale(1.01);
+            pointer-events: none;
+            filter: saturate(0.92) contrast(1.04) brightness(0.84);
+        }
+
+        .work-card-featured:hover .work-teaser-cover {
+            transform: scale(1.08);
+            transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .work-card-featured:hover .work-teaser-visual iframe {
+            transform: translate(-50%, -50%) scale(1.04);
+            transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .work-card-copy {
+            position: absolute;
+            left: 2.2rem;
+            right: 2.2rem;
+            bottom: 2rem;
+            z-index: 3;
+            max-width: 34rem;
+        }
+
+        .work-kicker {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.84);
+            margin-bottom: 0.8rem;
+        }
+
+        .work-card-copy .work-title {
+            position: static;
+            transform: none;
+            margin-bottom: 0.75rem;
+            font-size: clamp(2rem, 3vw, 2.7rem);
+            line-height: 0.98;
+            letter-spacing: -0.03em;
+        }
+
+        .work-desc {
+            font-size: 0.98rem;
+            line-height: 1.78;
+            color: rgba(239, 234, 225, 0.8);
+            max-width: 30rem;
+            margin-bottom: 1rem;
+        }
+
+        .work-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .work-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.38rem 0.62rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.72);
+        }
+
+        .work-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(239, 234, 225, 0.88);
+        }
+
+        .work-link::after {
+            content: '↗';
+            font-size: 0.9rem;
+            line-height: 1;
+        }
+
+        .work-website-compare {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .work-website-state {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            min-width: 0;
+        }
+
+        .work-website-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.82);
+        }
+
+        .work-website-domain {
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.54);
+        }
+
+        .work-website-frame {
+            position: relative;
+            overflow: hidden;
+            height: clamp(21.5rem, 31vw, 27rem);
+            min-height: 0;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.005));
+        }
+
+        .work-website-current {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.004)),
+                linear-gradient(180deg, #1b2026 0%, #14181d 100%);
+        }
+
+        .work-website-current::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 4.25rem;
+            background: linear-gradient(180deg, rgba(20,24,29,0) 0%, rgba(20,24,29,0.88) 100%);
+            pointer-events: none;
+        }
+
+        .work-website-concept {
+            background:
+                radial-gradient(circle at 68% 18%, rgba(230, 211, 185, 0.22), rgba(230, 211, 185, 0) 26%),
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.006)),
+                linear-gradient(180deg, #d7c9b7 0%, #c6b29a 42%, #aa8f76 100%);
+        }
+
+        .work-browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.8rem 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .work-browser-dot {
+            width: 0.44rem;
+            height: 0.44rem;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.22);
+        }
+
+        .work-website-shot {
+            display: block;
+            width: 100%;
+            height: calc(100% - 3.05rem);
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .work-concept-body {
+            position: absolute;
+            inset: 0;
+            padding: 1.15rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #fff9f1;
+        }
+
+        .work-concept-kicker {
+            font-family: var(--font-sans);
+            font-size: 0.64rem;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: rgba(255, 249, 241, 0.72);
+        }
+
+        .work-concept-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            max-width: 8ch;
+        }
+
+        .work-concept-line {
+            width: 8.5rem;
+            height: 1px;
+            background: rgba(255,249,241,0.45);
+            margin: 0.8rem 0;
+        }
+
+        .work-concept-copy {
+            max-width: 13rem;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: rgba(255,249,241,0.8);
+        }
+
+        .work-concept-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: sepia(0.18) saturate(0.72) contrast(0.92) brightness(0.82);
+        }
+
+        .work-website-copy {
+            display: contents;
+        }
+
+        .work-note {
+            font-size: 0.94rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.62);
+            max-width: 31rem;
+            margin-bottom: 1rem;
+        }
+
+        .work-website-summary .work-note {
+            max-width: 27rem;
+        }
+
+        .work-action {
+            appearance: none;
+            border: 1px solid rgba(197, 160, 89, 0.38);
+            background: rgba(255,255,255,0.04);
+            color: rgba(239, 234, 225, 0.92);
+            padding: 0.6rem 0.9rem;
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            cursor: pointer;
+            transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s ease;
+        }
+
+        .work-action:hover {
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.07);
+            transform: translateY(-1px);
+        }
+
+        .work-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: rgba(7, 9, 12, 0.82);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .work-modal.open {
+            display: flex;
+        }
+
+        .work-modal-dialog {
+            width: min(980px, 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
+                linear-gradient(180deg, #171b20 0%, #12171c 100%);
+            box-shadow: 0 28px 80px rgba(0,0,0,0.34);
+            overflow: hidden;
+        }
+
+        .work-modal-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .work-modal-title {
+            font-family: var(--font-serif);
+            font-size: 1.22rem;
+            color: var(--text-main);
+        }
+
+        .work-modal-close {
+            appearance: none;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+            color: rgba(255,255,255,0.76);
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+        }
+
+        .work-modal-frame {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            background: #0d1115;
+        }
+
+        .work-modal-frame iframe,
+        .work-modal-frame #work-modal-player {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            padding: 88px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+            background: linear-gradient(180deg, #12171c 0%, #11161b 100%);
+        }
+
+        .contact-founder {
+            max-width: 860px;
+            margin: 0 auto 3rem auto;
+            padding: 1.5rem 1.7rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.004)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+            text-align: left;
+        }
+
+        .contact-founder-kicker {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.82);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-founder-copy {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.85;
+            color: rgba(239, 234, 225, 0.82);
+            max-width: 48rem;
+        }
+
+        .contact-founder-copy + .contact-founder-copy {
+            margin-top: 0.85rem;
+            color: rgba(255,255,255,0.64);
+        }
+
+        .contact-sub {
+            max-width: 720px;
+            margin: 0 auto 2rem auto;
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+        }
+
+        .contact-note {
+            margin-top: 1.25rem;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.58);
+        }
+
+        .contact-email {
+            display: block;
+            margin-top: 2rem;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .contact-email:hover { color: var(--gold); }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1024px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .pack-card, .method-card { height: auto; }
+            .work-card-featured {
+                grid-column: span 2;
+                aspect-ratio: 16 / 10.5;
+            }
+            .work-card-website {
+                grid-column: span 2;
+                grid-template-columns: 1fr;
+            }
+            .work-website-head {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .work-card-copy {
+                max-width: 28rem;
+            }
+            .brand-read-main {
+                grid-template-columns: 1fr;
+                max-width: none;
+            }
+            .brand-read-panel + .brand-read-panel {
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,0.06);
+            }
+            .brand-read-overview {
+                grid-template-columns: 1fr;
+            }
+            .brand-read-result,
+            .brand-read-overview,
+            .brand-read-rail {
+                width: 100%;
+            }
+            .brand-read-deep-area {
+                padding: 1.45rem 2rem 2rem;
+            }
+            .brand-read-deep.visible {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .brand-read-session {
+                grid-template-columns: 1fr;
+            }
+            .brand-read-session-copy,
+            .brand-read-session-cta {
+                grid-column: 1;
+            }
+            .brand-read-session-cta {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1.5rem; background: rgba(15,18,22,0.92); }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .work-grid { grid-template-columns: 1fr; }
+            .work-card-featured {
+                grid-column: auto;
+                aspect-ratio: 4 / 5;
+            }
+            .work-card-website {
+                grid-column: auto;
+            }
+            .work-website-head {
+                padding: 1.35rem 1.35rem 1.15rem;
+            }
+            .work-website-compare {
+                grid-template-columns: 1fr;
+                padding: 1rem 1.35rem 1.35rem;
+            }
+            .work-website-frame {
+                height: 20rem;
+            }
+            .work-card-copy {
+                left: 1.35rem;
+                right: 1.35rem;
+                bottom: 1.3rem;
+                max-width: none;
+            }
+            .work-card-copy .work-title {
+                font-size: 2rem;
+            }
+            .work-desc {
+                font-size: 0.92rem;
+                line-height: 1.65;
+                max-width: 22rem;
+            }
+            .work-modal {
+                padding: 1rem;
+            }
+            .work-modal-top {
+                padding: 0.85rem 1rem;
+            }
+            .hero-title { font-size: 4.5rem; }
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+                padding: 0 1.5rem;
+                transform: translateY(-5vh);
+            }
+            .hero-question {
+                bottom: 12vh;
+                width: auto;
+                max-width: none;
+                font-size: clamp(1.55rem, 7vw, 2rem);
+                white-space: nowrap;
+            }
+            .hero-subtitle { font-size: 0.9rem; margin-bottom: 1.1rem; }
+            .opening-hook { white-space: normal; max-width: 12ch; }
+            .brand-read-intro,
+            .brand-read-panel {
+                padding: 2rem 1.4rem;
+            }
+            .brand-read-deep.visible {
+                grid-template-columns: 1fr;
+            }
+            .brand-read-deep-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .brand-read-deep-area {
+                padding: 1.25rem 1.4rem 1.6rem;
+            }
+            .brand-read-session {
+                grid-template-columns: 1fr;
+                padding: 1.1rem 1.1rem 1.05rem;
+            }
+            .brand-read-session-copy,
+            .brand-read-session-cta {
+                grid-column: auto;
+            }
+            .brand-read-session-cta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.65rem;
+            }
+            .brand-read-overview {
+                grid-template-columns: 1fr;
+            }
+            .brand-read-rail {
+                flex-direction: column;
+            }
+            .brand-read-rail .brand-read-actions {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+            }
+            .brand-read-gate-row {
+                flex-direction: column;
+            }
+            .brand-read-poster {
+                padding: 1.15rem;
+            }
+            .brand-read-poster-kicker {
+                top: 1.15rem;
+                left: 1.15rem;
+                font-size: 0.56rem;
+                letter-spacing: 0.2em;
+            }
+            .brand-read-poster-copy {
+                left: 1.2rem;
+                right: 1.2rem;
+                bottom: 8.1rem;
+                max-width: 17ch;
+                margin: 0;
+                padding-top: 0;
+            }
+            .brand-read-poster-title {
+                font-size: clamp(2.2rem, 9vw, 2.95rem);
+                max-width: 6.8ch;
+                margin-bottom: 0.58rem;
+            }
+            .brand-read-poster-genre {
+                font-size: 0.58rem;
+                font-weight: 500;
+                letter-spacing: 0.24em;
+            }
+            .brand-read-poster-footer {
+                left: 1.2rem;
+                right: 1.2rem;
+                bottom: 1.05rem;
+                gap: 0.75rem;
+            }
+            .brand-read-poster-tagline {
+                font-size: 0.78rem;
+                line-height: 1.38;
+                width: min(58%, 11.5rem);
+            }
+            .brand-read-poster-credit {
+                font-size: 0.5rem;
+                letter-spacing: 0.22em;
+                color: rgba(214, 197, 167, 0.42);
+            }
+            .contact-founder {
+                padding: 1.2rem 1.2rem 1.15rem;
+                margin-bottom: 2.2rem;
+            }
+            .work-card:not(.work-card-featured):not(.work-card-website) .work-title { font-size: 1.5rem; bottom: 1.5rem; left: 1.5rem; transform: translateY(0); }
+            :root { --spacing-section: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-links">
+            <a href="#method">Method</a>
+            <a href="#work">Work</a>
+            <a href="#packages">Packages</a>
+            <a href="#brand-read">Brand Read</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-right">
+            <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">SAHAR</h1>
+            <p class="hero-subtitle">Creative Intelligence Studio</p>
+        </div>
+        <h2 class="hero-question">If Your Brand Was a Movie<br>Would Anyone Watch It?</h2>
+    </header>
+
+    <!-- OPENING SECTION -->
+    <section class="opening-section">
+        <div class="container">
+            <h2 class="opening-hook">We build brands people remember.</h2>
+            <p class="opening-sub">Through brand strategy, storytelling, and cinematic creative for ambitious brands, founders, and ventures.</p>
+        </div>
+    </section>
+
+    <!-- METHOD SECTION -->
+    <section id="method" class="method-section">
+        <div class="container">
+            <h2 class="section-header">Method</h2>
+            <div class="grid-3">
+                
+                <!-- Strategy -->
+                <div class="method-card">
+                    <div class="method-visual strategy-visual">
+                        <div class="method-glow"></div>
+                        <div class="method-sheen"></div>
+                    </div>
+                    <div class="method-text">
+                        <h3>Strategy</h3>
+                        <p>We define the strategic core of the brand: positioning, audience, messaging, and direction.</p>
+                        <ul>
+                            <li>positioning and market role</li>
+                            <li>audience and tone of voice</li>
+                            <li>strategic direction for campaigns and digital presence</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Story -->
+                <div class="method-card">
+                    <div class="method-visual story-visual">
+                        <div class="method-glow"></div>
+                        <div class="method-sheen"></div>
+                    </div>
+                    <div class="method-text">
+                        <h3>Story</h3>
+                        <p>We shape the narrative of the brand so each launch, campaign, or presentation feels clear, consistent, and emotionally resonant.</p>
+                        <ul>
+                            <li>messaging and narrative structure</li>
+                            <li>storylines for launches and campaigns</li>
+                            <li>clear communication across touchpoints</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Spectacle -->
+                <div class="method-card">
+                    <div class="method-visual spectacle-visual">
+                        <div class="method-glow"></div>
+                        <div class="method-sheen"></div>
+                    </div>
+                    <div class="method-text">
+                        <h3>Spectacle</h3>
+                        <p>We translate strategy and story into visual worlds through websites, campaign imagery, launch assets, and cinematic creative.</p>
+                        <ul>
+                            <li>custom websites and landing pages</li>
+                            <li>campaign imagery and launch assets</li>
+                            <li>AI-led cinematic films and presentation visuals</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK SECTION -->
+    <section id="work" class="work-section">
+        <div class="container">
+            <h2 class="section-header">Selected Work</h2>
+            <p class="work-sub">A few ways SAHAR shapes a brand: on screen, on site, and in atmosphere.</p>
+            <div class="work-grid">
+
+                <div class="work-card work-card-featured">
+                    <div class="work-video-shell" aria-hidden="true">
+                        <div class="work-teaser-visual">
+                            <div class="work-teaser-cover"></div>
+                            <iframe
+                                id="qabastech-preview-iframe"
+                                src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=11&end=24&loop=0&iv_load_policy=3"
+                                title="Qabastech teaser"
+                                loading="lazy"
+                                allow="autoplay; encrypted-media; picture-in-picture"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                            ></iframe>
+                        </div>
+                    </div>
+                    <div class="work-overlay"></div>
+                    <div class="work-card-copy">
+                        <span class="work-kicker">Cinematic Brand Film</span>
+                        <h3 class="work-title">Qabastech</h3>
+                        <p class="work-desc">A cinematic brand film built around scale, risk, and intelligent systems.</p>
+                        <div class="work-meta">
+                            <span class="work-tag">Brand Film</span>
+                            <span class="work-tag">Visual World</span>
+                            <span class="work-tag">Narrative Direction</span>
+                            <span class="work-link">Film In Progress</span>
+                            <button
+                                class="work-action"
+                                type="button"
+                                data-work-teaser
+                                data-teaser-title="Qabastech Teaser"
+                                data-teaser-src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=11&end=41&disablekb=1&iv_load_policy=3"
+                                data-teaser-duration="30000"
+                            >Rewatch Teaser</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card work-card-website">
+                    <div class="work-website-head">
+                        <div class="work-website-intro">
+                            <span class="work-kicker">Website in Development</span>
+                            <h3 class="work-title">Healing Vibes</h3>
+                            <p class="work-desc">From an informational wellness site to a calmer, more intentional digital presence.</p>
+                        </div>
+                        <div class="work-website-summary">
+                            <p class="work-note">A more intentional digital world for the practice, where the atmosphere feels calmer, the offer feels clearer, and booking and shopping sit seamlessly within it.</p>
+                            <div class="work-meta">
+                                <span class="work-tag">Website in Development</span>
+                                <span class="work-tag">Visual Direction</span>
+                                <span class="work-tag">Narrative Direction</span>
+                                <a class="work-link" href="https://healingvibes.co.za" target="_blank" rel="noopener noreferrer">View Current Site</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-website-compare">
+                        <div class="work-website-state">
+                            <span class="work-website-label">Current Site</span>
+                            <span class="work-website-domain">healingvibes.co.za</span>
+                            <div class="work-website-frame work-website-current">
+                                <div class="work-browser-bar">
+                                    <span class="work-browser-dot"></span>
+                                    <span class="work-browser-dot"></span>
+                                    <span class="work-browser-dot"></span>
+                                </div>
+                                <img class="work-website-shot" src="healing-vibes-current.png" alt="Healing Vibes current site" />
+                            </div>
+                        </div>
+                        <div class="work-website-state">
+                            <span class="work-website-label">Concept Direction</span>
+                            <span class="work-website-domain">Website in Development</span>
+                            <div class="work-website-frame work-website-concept">
+                                <img class="work-concept-photo" src="healing-vibes-concept.jpg" alt="Healing Vibes concept direction" />
+                                <div class="work-concept-body">
+                                    <div>
+                                        <span class="work-concept-kicker">Healing Vibes</span>
+                                    </div>
+                                    <div>
+                                        <div class="work-concept-title">Quiet Ritual</div>
+                                        <div class="work-concept-line"></div>
+                                        <div class="work-concept-copy">A calmer digital rhythm for the practice, designed to feel more grounded, more present, and more considered.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGES SECTION -->
+    <section id="packages" class="packages-section">
+        <div class="container">
+            <h2 class="section-header">Packages</h2>
+            <div class="grid-3">
+                
+                <!-- START -->
+                <div class="pack-card">
+                    <h3>Brand Foundation</h3>
+                    <span class="pack-sub">From $2,800</span>
+                    <p class="pack-desc">For new brands or brands that need strategic clarity and a custom website.</p>
+                    <span class="pack-includes-label">Includes</span>
+                    <ul class="pack-list">
+                        <li>Brand Positioning</li>
+                        <li>Audience Direction</li>
+                        <li>Tone of Voice</li>
+                        <li>Core Brand Narrative</li>
+                        <li>Website Copy Direction</li>
+                        <li>Custom Website Design and Development</li>
+                        <li>Up to 5 Website Pages</li>
+                        <li>Mobile Optimization</li>
+                        <li>Basic On-Page SEO Setup</li>
+                        <li>Two Rounds of Revisions</li>
+                    </ul>
+                </div>
+
+                <!-- CAMPAIGN -->
+                <div class="pack-card">
+                    <h3>Campaign</h3>
+                    <span class="pack-sub">From $1,900</span>
+                    <p class="pack-desc">For launches, offers, and campaigns that need a clear concept, sharper messaging, and a visual world built around them.</p>
+                    <span class="pack-includes-label">Includes</span>
+                    <ul class="pack-list">
+                        <li>Campaign Concept</li>
+                        <li>Campaign Messaging</li>
+                        <li>Visual Direction</li>
+                        <li>Narrative Direction</li>
+                        <li>2-4 Hero Campaign Images</li>
+                        <li>8 Campaign Assets for Web and Social</li>
+                        <li>2 Short Motion Assets</li>
+                        <li>Scope Adjusted to the Client Request</li>
+                        <li>Two Rounds of Revisions</li>
+                    </ul>
+                </div>
+
+                <!-- BRAND FILM -->
+                <div class="pack-card">
+                    <h3>Brand Film</h3>
+                    <span class="pack-sub">From $2,300</span>
+                    <p class="pack-desc">For brands that need a cinematic piece for launches, investor presentations, and high-impact storytelling.</p>
+                    <span class="pack-includes-label">Includes</span>
+                    <ul class="pack-list">
+                        <li>Brand Film Concept</li>
+                        <li>Story Direction</li>
+                        <li>Visual Direction</li>
+                        <li>3-5 Hero Visuals</li>
+                        <li>1 Brand Film (60-120 seconds)</li>
+                        <li>4-6 Supporting Assets for Web, Social, or Presentation Use</li>
+                        <li>Two Rounds of Revisions</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="work-modal" id="work-modal" aria-hidden="true">
+        <div class="work-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="work-modal-title">
+            <div class="work-modal-top">
+                <div class="work-modal-title" id="work-modal-title">Teaser</div>
+                <button class="work-modal-close" id="work-modal-close" type="button" aria-label="Close teaser">Close</button>
+            </div>
+            <div class="work-modal-frame">
+                <div id="work-modal-player"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRAND READ SECTION -->
+    <section id="brand-read" class="brand-read-section">
+        <div class="container">
+            <div class="brand-read-shell">
+                <div class="brand-read-intro">
+                    <span class="brand-read-kicker">Brand Read</span>
+                    <h2 class="brand-read-title">If your brand was a movie</h2>
+                    <p class="brand-read-sub">Get a clear read on your brand: the image, the message, and where the two are not fully aligned yet.</p>
+                </div>
+
+                <div class="brand-read-main">
+                    <div class="brand-read-panel">
+                        <form class="brand-read-form" id="brand-read-form">
+                            <div>
+                                <label class="brand-read-label" for="brand-read-url">Paste your website</label>
+                                <input id="brand-read-url" class="brand-read-input" type="text" placeholder="https://yourbrand.com" />
+                            </div>
+
+                            <p class="brand-read-helper">Start with the poster. If it feels accurate, unlock the deeper read for a clearer view of what to refine.</p>
+                            <p class="brand-read-status" id="brand-read-status" aria-live="polite"></p>
+
+                            <div class="brand-read-actions">
+                                <button type="submit" class="btn" id="brand-read-generate">Generate Poster</button>
+                                <span class="brand-read-secondary">Poster first. Deeper read next.</span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="brand-read-panel">
+                            <div class="brand-read-result">
+                                <div class="brand-read-overview">
+                                <div class="brand-read-poster" data-world="sage">
+                                    <span class="brand-read-poster-kicker" id="brand-read-kicker">Your Brand, On Screen</span>
+                                    <div class="brand-read-poster-copy">
+                                        <h3 class="brand-read-poster-title" id="brand-read-title">The Quiet Monument</h3>
+                                        <span class="brand-read-poster-genre" id="brand-read-genre">Architectural Drama</span>
+                                    </div>
+                                    <div class="brand-read-poster-footer">
+                                        <p class="brand-read-poster-tagline" id="brand-read-tagline">Composed, elevated, and carefully held together by restraint.</p>
+                                        <span class="brand-read-poster-credit">Created by SAHAR</span>
+                                    </div>
+                                </div>
+
+                                <div class="brand-read-mini">
+                                <h4>Quick Read</h4>
+                                <p id="brand-read-summary">This brand already looks considered and polished. The words now need to carry the same confidence.</p>
+                                </div>
+                                </div>
+
+                                <div class="brand-read-rail">
+                                <div class="brand-read-email-gate" id="brand-read-gate">
+                                    <span class="brand-read-gate-title">Unlock the Deeper Read</span>
+                                    <p class="brand-read-gate-copy">Go beyond the poster and see what is landing, what feels unclear, and what would make the brand feel more distinctive and more premium.</p>
+                                    <div class="brand-read-gate-row">
+                                        <input id="brand-read-email" class="brand-read-email" type="email" placeholder="Your email address" />
+                                        <button type="button" class="btn" id="brand-read-unlock">Unlock Report</button>
+                                    </div>
+                                    <p class="brand-read-status" id="brand-read-gate-status" aria-live="polite"></p>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand-read-deep-area">
+                    <div class="brand-read-deep-wrap">
+                        <div class="brand-read-deep-head">
+                            <div class="brand-read-deep-title">Deep Read</div>
+                            <p class="brand-read-deep-note">Clear, practical notes on what is working, what feels off, and what to refine next.</p>
+                        </div>
+
+                        <div class="brand-read-deep" id="brand-read-deep">
+                            <div class="brand-read-deep-card">
+                                <h4>What It Signals</h4>
+                                <p id="brand-read-current">Right now, the brand feels tasteful and well put together, but the offer is still not fully clear at first glance.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>How It Comes Across</h4>
+                                <p id="brand-read-strength">The strongest part is the overall mood. It already feels considered, elevated, and visually self-aware.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>What Is Missing</h4>
+                                <p id="brand-read-gap">The look says “premium.” The message does not always say exactly why. That gap weakens clarity and slows trust.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>Mixed Signals</h4>
+                                <p id="brand-read-mismatch">Some parts of the brand are aiming for polish and authority, while others still feel softer or less sure of themselves.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>Tone Check</h4>
+                                <p id="brand-read-voice">The visual language feels assured. The copy still needs more clarity, confidence, and less filler.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>What To Do Next</h4>
+                                <p id="brand-read-direction">Say the core promise faster, trim the extra noise, and make every part of the brand point to the same big idea.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>What To Amplify</h4>
+                                <p id="brand-read-amplify">Lean harder into what already feels distinct, polished, and memorable. That is where the real brand equity is hiding.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>What To Drop</h4>
+                                <p id="brand-read-drop">Pull back anything vague, over-explained, or too careful. If it weakens the main impression, it should probably go.</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-read-session">
+                            <p class="brand-read-session-copy"><span class="brand-read-session-kicker">Next Step</span>If the read feels accurate, the session is where we turn it into priorities: what to sharpen, what to simplify, and where to focus first.</p>
+                            <div class="brand-read-session-cta">
+                                <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" target="_blank" rel="noopener noreferrer" class="btn">Book a Strategic Session</a>
+                                <span class="brand-read-secondary">$250 / 60 min</span>
+                            </div>
+                            <p class="brand-read-session-note">If we continue into a project, the fee goes toward the work. Or email <a href="mailto:hello@saharstudio.com" class="brand-read-secondary">hello@saharstudio.com</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-founder">
+                <span class="contact-founder-kicker">Founder Note</span>
+                <p class="contact-founder-copy">SAHAR is led by Marina Dabrytskaya-Gaffoor and built as a small team working at the intersection of strategy, image, and digital.</p>
+                <p class="contact-founder-copy">We are especially useful when a brand has ambition, but its story, visual world, and digital presence still do not move with one clear point of view.</p>
+            </div>
+            <h2 class="section-header" style="margin-bottom: 2rem;">Work With Us</h2>
+            <p class="contact-sub">For brands, founders, and ventures looking for strategic clarity, campaign direction, and cinematic presence.</p>
+            <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
+            <p class="contact-note">A focused 20-minute call to understand your brand, scope, and direction.</p>
+            <a href="mailto:hello@saharstudio.com" class="contact-email">hello@saharstudio.com</a>
+        </div>
+    </section>
+
+    <script>
+        (() => {
+            const form = document.getElementById('brand-read-form');
+            const input = document.getElementById('brand-read-url');
+            const emailInput = document.getElementById('brand-read-email');
+            const unlockButton = document.getElementById('brand-read-unlock');
+            const generateButton = document.getElementById('brand-read-generate');
+            const gate = document.getElementById('brand-read-gate');
+            const deep = document.getElementById('brand-read-deep');
+            const poster = document.querySelector('.brand-read-poster');
+            const status = document.getElementById('brand-read-status');
+            const gateStatus = document.getElementById('brand-read-gate-status');
+
+            const fields = {
+                kicker: document.getElementById('brand-read-kicker'),
+                title: document.getElementById('brand-read-title'),
+                genre: document.getElementById('brand-read-genre'),
+                tagline: document.getElementById('brand-read-tagline'),
+                summary: document.getElementById('brand-read-summary'),
+                current: document.getElementById('brand-read-current'),
+                strength: document.getElementById('brand-read-strength'),
+                gap: document.getElementById('brand-read-gap'),
+                mismatch: document.getElementById('brand-read-mismatch'),
+                voice: document.getElementById('brand-read-voice'),
+                direction: document.getElementById('brand-read-direction'),
+                amplify: document.getElementById('brand-read-amplify'),
+                drop: document.getElementById('brand-read-drop')
+            };
+
+            const reads = [
+                {
+                    brandName: 'Your Brand',
+                    visualWorld: 'sage',
+                    symbol: 'strategy',
+                    title: 'The Quiet Monument',
+                    genre: 'Architectural Drama',
+                    tagline: 'Composed, elevated, and carefully held together by restraint.',
+                    summary: 'This brand already looks considered and polished. The words now need to carry the same confidence.',
+                    current: 'Right now, the brand feels tasteful, controlled, and visually expensive. The offer still takes slightly too long to come into focus.',
+                    strength: 'The strongest part is the restraint. The brand already feels considered, premium, and visually disciplined.',
+                    gap: 'The image says “premium” quickly. The message is slower. That delay weakens clarity.',
+                    mismatch: 'The look feels confident. Some of the wording still feels slightly cautious. That split softens the overall impression.',
+                    voice: 'The words are still slightly too polite. They need more confidence, more precision, and less filler.',
+                    direction: 'Say the main promise faster, cut anything decorative-but-vague, and let the strongest idea run the room.',
+                    amplify: 'Amplify the restraint, the premium finish, and the visual confidence. That is already working hard for you.',
+                    drop: 'Drop any wording that sounds too careful, too padded, or too eager to explain itself.'
+                },
+                {
+                    brandName: 'Your Brand',
+                    visualWorld: 'creator',
+                    symbol: 'story',
+                    title: 'Between the Lines',
+                    genre: 'Narrative Tension',
+                    tagline: 'There is movement, allure, and intention, but the story wants a clearer spine.',
+                    summary: 'The brand has mood, motion, and charm. It now needs a clearer line of meaning.',
+                    current: 'At first glance, the brand feels expressive, layered, and interesting. But the meaning can still drift a little behind the styling.',
+                    strength: 'The strongest part is the atmosphere. There is already personality here, and people can feel that quickly.',
+                    gap: 'The atmosphere is doing its job. The message is not always keeping up. Beautiful, yes. Fully clear, not yet.',
+                    mismatch: 'The mood suggests a strong point of view, but parts of the message still feel a little vague. That softens the impact.',
+                    voice: 'The tone has charm, but it meanders. It needs a cleaner point of view and more precision.',
+                    direction: 'Keep the richness, but sharpen the line of thought. People should understand both the mood and the value quickly.',
+                    amplify: 'Amplify the personality, the texture, and the emotional pull. Those are the parts people will remember.',
+                    drop: 'Drop any lines that feel decorative but non-committal. If it sounds lovely but says little, it is not helping.'
+                },
+                {
+                    brandName: 'Your Brand',
+                    visualWorld: 'magician',
+                    symbol: 'spectacle',
+                    title: 'The Open Threshold',
+                    genre: 'Cinematic Reveal',
+                    tagline: 'The world is already there; the message now needs to meet its level of impact.',
+                    summary: 'This brand already knows how to make an entrance. Now the message needs to land with the same force.',
+                    current: 'The current signal feels premium, expansive, and high-impact. Visually, it arrives. Verbally, it is still softer than it should be.',
+                    strength: 'The strongest part is the sense of presence. The brand already knows how to make an entrance.',
+                    gap: 'The visual world hits first. The message should hit just as clearly. Right now the reveal is strong, but the takeaway is softer than it should be.',
+                    mismatch: 'The image promises confidence and clarity. The copy sometimes pulls back just when it should land the point.',
+                    voice: 'The copy should sound more decisive, more distinct, and more assured.',
+                    direction: 'Turn the visual drama into a sharper claim. Say what is valuable, say it plainly, and let the elegance come from precision.',
+                    amplify: 'Amplify the presence, the drama, and the sense of scale. The brand already knows how to catch attention.',
+                    drop: 'Drop any copy that stays vague for too long. Mystery can work. Confusion does not.'
+                }
+            ];
+
+            const VISUAL_VAULT = {
+                ruler: { symbol: 'strategy' },
+                sage: { symbol: 'strategy' },
+                magician: { symbol: 'spectacle' },
+                creator: { symbol: 'story' },
+                lover: { symbol: 'spectacle' },
+                caregiver: { symbol: 'strategy' },
+                hero: { symbol: 'spectacle' },
+                rebel: { symbol: 'spectacle' },
+                explorer: { symbol: 'story' },
+                everyman: { symbol: 'strategy' },
+                innocent: { symbol: 'strategy' },
+                jester: { symbol: 'story' }
+            };
+
+            const isLocalPreview = window.location.protocol === 'file:';
+            let currentResult = reads[0];
+            let currentUrl = '';
+
+            const setStatus = (element, message = '', tone = '') => {
+                element.textContent = message;
+                if (tone) element.dataset.tone = tone;
+                else element.removeAttribute('data-tone');
+            };
+
+            const setLoading = (button, loading, idleLabel, loadingLabel) => {
+                button.disabled = loading;
+                button.textContent = loading ? loadingLabel : idleLabel;
+            };
+
+            const pickRead = (value) => {
+                const normalized = (value || '').trim().toLowerCase();
+                let score = 0;
+                for (let i = 0; i < normalized.length; i += 1) score += normalized.charCodeAt(i);
+                return reads[score % reads.length];
+            };
+
+            const renderRead = (read) => {
+                currentResult = read;
+                fields.kicker.textContent = `${read.brandName || 'Your Brand'}, On Screen`;
+                fields.title.textContent = read.title;
+                fields.genre.textContent = read.genre;
+                fields.tagline.textContent = read.tagline;
+                fields.summary.textContent = read.summary;
+                fields.current.textContent = read.current;
+                fields.strength.textContent = read.strength;
+                fields.gap.textContent = read.gap;
+                fields.mismatch.textContent = read.mismatch;
+                fields.voice.textContent = read.voice;
+                fields.direction.textContent = read.direction;
+                fields.amplify.textContent = read.amplify;
+                fields.drop.textContent = read.drop;
+                const world = VISUAL_VAULT[read.visualWorld] ? read.visualWorld : 'sage';
+                poster.dataset.world = world;
+                deep.classList.remove('visible');
+                gate.classList.remove('hidden');
+                emailInput.value = '';
+                setStatus(gateStatus, '');
+            };
+
+            const validateUrl = (value) => {
+                if (!value) return null;
+                try {
+                    return new URL(value).toString();
+                } catch (_) {
+                    try {
+                        return new URL(`https://${value}`).toString();
+                    } catch {
+                        return null;
+                    }
+                }
+            };
+
+            const requestJson = async (path, payload, timeoutMs = 30000) => {
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), timeoutMs);
+                let response;
+
+                try {
+                    response = await fetch(path, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload),
+                        signal: controller.signal
+                    });
+                } catch (error) {
+                    clearTimeout(timeout);
+                    if (error?.name === 'AbortError') {
+                        throw new Error('The request took too long. Try again in a moment.');
+                    }
+                    throw error;
+                }
+
+                clearTimeout(timeout);
+
+                const data = await response.json().catch(() => ({}));
+
+                if (!response.ok) {
+                    const message = data.detail ? `${data.error || 'Something went wrong.'} ${data.detail}` : (data.error || 'Something went wrong.');
+                    throw new Error(message);
+                }
+
+                return data;
+            };
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const normalizedUrl = validateUrl(input.value.trim());
+
+                if (!normalizedUrl) {
+                    setStatus(status, 'Enter a valid website URL to generate the poster.', 'error');
+                    input.focus();
+                    return;
+                }
+
+                currentUrl = normalizedUrl;
+                setStatus(status, '');
+                setStatus(gateStatus, '');
+                setLoading(generateButton, true, 'Generate Poster', 'Generating...');
+
+                try {
+                    const data = await requestJson('/api/brand-read', {
+                        source: 'website',
+                        url: normalizedUrl
+                    });
+                    currentUrl = data.url || normalizedUrl;
+                    renderRead(data.result);
+                    setStatus(status, 'Poster generated from the current website signal.', 'success');
+                } catch (error) {
+                    if (isLocalPreview) {
+                        renderRead(pickRead(normalizedUrl));
+                        setStatus(status, 'Showing a local sample result. Connect the live API to analyze real websites.', 'success');
+                    } else {
+                        setStatus(status, error.message || 'Unable to generate the poster right now.', 'error');
+                    }
+                } finally {
+                    setLoading(generateButton, false, 'Generate Poster', 'Generating...');
+                }
+            });
+
+            unlockButton.addEventListener('click', async () => {
+                const email = emailInput.value.trim();
+
+                if (!email) {
+                    setStatus(gateStatus, 'Enter your email to unlock the deeper read.', 'error');
+                    emailInput.focus();
+                    return;
+                }
+
+                if (!currentResult) {
+                    setStatus(gateStatus, 'Generate the poster first.', 'error');
+                    return;
+                }
+
+                setStatus(gateStatus, '');
+                setLoading(unlockButton, true, 'Unlock Report', 'Unlocking...');
+
+                gate.classList.add('hidden');
+                deep.classList.add('visible');
+
+                try {
+                    const leadResponse = await requestJson('/api/brand-read-lead', {
+                        source: 'website',
+                        url: currentUrl || validateUrl(input.value.trim()) || input.value.trim(),
+                        email,
+                        result: currentResult
+                    }, 8000);
+                    if (leadResponse?.emailed) {
+                        setStatus(gateStatus, 'Report unlocked. The PDF has been sent to your email.', 'success');
+                    } else if (leadResponse?.savedLead) {
+                        setStatus(gateStatus, 'Report unlocked. Email delivery is not configured yet, but the lead has been captured.', 'success');
+                    } else {
+                        setStatus(gateStatus, 'Report unlocked.', 'success');
+                    }
+                } catch (error) {
+                    if (isLocalPreview) {
+                        setStatus(gateStatus, 'Local preview unlocked. Connect Google Sheets to capture leads.', 'success');
+                    } else {
+                        setStatus(gateStatus, 'Report unlocked. Lead capture can be retried in the background.', 'success');
+                    }
+                } finally {
+                    setLoading(unlockButton, false, 'Unlock Report', 'Unlocking...');
+                }
+            });
+
+            renderRead(currentResult);
+        })();
+
+        (() => {
+            const previewFrame = document.getElementById('qabastech-preview-iframe');
+            const previewShell = previewFrame?.closest('.work-video-shell');
+
+            if (previewFrame && previewShell) {
+                previewFrame.addEventListener('load', () => {
+                    window.setTimeout(() => {
+                        previewShell.classList.add('is-ready');
+                    }, 900);
+                });
+            }
+        })();
+
+        (() => {
+            const modal = document.getElementById('work-modal');
+            const modalTitle = document.getElementById('work-modal-title');
+            const modalPlayerHost = document.getElementById('work-modal-player');
+            const closeButton = document.getElementById('work-modal-close');
+            const triggers = document.querySelectorAll('[data-work-teaser]');
+
+            if (!modal || !modalTitle || !modalPlayerHost || !closeButton || !triggers.length) return;
+            let teaserTimeout = null;
+
+            const clearTeaser = () => {
+                if (teaserTimeout) {
+                    window.clearTimeout(teaserTimeout);
+                    teaserTimeout = null;
+                }
+
+                modalPlayerHost.innerHTML = '';
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                clearTeaser();
+            };
+
+            triggers.forEach((trigger) => {
+                trigger.addEventListener('click', () => {
+                    modalTitle.textContent = trigger.dataset.teaserTitle || 'Teaser';
+                    clearTeaser();
+
+                    const iframe = document.createElement('iframe');
+                    iframe.src = trigger.dataset.teaserSrc || '';
+                    iframe.title = trigger.dataset.teaserTitle || 'Teaser';
+                    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+                    iframe.allowFullscreen = true;
+                    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+                    modalPlayerHost.appendChild(iframe);
+
+                    modal.classList.add('open');
+                    modal.setAttribute('aria-hidden', 'false');
+
+                    teaserTimeout = window.setTimeout(closeModal, Number(trigger.dataset.teaserDuration || 30000) + 400);
+                });
+            });
+
+            closeButton.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) closeModal();
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modal.classList.contains('open')) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>
