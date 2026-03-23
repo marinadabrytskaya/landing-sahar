@@ -121,14 +121,14 @@ async function fetchWebsiteContext(url) {
       .map((_, element) => normalizeWhitespace($(element).text()))
       .get()
       .filter(Boolean)
-      .slice(0, 14);
+      .slice(0, 10);
     const bodyBlocks = $('p, li')
       .map((_, element) => normalizeWhitespace($(element).text()))
       .get()
       .filter((text) => text && text.length > 18)
-      .slice(0, 40);
+      .slice(0, 24);
 
-    const visibleText = truncate(bodyBlocks.join('\n'), 7000);
+    const visibleText = truncate(bodyBlocks.join('\n'), 3500);
 
     return {
       title: truncate(title, 180),
@@ -167,15 +167,15 @@ function normalizeResult(data, hints = null) {
     title: truncate(normalizeWhitespace(data.title || ''), 64) || 'Untitled',
     genre: truncate(normalizeWhitespace(data.genre || ''), 34) || 'Brand Drama',
     tagline: truncate(normalizeWhitespace(data.tagline || ''), 92) || 'A brand in search of a sharper signal.',
-    summary: truncate(normalizeWhitespace(data.summary || ''), 210) || 'The brand has a clear mood. Now the message needs to land with the same clarity.',
-    current: truncate(normalizeWhitespace(data.current || ''), 520) || 'Right now, the brand looks considered and ambitious, but the offer is still not fully obvious on first glance.',
-    strength: truncate(normalizeWhitespace(data.strength || ''), 420) || 'The strongest part is the mood. The brand already feels considered and visually self-aware.',
-    gap: truncate(normalizeWhitespace(data.gap || ''), 520) || 'The look is doing one job and the message is doing another. They need to align more quickly.',
-    mismatch: truncate(normalizeWhitespace(data.mismatch || ''), 420) || 'Some parts feel polished and confident, while others still feel softer or less sure of themselves.',
-    voice: truncate(normalizeWhitespace(data.voice || ''), 520) || 'The tone should sound more confident, more direct, and more assured.',
-    direction: truncate(normalizeWhitespace(data.direction || ''), 520) || 'Say the main promise faster, trim the fluff, and let one strong idea lead the whole brand.',
-    amplify: truncate(normalizeWhitespace(data.amplify || ''), 420) || 'Amplify the parts that already feel distinct, clear, and memorable. That is where the brand feels strongest.',
-    drop: truncate(normalizeWhitespace(data.drop || ''), 420) || 'Drop anything vague, padded, or over-explained. If it weakens the main impression, it should probably go.'
+    summary: truncate(normalizeWhitespace(data.summary || ''), 320) || 'The brand has a clear mood. Now the message needs to land with the same clarity.',
+    current: truncate(normalizeWhitespace(data.current || ''), 900) || 'Right now, the brand looks considered and ambitious, but the offer is still not fully obvious on first glance.',
+    strength: truncate(normalizeWhitespace(data.strength || ''), 760) || 'The strongest part is the mood. The brand already feels considered and visually self-aware.',
+    gap: truncate(normalizeWhitespace(data.gap || ''), 900) || 'The look is doing one job and the message is doing another. They need to align more quickly.',
+    mismatch: truncate(normalizeWhitespace(data.mismatch || ''), 760) || 'Some parts feel polished and confident, while others still feel softer or less sure of themselves.',
+    voice: truncate(normalizeWhitespace(data.voice || ''), 900) || 'The tone should sound more confident, more direct, and more assured.',
+    direction: truncate(normalizeWhitespace(data.direction || ''), 900) || 'Say the main promise faster, trim the fluff, and let one strong idea lead the whole brand.',
+    amplify: truncate(normalizeWhitespace(data.amplify || ''), 760) || 'Amplify the parts that already feel distinct, clear, and memorable. That is where the brand feels strongest.',
+    drop: truncate(normalizeWhitespace(data.drop || ''), 760) || 'Drop anything vague, padded, or over-explained. If it weakens the main impression, it should probably go.'
   };
 }
 
@@ -205,7 +205,7 @@ Important rules:
 - If you can say it simply, do that.
 - Keep the poster layer concise and elegant.
 - The public result should never embarrass the brand.
-- The deeper report should be candid but concise.
+- The deeper report should feel substantial, specific, and readable, not like notes or bullet fragments.
 - Do not mention AI, scraping, or missing data.
 - Infer one dominant visual world from this set only:
   ruler, sage, magician, creator, lover, caregiver, hero, rebel, explorer, everyman, innocent, jester
@@ -244,17 +244,20 @@ Return JSON with exactly these keys:
   "title": "poster title",
   "genre": "poster genre, ideally 2-4 words",
   "tagline": "short elegant tagline, ideally 6-12 words",
-  "summary": "1 concise sentence in plain English",
-  "current": "what the brand currently signals, 2-4 short sentences",
-  "strength": "what already feels strong or convincing, 2-3 short sentences",
-  "gap": "what is missing or unclear, 2-4 short sentences",
-  "mismatch": "where the brand feels slightly out of sync with itself, 2-3 short sentences",
-  "voice": "how the tone compares to the visual world, 2-4 short sentences",
-  "direction": "what to do next, 2-4 short sentences",
-  "amplify": "what to lean into more, 2-3 short sentences",
-  "drop": "what to reduce, simplify, or remove, 2-3 short sentences"
+  "summary": "1-2 concise sentences in plain English",
+  "current": "what the brand currently signals, 4-6 sentences",
+  "strength": "what already feels strong or convincing, 3-5 sentences",
+  "gap": "what is missing or unclear, 4-6 sentences",
+  "mismatch": "where the brand feels slightly out of sync with itself, 3-5 sentences",
+  "voice": "how the tone compares to the visual world, 4-6 sentences",
+  "direction": "what to do next, 4-6 sentences",
+  "amplify": "what to lean into more, 3-5 sentences",
+  "drop": "what to reduce, simplify, or remove, 3-5 sentences"
 }
 `;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20000);
 
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${DEFAULT_MODEL}:generateContent?key=${apiKey}`,
@@ -263,6 +266,7 @@ Return JSON with exactly these keys:
       headers: {
         'Content-Type': 'application/json'
       },
+      signal: controller.signal,
       body: JSON.stringify({
         contents: [
           {
@@ -276,7 +280,7 @@ Return JSON with exactly these keys:
         }
       })
     }
-  );
+  ).finally(() => clearTimeout(timeout));
 
   if (!response.ok) {
     const errorText = await response.text();

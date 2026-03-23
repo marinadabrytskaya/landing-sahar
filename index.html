@@ -239,14 +239,26 @@
 
         .hero-subtitle {
             font-family: var(--font-sans);
-            font-size: 0.96rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: rgba(226, 195, 130, 0.88);
-            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+            font-size: 0.98rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            display: inline-block;
+            color: var(--gold);
+            background: linear-gradient(
+                90deg,
+                rgba(197, 160, 89, 0.72) 0%,
+                rgba(232, 208, 156, 0.96) 28%,
+                rgba(255, 245, 212, 0.98) 50%,
+                rgba(232, 208, 156, 0.96) 72%,
+                rgba(197, 160, 89, 0.72) 100%
+            );
+            background-size: 220% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 16px rgba(160, 121, 46, 0.18);
             margin-bottom: 1.45rem;
-            animation: heroSubtitleGlow 8s ease-in-out infinite;
+            animation: heroSubtitleGlow 8s ease-in-out infinite, heroSubtitleSweep 7.5s ease-in-out infinite;
         }
 
         .hero-question {
@@ -267,7 +279,23 @@
             white-space: nowrap;
             text-align: center;
             text-shadow: 0 8px 24px rgba(0, 0, 0, 0.34);
-            animation: heroQuestionFloat 9s ease-in-out infinite;
+        }
+
+        .hero-question-sub {
+            position: absolute;
+            left: 50%;
+            bottom: 7.6vh;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: min(42rem, calc(100% - 3rem));
+            margin: 0;
+            font-family: var(--font-sans);
+            font-size: 0.98rem;
+            line-height: 1.75;
+            letter-spacing: 0.01em;
+            color: rgba(239, 234, 225, 0.82);
+            text-align: center;
+            text-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes heroDrift {
@@ -276,13 +304,13 @@
         }
 
         @keyframes heroSubtitleGlow {
-            0%, 100% { opacity: 0.86; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35); }
-            50% { opacity: 1; text-shadow: 0 1px 14px rgba(197, 160, 89, 0.18), 0 1px 10px rgba(0, 0, 0, 0.32); }
+            0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 10px rgba(189, 148, 73, 0.1)); }
+            50% { opacity: 1; filter: drop-shadow(0 0 18px rgba(214, 179, 103, 0.18)); }
         }
 
-        @keyframes heroQuestionFloat {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-4px); }
+        @keyframes heroSubtitleSweep {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         /* --- OPENING SECTION --- */
@@ -313,7 +341,7 @@
             font-size: 0.98rem;
             line-height: 1.85;
             color: var(--text-muted);
-            max-width: 940px;
+            max-width: 860px;
             margin: 0 auto;
         }
 
@@ -331,14 +359,14 @@
             margin: 0 auto;
             border: 1px solid var(--border-light);
             background:
-                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.005)),
+                linear-gradient(180deg, rgba(255,255,255,0.014), rgba(255,255,255,0.004)),
                 linear-gradient(180deg, #171b20 0%, #14181d 100%);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
 
         .brand-read-intro {
-            padding: 2.5rem 2.6rem 2.15rem 2.6rem;
+            padding: 2.15rem 2.6rem 1.85rem 2.6rem;
             border-bottom: 1px solid rgba(255,255,255,0.06);
             text-align: center;
         }
@@ -361,11 +389,11 @@
         }
 
         .brand-read-sub {
-            max-width: 920px;
+            max-width: 760px;
             margin: 0 auto;
-            font-size: 1rem;
-            line-height: 1.85;
-            color: var(--text-muted);
+            font-size: 0.96rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.62);
         }
 
         .brand-read-main {
@@ -446,9 +474,10 @@
         }
 
         .brand-read-helper {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.54);
-            line-height: 1.75;
+            font-size: 0.84rem;
+            color: rgba(255,255,255,0.48);
+            line-height: 1.65;
+            max-width: 24rem;
         }
 
         .brand-read-status {
@@ -464,6 +493,27 @@
 
         .brand-read-status[data-tone="success"] {
             color: rgba(226, 195, 130, 0.9);
+        }
+
+        .brand-read-status[data-tone="loading"] {
+            color: rgba(226, 195, 130, 0.82);
+        }
+
+        .brand-read-status[data-tone="loading"]::after {
+            content: '';
+            display: inline-block;
+            width: 0.95rem;
+            height: 0.95rem;
+            margin-left: 0.55rem;
+            border-radius: 50%;
+            border: 1px solid rgba(213, 176, 109, 0.22);
+            border-top-color: rgba(213, 176, 109, 0.88);
+            vertical-align: -0.14rem;
+            animation: brandReadSpin 0.9s linear infinite;
+        }
+
+        @keyframes brandReadSpin {
+            to { transform: rotate(360deg); }
         }
 
         .brand-read-actions {
@@ -504,6 +554,18 @@
             width: 100%;
         }
 
+        .brand-read-reveal {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.75s ease, filter 0.75s ease;
+        }
+
+        .brand-read-reveal.is-hidden {
+            opacity: 0;
+            transform: translateY(22px);
+            filter: blur(6px);
+        }
+
         .brand-read-rail {
             display: flex;
             flex-direction: column;
@@ -514,7 +576,7 @@
         .brand-read-deep-wrap {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.15rem;
             width: 100%;
             max-width: 1240px;
             margin: 0 auto;
@@ -526,11 +588,23 @@
         }
 
         .brand-read-deep-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 1rem;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
+            gap: 1.2rem 2rem;
+            align-items: start;
             padding-top: 0.25rem;
+        }
+
+        .brand-read-deep-intro {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .brand-read-delivery-status {
+            min-height: 1.15rem;
+            margin-top: 0.55rem;
+            max-width: 28rem;
         }
 
         .brand-read-deep-title {
@@ -541,10 +615,13 @@
         }
 
         .brand-read-deep-note {
-            max-width: 28rem;
+            width: 100%;
             font-size: 0.88rem;
             line-height: 1.7;
             color: rgba(255,255,255,0.52);
+            margin: 0;
+            justify-self: end;
+            text-align: left;
         }
 
         .brand-read-poster {
@@ -760,9 +837,9 @@
         }
 
         .brand-read-mini {
-            border: 1px solid rgba(255,255,255,0.08);
-            background: rgba(255,255,255,0.018);
-            padding: 1.15rem 1.2rem;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.014);
+            padding: 1.2rem 1.28rem;
             width: 100%;
             min-height: 215px;
             display: flex;
@@ -773,18 +850,18 @@
         .brand-read-mini h4,
         .brand-read-deep h4 {
             font-family: var(--font-sans);
-            font-size: 0.76rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: rgba(226, 195, 130, 0.82);
-            margin-bottom: 0.75rem;
+            letter-spacing: 0.18em;
+            color: rgba(226, 195, 130, 0.86);
+            margin-bottom: 1rem;
         }
 
         .brand-read-mini p,
         .brand-read-deep p {
             color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.82;
         }
 
         .brand-read-deep {
@@ -794,16 +871,39 @@
 
         .brand-read-deep.visible {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.45rem 1.35rem;
         }
 
         .brand-read-deep-card {
-            border: 1px solid rgba(255,255,255,0.08);
-            background: rgba(255,255,255,0.018);
-            padding: 1.15rem 1.2rem;
-            min-height: 100%;
-            min-height: 215px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.04);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.014), rgba(255,255,255,0.003)),
+                linear-gradient(180deg, rgba(18, 21, 26, 0.94), rgba(16, 19, 24, 0.98));
+            padding: 1.8rem 1.7rem 1.65rem;
+            min-height: 255px;
+            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.12);
+        }
+
+        .brand-read-deep-card::before {
+            content: '';
+            position: absolute;
+            left: 1.7rem;
+            right: 1.7rem;
+            top: 1.05rem;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(212, 178, 112, 0.52), rgba(212, 178, 112, 0.12));
+            pointer-events: none;
+        }
+
+        .brand-read-deep-card h4 {
+            padding-top: 0.55rem;
+        }
+
+        .brand-read-deep-card p {
+            color: rgba(236, 231, 222, 0.74);
+            max-width: 34ch;
         }
 
         .brand-read-session {
@@ -867,9 +967,9 @@
         }
 
         .brand-read-email-gate {
-            border: 1px solid rgba(197, 160, 89, 0.18);
-            background: rgba(255,255,255,0.018);
-            padding: 1.15rem 1.2rem;
+            border: 1px solid rgba(197, 160, 89, 0.12);
+            background: rgba(255,255,255,0.014);
+            padding: 1.2rem 1.28rem;
             width: 100%;
             min-width: 0;
             min-height: 215px;
@@ -895,7 +995,8 @@
             color: var(--text-muted);
             font-size: 0.92rem;
             line-height: 1.7;
-            margin-bottom: 1rem;
+            margin-bottom: 0.95rem;
+            max-width: 24rem;
         }
 
         .brand-read-gate-row {
@@ -1089,9 +1190,18 @@
             background: linear-gradient(180deg, #12171c 0%, #13181d 100%);
         }
 
+        .packages-note {
+            max-width: 760px;
+            margin: -1.15rem auto 2.5rem auto;
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.56);
+            text-align: center;
+        }
+
         .pack-card {
             background:
-                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
+                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.005)),
                 linear-gradient(180deg, var(--bg-surface-lift) 0%, var(--bg-surface-warm) 100%);
             border: 1px solid var(--border-light);
             padding: 3.5rem 2.5rem;
@@ -1122,11 +1232,11 @@
         }
 
         .pack-desc {
-            font-size: 0.98rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            min-height: 4.8rem;
+            font-size: 0.94rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.62);
+            margin-bottom: 2rem;
+            min-height: 5.3rem;
         }
 
         .pack-includes-label {
@@ -1134,8 +1244,8 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            color: rgba(226, 195, 130, 0.78);
+            margin-bottom: 1.2rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border-light);
         }
@@ -1143,13 +1253,14 @@
         .pack-list {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 0.95rem;
             flex-grow: 1;
         }
 
         .pack-list li {
-            font-size: 0.95rem;
-            line-height: 1.4;
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: rgba(239,234,225,0.78);
         }
 
         /* --- AI LAB SECTION --- */
@@ -1805,6 +1916,23 @@
 
         .contact-email:hover { color: var(--gold); }
 
+        .contact-footnotes {
+            max-width: 860px;
+            margin: 2.75rem auto 0 auto;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.42);
+        }
+
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 1024px) {
             .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -1855,6 +1983,10 @@
             }
             .brand-read-session-cta {
                 justify-content: flex-start;
+            }
+            .contact-footnotes {
+                justify-content: center;
+                text-align: center;
             }
         }
 
@@ -1916,6 +2048,12 @@
             }
             .hero-subtitle { font-size: 0.9rem; margin-bottom: 1.1rem; }
             .opening-hook { white-space: normal; max-width: 12ch; }
+            .hero-question-sub {
+                bottom: 5.4vh;
+                width: min(26rem, calc(100% - 2.6rem));
+                font-size: 0.88rem;
+                line-height: 1.6;
+            }
             .brand-read-intro,
             .brand-read-panel {
                 padding: 2rem 1.4rem;
@@ -1924,8 +2062,8 @@
                 grid-template-columns: 1fr;
             }
             .brand-read-deep-head {
-                flex-direction: column;
-                align-items: flex-start;
+                grid-template-columns: 1fr;
+                gap: 0.7rem;
             }
             .brand-read-deep-area {
                 padding: 1.25rem 1.4rem 1.6rem;
@@ -2004,6 +2142,10 @@
                 padding: 1.2rem 1.2rem 1.15rem;
                 margin-bottom: 2.2rem;
             }
+            .contact-footnotes {
+                flex-direction: column;
+                gap: 0.55rem;
+            }
             .work-card:not(.work-card-featured):not(.work-card-website) .work-title { font-size: 1.5rem; bottom: 1.5rem; left: 1.5rem; transform: translateY(0); }
             :root { --spacing-section: 80px; }
         }
@@ -2033,13 +2175,14 @@
             <p class="hero-subtitle">Creative Intelligence Studio</p>
         </div>
         <h2 class="hero-question">If Your Brand Was a Movie<br>Would Anyone Watch It?</h2>
+        <p class="hero-question-sub">We shape brands that can hold attention at a higher level.</p>
     </header>
 
     <!-- OPENING SECTION -->
     <section class="opening-section">
         <div class="container">
-            <h2 class="opening-hook">We build brands people remember.</h2>
-            <p class="opening-sub">Through brand strategy, storytelling, and cinematic creative for ambitious brands, founders, and ventures.</p>
+            <h2 class="opening-hook">We shape strategy, narrative, and visual worlds for brands that need to move with more clarity and force.</h2>
+            <p class="opening-sub">Across websites, campaigns, and films.</p>
         </div>
     </section>
 
@@ -2057,11 +2200,11 @@
                     </div>
                     <div class="method-text">
                         <h3>Strategy</h3>
-                        <p>We define the strategic core of the brand: positioning, audience, messaging, and direction.</p>
+                        <p>Position, audience, and direction aligned into one clearer center.</p>
                         <ul>
-                            <li>positioning and market role</li>
-                            <li>audience and tone of voice</li>
-                            <li>strategic direction for campaigns and digital presence</li>
+                            <li>Positioning and market role</li>
+                            <li>Audience and tone</li>
+                            <li>Direction for campaigns and digital</li>
                         </ul>
                     </div>
                 </div>
@@ -2074,11 +2217,11 @@
                     </div>
                     <div class="method-text">
                         <h3>Story</h3>
-                        <p>We shape the narrative of the brand so each launch, campaign, or presentation feels clear, consistent, and emotionally resonant.</p>
+                        <p>Narrative shaped to land with more clarity, pull, and recall.</p>
                         <ul>
-                            <li>messaging and narrative structure</li>
-                            <li>storylines for launches and campaigns</li>
-                            <li>clear communication across touchpoints</li>
+                            <li>Core messaging and narrative</li>
+                            <li>Launch and campaign storylines</li>
+                            <li>Consistency across touchpoints</li>
                         </ul>
                     </div>
                 </div>
@@ -2091,11 +2234,11 @@
                     </div>
                     <div class="method-text">
                         <h3>Spectacle</h3>
-                        <p>We translate strategy and story into visual worlds through websites, campaign imagery, launch assets, and cinematic creative.</p>
+                        <p>Visual worlds built from strategy and story, across websites, campaigns, and films.</p>
                         <ul>
-                            <li>custom websites and landing pages</li>
-                            <li>campaign imagery and launch assets</li>
-                            <li>AI-led cinematic films and presentation visuals</li>
+                            <li>Websites and landing pages</li>
+                            <li>Campaign imagery and launch assets</li>
+                            <li>Brand films and presentation visuals</li>
                         </ul>
                     </div>
                 </div>
@@ -2205,6 +2348,7 @@
     <section id="packages" class="packages-section">
         <div class="container">
             <h2 class="section-header">Packages</h2>
+            <p class="packages-note">A starting structure for the kinds of work we do most often. Scope can expand, contract, or shift with the brief.</p>
             <div class="grid-3">
                 
                 <!-- START -->
@@ -2212,17 +2356,13 @@
                     <h3>Brand Foundation</h3>
                     <span class="pack-sub">From $2,800</span>
                     <p class="pack-desc">For new brands or brands that need strategic clarity and a custom website.</p>
-                    <span class="pack-includes-label">Includes</span>
+                    <span class="pack-includes-label">Selected Scope</span>
                     <ul class="pack-list">
-                        <li>Brand Positioning</li>
-                        <li>Audience Direction</li>
-                        <li>Tone of Voice</li>
-                        <li>Core Brand Narrative</li>
-                        <li>Website Copy Direction</li>
-                        <li>Custom Website Design and Development</li>
-                        <li>Up to 5 Website Pages</li>
-                        <li>Mobile Optimization</li>
-                        <li>Basic On-Page SEO Setup</li>
+                        <li>Positioning, audience, and tone of voice</li>
+                        <li>Core brand narrative and website copy direction</li>
+                        <li>Custom website design and development</li>
+                        <li>Up to 5 pages with mobile optimization</li>
+                        <li>Basic on-page SEO setup</li>
                         <li>Two Rounds of Revisions</li>
                     </ul>
                 </div>
@@ -2232,16 +2372,13 @@
                     <h3>Campaign</h3>
                     <span class="pack-sub">From $1,900</span>
                     <p class="pack-desc">For launches, offers, and campaigns that need a clear concept, sharper messaging, and a visual world built around them.</p>
-                    <span class="pack-includes-label">Includes</span>
+                    <span class="pack-includes-label">Selected Scope</span>
                     <ul class="pack-list">
-                        <li>Campaign Concept</li>
-                        <li>Campaign Messaging</li>
-                        <li>Visual Direction</li>
-                        <li>Narrative Direction</li>
-                        <li>2-4 Hero Campaign Images</li>
-                        <li>8 Campaign Assets for Web and Social</li>
-                        <li>2 Short Motion Assets</li>
-                        <li>Scope Adjusted to the Client Request</li>
+                        <li>Campaign concept, messaging, and narrative direction</li>
+                        <li>Visual direction for the campaign world</li>
+                        <li>2-4 hero campaign visuals</li>
+                        <li>Campaign assets for web, social, and motion</li>
+                        <li>Scope shaped to the client request</li>
                         <li>Two Rounds of Revisions</li>
                     </ul>
                 </div>
@@ -2251,14 +2388,12 @@
                     <h3>Brand Film</h3>
                     <span class="pack-sub">From $2,300</span>
                     <p class="pack-desc">For brands that need a cinematic piece for launches, investor presentations, and high-impact storytelling.</p>
-                    <span class="pack-includes-label">Includes</span>
+                    <span class="pack-includes-label">Selected Scope</span>
                     <ul class="pack-list">
-                        <li>Brand Film Concept</li>
-                        <li>Story Direction</li>
-                        <li>Visual Direction</li>
-                        <li>3-5 Hero Visuals</li>
-                        <li>1 Brand Film (60-120 seconds)</li>
-                        <li>4-6 Supporting Assets for Web, Social, or Presentation Use</li>
+                        <li>Brand film concept, story direction, and visual direction</li>
+                        <li>3-5 hero visuals</li>
+                        <li>1 brand film (60-120 seconds)</li>
+                        <li>Supporting assets for web, social, or presentation</li>
                         <li>Two Rounds of Revisions</li>
                     </ul>
                 </div>
@@ -2284,25 +2419,25 @@
         <div class="container">
             <div class="brand-read-shell">
                 <div class="brand-read-intro">
-                    <span class="brand-read-kicker">Brand Read</span>
+                    <span class="brand-read-kicker">Private Brand Read</span>
                     <h2 class="brand-read-title">If your brand was a movie</h2>
-                    <p class="brand-read-sub">Get a clear read on your brand: the image, the message, and where the two are not fully aligned yet.</p>
+                    <p class="brand-read-sub">A quieter studio read of the image, the message, and where the two stop moving as one.</p>
                 </div>
 
                 <div class="brand-read-main">
                     <div class="brand-read-panel">
                         <form class="brand-read-form" id="brand-read-form">
                             <div>
-                                <label class="brand-read-label" for="brand-read-url">Paste your website</label>
+                                <label class="brand-read-label" for="brand-read-url">Enter your website</label>
                                 <input id="brand-read-url" class="brand-read-input" type="text" placeholder="https://yourbrand.com" />
                             </div>
 
-                            <p class="brand-read-helper">Start with the poster. If it feels accurate, unlock the deeper read for a clearer view of what to refine.</p>
+                            <p class="brand-read-helper">Start with a first poster. If it feels right, open the full read.</p>
                             <p class="brand-read-status" id="brand-read-status" aria-live="polite"></p>
 
                             <div class="brand-read-actions">
-                                <button type="submit" class="btn" id="brand-read-generate">Generate Poster</button>
-                                <span class="brand-read-secondary">Poster first. Deeper read next.</span>
+                                <button type="submit" class="btn" id="brand-read-generate">Create Poster</button>
+                                <span class="brand-read-secondary">A first poster. Then the full read.</span>
                             </div>
                         </form>
                     </div>
@@ -2310,7 +2445,7 @@
                     <div class="brand-read-panel">
                             <div class="brand-read-result">
                                 <div class="brand-read-overview">
-                                <div class="brand-read-poster" data-world="sage">
+                                <div class="brand-read-poster brand-read-reveal" data-world="sage" id="brand-read-poster-card">
                                     <span class="brand-read-poster-kicker" id="brand-read-kicker">Your Brand, On Screen</span>
                                     <div class="brand-read-poster-copy">
                                         <h3 class="brand-read-poster-title" id="brand-read-title">The Quiet Monument</h3>
@@ -2322,19 +2457,19 @@
                                     </div>
                                 </div>
 
-                                <div class="brand-read-mini">
-                                <h4>Quick Read</h4>
+                                <div class="brand-read-mini brand-read-reveal" id="brand-read-first-read">
+                                <h4>First Read</h4>
                                 <p id="brand-read-summary">This brand already looks considered and polished. The words now need to carry the same confidence.</p>
                                 </div>
                                 </div>
 
-                                <div class="brand-read-rail">
+                                <div class="brand-read-rail brand-read-reveal" id="brand-read-rail">
                                 <div class="brand-read-email-gate" id="brand-read-gate">
-                                    <span class="brand-read-gate-title">Unlock the Deeper Read</span>
-                                    <p class="brand-read-gate-copy">Go beyond the poster and see what is landing, what feels unclear, and what would make the brand feel more distinctive and more premium.</p>
+                                    <span class="brand-read-gate-title">Unlock the Full Read</span>
+                                    <p class="brand-read-gate-copy">The full read opens here and lands in your inbox.</p>
                                     <div class="brand-read-gate-row">
                                         <input id="brand-read-email" class="brand-read-email" type="email" placeholder="Your email address" />
-                                        <button type="button" class="btn" id="brand-read-unlock">Unlock Report</button>
+                                        <button type="button" class="btn" id="brand-read-unlock">Unlock Full Read</button>
                                     </div>
                                     <p class="brand-read-status" id="brand-read-gate-status" aria-live="polite"></p>
                                 </div>
@@ -2345,8 +2480,11 @@
                 <div class="brand-read-deep-area">
                     <div class="brand-read-deep-wrap">
                         <div class="brand-read-deep-head">
-                            <div class="brand-read-deep-title">Deep Read</div>
-                            <p class="brand-read-deep-note">Clear, practical notes on what is working, what feels off, and what to refine next.</p>
+                            <div class="brand-read-deep-intro">
+                                <div class="brand-read-deep-title">Full Read</div>
+                                <p class="brand-read-status brand-read-delivery-status" id="brand-read-delivery-status" aria-live="polite"></p>
+                            </div>
+                            <p class="brand-read-deep-note">A studio read of what is landing, what feels off, and what to refine next.</p>
                         </div>
 
                         <div class="brand-read-deep" id="brand-read-deep">
@@ -2385,7 +2523,7 @@
                         </div>
 
                         <div class="brand-read-session">
-                            <p class="brand-read-session-copy"><span class="brand-read-session-kicker">Next Step</span>If the read feels accurate, the session is where we turn it into priorities: what to sharpen, what to simplify, and where to focus first.</p>
+                            <p class="brand-read-session-copy"><span class="brand-read-session-kicker">Strategic Session</span>If the read feels accurate, the session is where we turn it into priorities: what to sharpen, what to simplify, and where to focus first.</p>
                             <div class="brand-read-session-cta">
                                 <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" target="_blank" rel="noopener noreferrer" class="btn">Book a Strategic Session</a>
                                 <span class="brand-read-secondary">$250 / 60 min</span>
@@ -2405,12 +2543,17 @@
                 <span class="contact-founder-kicker">Founder Note</span>
                 <p class="contact-founder-copy">SAHAR is led by Marina Dabrytskaya-Gaffoor and built as a small team working at the intersection of strategy, image, and digital.</p>
                 <p class="contact-founder-copy">We are especially useful when a brand has ambition, but its story, visual world, and digital presence still do not move with one clear point of view.</p>
+                <p class="contact-founder-copy">We work with brands internationally.</p>
             </div>
             <h2 class="section-header" style="margin-bottom: 2rem;">Work With Us</h2>
             <p class="contact-sub">For brands, founders, and ventures looking for strategic clarity, campaign direction, and cinematic presence.</p>
             <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
             <p class="contact-note">A focused 20-minute call to understand your brand, scope, and direction.</p>
             <a href="mailto:hello@saharstudio.com" class="contact-email">hello@saharstudio.com</a>
+            <div class="contact-footnotes">
+                <span>&copy; 2026 SAHAR. All Rights Reserved.</span>
+                <span>Developed by SAHAR.</span>
+            </div>
         </div>
     </section>
 
@@ -2426,6 +2569,10 @@
             const poster = document.querySelector('.brand-read-poster');
             const status = document.getElementById('brand-read-status');
             const gateStatus = document.getElementById('brand-read-gate-status');
+            const deliveryStatus = document.getElementById('brand-read-delivery-status');
+            const posterCard = document.getElementById('brand-read-poster-card');
+            const firstReadCard = document.getElementById('brand-read-first-read');
+            const rail = document.getElementById('brand-read-rail');
 
             const fields = {
                 kicker: document.getElementById('brand-read-kicker'),
@@ -2515,8 +2662,10 @@
             const isLocalPreview = window.location.protocol === 'file:';
             let currentResult = reads[0];
             let currentUrl = '';
+            let revealTimers = [];
 
             const setStatus = (element, message = '', tone = '') => {
+                if (!element) return;
                 element.textContent = message;
                 if (tone) element.dataset.tone = tone;
                 else element.removeAttribute('data-tone');
@@ -2527,6 +2676,41 @@
                 button.textContent = loading ? loadingLabel : idleLabel;
             };
 
+            const startLoadingStatus = (element, messages, intervalMs = 2200) => {
+                if (!element || !messages?.length) return () => {};
+                let index = 0;
+                setStatus(element, messages[index], 'loading');
+                const timer = setInterval(() => {
+                    index = (index + 1) % messages.length;
+                    setStatus(element, messages[index], 'loading');
+                }, intervalMs);
+                return () => clearInterval(timer);
+            };
+
+            const revealNodes = [posterCard, firstReadCard, rail].filter(Boolean);
+
+            const clearRevealTimers = () => {
+                revealTimers.forEach((timer) => window.clearTimeout(timer));
+                revealTimers = [];
+            };
+
+            const setRevealHidden = (hidden) => {
+                revealNodes.forEach((node) => {
+                    node.classList.toggle('is-hidden', hidden);
+                });
+            };
+
+            const playRevealSequence = () => {
+                clearRevealTimers();
+                setRevealHidden(true);
+                revealNodes.forEach((node, index) => {
+                    const timer = window.setTimeout(() => {
+                        node.classList.remove('is-hidden');
+                    }, 160 + (index * 180));
+                    revealTimers.push(timer);
+                });
+            };
+
             const pickRead = (value) => {
                 const normalized = (value || '').trim().toLowerCase();
                 let score = 0;
@@ -2534,7 +2718,7 @@
                 return reads[score % reads.length];
             };
 
-            const renderRead = (read) => {
+            const renderRead = (read, { staged = false } = {}) => {
                 currentResult = read;
                 fields.kicker.textContent = `${read.brandName || 'Your Brand'}, On Screen`;
                 fields.title.textContent = read.title;
@@ -2555,6 +2739,12 @@
                 gate.classList.remove('hidden');
                 emailInput.value = '';
                 setStatus(gateStatus, '');
+                setStatus(deliveryStatus, '');
+                if (staged) playRevealSequence();
+                else {
+                    clearRevealTimers();
+                    setRevealHidden(false);
+                }
             };
 
             const validateUrl = (value) => {
@@ -2617,25 +2807,41 @@
                 currentUrl = normalizedUrl;
                 setStatus(status, '');
                 setStatus(gateStatus, '');
-                setLoading(generateButton, true, 'Generate Poster', 'Generating...');
+                setStatus(deliveryStatus, '');
+                setLoading(generateButton, true, 'Create Poster', 'Creating...');
+                const stopGenerateStatus = startLoadingStatus(status, [
+                    'Reading the site and pulling the strongest signals.',
+                    'Shaping the poster direction.',
+                    'Refining the first read.'
+                ]);
+
+                if (isLocalPreview) {
+                    renderRead(pickRead(normalizedUrl), { staged: true });
+                    stopGenerateStatus();
+                    setStatus(status, 'Showing a local sample result. Connect the live API to analyze real websites.', 'success');
+                    setLoading(generateButton, false, 'Create Poster', 'Creating...');
+                    return;
+                }
 
                 try {
                     const data = await requestJson('/api/brand-read', {
                         source: 'website',
                         url: normalizedUrl
-                    });
+                    }, 45000);
                     currentUrl = data.url || normalizedUrl;
-                    renderRead(data.result);
+                    renderRead(data.result, { staged: true });
+                    stopGenerateStatus();
                     setStatus(status, 'Poster generated from the current website signal.', 'success');
                 } catch (error) {
+                    stopGenerateStatus();
                     if (isLocalPreview) {
-                        renderRead(pickRead(normalizedUrl));
+                        renderRead(pickRead(normalizedUrl), { staged: true });
                         setStatus(status, 'Showing a local sample result. Connect the live API to analyze real websites.', 'success');
                     } else {
                         setStatus(status, error.message || 'Unable to generate the poster right now.', 'error');
                     }
                 } finally {
-                    setLoading(generateButton, false, 'Generate Poster', 'Generating...');
+                    setLoading(generateButton, false, 'Create Poster', 'Creating...');
                 }
             });
 
@@ -2643,7 +2849,7 @@
                 const email = emailInput.value.trim();
 
                 if (!email) {
-                    setStatus(gateStatus, 'Enter your email to unlock the deeper read.', 'error');
+                    setStatus(gateStatus, 'Enter your email to open the full read.', 'error');
                     emailInput.focus();
                     return;
                 }
@@ -2654,34 +2860,51 @@
                 }
 
                 setStatus(gateStatus, '');
-                setLoading(unlockButton, true, 'Unlock Report', 'Unlocking...');
+                setStatus(deliveryStatus, '');
+                setLoading(unlockButton, true, 'Unlock Full Read', 'Opening...');
+
+                if (isLocalPreview) {
+                    gate.classList.add('hidden');
+                    deep.classList.add('visible');
+                    setLoading(unlockButton, false, 'Unlock Full Read', 'Opening...');
+                    setStatus(deliveryStatus, 'Local preview open. Connect the live API to send the PDF.', 'success');
+                    return;
+                }
 
                 gate.classList.add('hidden');
                 deep.classList.add('visible');
+                setLoading(unlockButton, false, 'Unlock Full Read', 'Opening...');
+                const stopUnlockStatus = startLoadingStatus(deliveryStatus, [
+                    'The full read is open.',
+                    'Building the PDF now.',
+                    'Sending it to your inbox.'
+                ], 1900);
 
-                try {
-                    const leadResponse = await requestJson('/api/brand-read-lead', {
-                        source: 'website',
-                        url: currentUrl || validateUrl(input.value.trim()) || input.value.trim(),
-                        email,
-                        result: currentResult
-                    }, 8000);
-                    if (leadResponse?.emailed) {
-                        setStatus(gateStatus, 'Report unlocked. The PDF has been sent to your email.', 'success');
-                    } else if (leadResponse?.savedLead) {
-                        setStatus(gateStatus, 'Report unlocked. Email delivery is not configured yet, but the lead has been captured.', 'success');
-                    } else {
-                        setStatus(gateStatus, 'Report unlocked.', 'success');
+                void (async () => {
+                    try {
+                        const leadResponse = await requestJson('/api/brand-read-lead', {
+                            source: 'website',
+                            url: currentUrl || validateUrl(input.value.trim()) || input.value.trim(),
+                            email,
+                            result: currentResult
+                        }, 15000);
+                        stopUnlockStatus();
+                        if (leadResponse?.emailed) {
+                            setStatus(deliveryStatus, 'The PDF has been sent to your email.', 'success');
+                        } else if (leadResponse?.savedLead) {
+                            setStatus(deliveryStatus, 'The full read is open. Email delivery can be retried from our side.', 'success');
+                        } else {
+                            setStatus(deliveryStatus, 'The full read is open.', 'success');
+                        }
+                    } catch (error) {
+                        stopUnlockStatus();
+                        if (isLocalPreview) {
+                            setStatus(deliveryStatus, 'Local preview open. Connect Google Sheets to capture leads.', 'success');
+                        } else {
+                            setStatus(deliveryStatus, 'The full read is open. We could not send the PDF this time.', 'success');
+                        }
                     }
-                } catch (error) {
-                    if (isLocalPreview) {
-                        setStatus(gateStatus, 'Local preview unlocked. Connect Google Sheets to capture leads.', 'success');
-                    } else {
-                        setStatus(gateStatus, 'Report unlocked. Lead capture can be retried in the background.', 'success');
-                    }
-                } finally {
-                    setLoading(unlockButton, false, 'Unlock Report', 'Unlocking...');
-                }
+                })();
             });
 
             renderRead(currentResult);

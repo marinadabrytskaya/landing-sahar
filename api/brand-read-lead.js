@@ -4,8 +4,11 @@ try {
   // dotenv is only needed for local development
 }
 
+const fs = require('fs');
+const path = require('path');
 const PDFDocument = require('pdfkit');
 const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const { google } = require('googleapis');
 
 function sendJson(res, status, payload) {
@@ -29,6 +32,69 @@ function safeFilename(value = 'brand-read') {
     .replace(/^-+|-+$/g, '') || 'brand-read';
 }
 
+function titleFontSize(title = '') {
+  const length = sanitize(title).length;
+  if (length > 34) return 32;
+  if (length > 24) return 38;
+  return 44;
+}
+
+function fitPosterTitle(doc, title, width, maxHeight, initialSize) {
+  let size = initialSize;
+  while (size > 24) {
+    doc.font('Times-Bold').fontSize(size);
+    const height = doc.heightOfString(title, {
+      width,
+      lineGap: -2
+    });
+    if (height <= maxHeight) {
+      return { size, height };
+    }
+    size -= 2;
+  }
+
+  doc.font('Times-Bold').fontSize(24);
+  return {
+    size: 24,
+    height: doc.heightOfString(title, { width, lineGap: -2 })
+  };
+}
+
+function posterAssetPath(visualWorld = 'sage') {
+  const fileMap = {
+    ruler: 'Ruler.png',
+    sage: 'Sage.png',
+    magician: 'Magician.png',
+    creator: 'Creator.png',
+    lover: 'Lover.png',
+    caregiver: 'Caregiver.png',
+    hero: 'Hero.png',
+    rebel: 'Rebel.png',
+    explorer: 'Explorer.png',
+    everyman: 'Everyman.png',
+    innocent: 'Innocent.png',
+    jester: 'Jester.png'
+  };
+
+  const fileName = fileMap[String(visualWorld || '').toLowerCase()] || fileMap.sage;
+  const fullPath = path.join(process.cwd(), fileName);
+  return fs.existsSync(fullPath) ? fullPath : null;
+}
+
+function withTimeout(promise, ms, label) {
+  let timeoutId;
+  const timeoutPromise = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => {
+      reject(new Error(`${label} timed out`));
+    }, ms);
+  });
+
+  return Promise.race([
+    promise.finally(() => clearTimeout(timeoutId)),
+    timeoutPromise
+  ]);
+}
+
 function isSheetsConfigured() {
   return Boolean(
     process.env.GOOGLE_SHEET_ID &&
@@ -43,6 +109,13 @@ function isSmtpConfigured() {
     process.env.SMTP_PORT &&
     process.env.SMTP_USER &&
     process.env.SMTP_PASS &&
+    process.env.MAIL_FROM
+  );
+}
+
+function isResendConfigured() {
+  return Boolean(
+    process.env.RESEND_API_KEY &&
     process.env.MAIL_FROM
   );
 }
@@ -112,6 +185,7 @@ async function appendLeadToSheet({ email, url, source, result }) {
 function generatePdfBuffer({ email, url, result }) {
   return new Promise((resolve, reject) => {
     const doc = new PDFDocument({
+      autoFirstPage: false,
       size: 'A4',
       margins: { top: 56, bottom: 56, left: 56, right: 56 },
       info: {
@@ -131,7 +205,8 @@ function generatePdfBuffer({ email, url, result }) {
       text: '#f1ece4',
       muted: '#8d939b',
       gold: '#d5b06d',
-      line: '#2a3139'
+      line: '#2a3139',
+      card: '#161b21'
     };
 
     const sections = [
@@ -146,7 +221,107 @@ function generatePdfBuffer({ email, url, result }) {
       ['What To Drop', result.drop]
     ].filter(([, value]) => sanitize(value));
 
-    doc.rect(0, 0, doc.page.width, doc.page.height).fill(colors.bg);
+    doc.addPage();
+    const pageWidth = doc.page.width;
+    const pageHeight = doc.page.height;
+    const posterX = 0;
+    const posterY = 0;
+    const posterW = pageWidth;
+    const posterH = pageHeight;
+    const posterImage = posterAssetPath(result.visualWorld);
+
+    doc.rect(0, 0, pageWidth, pageHeight).fill(colors.bg);
+
+    doc.save();
+    doc.rect(posterX, posterY, posterW, posterH).clip();
+    if (posterImage) {
+      doc.image(posterImage, posterX, posterY, { width: posterW, height: posterH });
+    } else {
+      doc.rect(posterX, posterY, posterW, posterH).fill('#1d232a');
+    }
+    doc.restore();
+    doc.fillOpacity(1);
+    doc.strokeOpacity(1);
+
+    doc.fillColor('#dcd4c6')
+      .font('Helvetica')
+      .fontSize(11)
+      .text(`${sanitize(result.brandName || 'Your Brand')}, ON SCREEN`, 54, 44, {
+        width: pageWidth - 108,
+        characterSpacing: 2.4,
+        lineBreak: false
+      });
+
+    const titleText = sanitize(result.title || 'Untitled');
+    const titleWidth = pageWidth - 108;
+    const titleMetrics = fitPosterTitle(
+      doc,
+      titleText,
+      titleWidth,
+      132,
+      titleFontSize(result.title)
+    );
+    const titleY = pageHeight - 298 - titleMetrics.height;
+
+    doc.fillColor('#13171c')
+      .font('Times-Bold')
+      .fontSize(titleMetrics.size)
+      .text(titleText, 56, titleY + 2, {
+        width: titleWidth,
+        lineGap: -2,
+        height: 132,
+        ellipsis: true
+      });
+
+    doc.fillColor(colors.text)
+      .font('Times-Bold')
+      .fontSize(titleMetrics.size)
+      .text(titleText, 54, titleY, {
+        width: titleWidth,
+        lineGap: -2,
+        height: 132,
+        ellipsis: true
+      });
+
+    const genreY = titleY + titleMetrics.height + 12;
+    doc.fillColor('#201710')
+      .font('Helvetica')
+      .fontSize(12)
+      .text(sanitize(result.genre || 'Brand Read'), 55, genreY + 1, {
+        width: pageWidth - 108,
+        characterSpacing: 2.2,
+        height: 22,
+        ellipsis: true,
+        lineBreak: false
+      });
+
+    doc.fillColor(colors.gold)
+      .font('Helvetica')
+      .fontSize(12)
+      .text(sanitize(result.genre || 'Brand Read'), 54, genreY, {
+        width: pageWidth - 108,
+        characterSpacing: 2.2,
+        height: 22,
+        ellipsis: true,
+        lineBreak: false
+      });
+
+    if (sanitize(result.tagline)) {
+      doc.fillColor('#efeae1')
+        .font('Helvetica')
+        .fontSize(12)
+        .text(sanitize(result.tagline), 54, pageHeight - 118, {
+          width: pageWidth * 0.5,
+          lineGap: 3,
+          height: 52,
+          ellipsis: true
+        });
+    }
+
+    doc.addPage();
+    doc.fillOpacity(1);
+    doc.strokeOpacity(1);
+    doc.rect(0, 0, pageWidth, pageHeight).fill(colors.bg);
     doc.fillColor(colors.gold)
       .font('Helvetica')
       .fontSize(10)
@@ -154,85 +329,87 @@ function generatePdfBuffer({ email, url, result }) {
 
     doc.fillColor(colors.text)
       .font('Times-Roman')
-      .fontSize(31)
+      .fontSize(30)
       .text(sanitize(result.brandName || 'Your Brand'), 56, 92);
-
-    doc.fillColor(colors.text)
-      .font('Times-Bold')
-      .fontSize(26)
-      .text(sanitize(result.title || 'Untitled'), 56, 140);
-
-    doc.fillColor(colors.gold)
-      .font('Helvetica')
-      .fontSize(11)
-      .text(sanitize(result.genre || 'Brand Read'), 56, 176, { characterSpacing: 1.2 });
-
-    doc.moveTo(56, 202).lineTo(539, 202).strokeColor(colors.line).stroke();
-
-    doc.fillColor(colors.text)
-      .font('Helvetica')
-      .fontSize(11)
-      .text(`Website: ${sanitize(url)}`, 56, 220, { width: 330 });
 
     doc.fillColor(colors.muted)
       .font('Helvetica')
-      .fontSize(10)
-      .text(`Prepared for: ${sanitize(email)}`, 56, 238, { width: 330 });
+      .fontSize(9)
+      .text('WEBSITE', 56, 134, { characterSpacing: 1.8 });
 
-    if (sanitize(result.tagline)) {
-      doc.fillColor(colors.text)
-        .font('Helvetica-Oblique')
-        .fontSize(13)
-        .text(sanitize(result.tagline), 56, 274, { width: 480 });
-    }
+    doc.fillColor(colors.text)
+      .font('Helvetica')
+      .fontSize(11)
+      .text(sanitize(url), 56, 151, { width: 483 });
 
-    let y = 330;
+    doc.moveTo(56, 182).lineTo(539, 182).strokeColor(colors.line).stroke();
 
-    sections.forEach(([heading, body], index) => {
+    doc.roundedRect(56, 212, 483, 132, 8).fill(colors.card);
+    doc.fillColor(colors.gold)
+      .font('Helvetica')
+      .fontSize(9)
+      .text('FIRST READ', 76, 236, { characterSpacing: 2 });
+
+    doc.fillColor(colors.text)
+      .font('Times-Roman')
+      .fontSize(15)
+      .text(sanitize(result.summary), 76, 262, {
+        width: 443,
+        lineGap: 5
+      });
+
+    let y = 392;
+
+    sections.slice(1).forEach(([heading, body], index, arr) => {
       const bodyText = toParagraph(body);
-      const estimatedHeight = 26 + doc.heightOfString(bodyText, {
+      const estimatedHeight = 56 + doc.heightOfString(bodyText, {
         width: 483,
         align: 'left',
-        lineGap: 2
-      }) + 20;
+        lineGap: 5
+      }) + 30;
 
       if (y + estimatedHeight > doc.page.height - 76) {
         doc.addPage();
+        doc.fillOpacity(1);
+        doc.strokeOpacity(1);
         doc.rect(0, 0, doc.page.width, doc.page.height).fill(colors.bg);
-        y = 58;
+        doc.fillColor(colors.gold)
+          .font('Helvetica')
+          .fontSize(10)
+          .text('SAHAR | DEEP READ', 56, 44, { characterSpacing: 2 });
+        y = 90;
       }
 
-      doc.fillColor(colors.gold)
-        .font('Helvetica')
-        .fontSize(10)
-        .text(heading.toUpperCase(), 56, y, { characterSpacing: 1.5 });
+      doc.moveTo(56, y).lineTo(539, y).strokeColor(colors.line).stroke();
 
-      y += 20;
+      y += 16;
+
+      doc.fillColor(colors.gold)
+        .font('Times-Bold')
+        .fontSize(20)
+        .text(heading, 56, y, {
+          width: 483,
+          lineGap: 1
+        });
+
+      y = doc.y + 16;
 
       doc.fillColor(colors.text)
         .font('Helvetica')
         .fontSize(12)
         .text(bodyText, 56, y, {
           width: 483,
-          lineGap: 3
+          lineGap: 5
         });
 
-      y = doc.y + 18;
-
-      if (index !== sections.length - 1) {
-        doc.moveTo(56, y - 6).lineTo(539, y - 6).strokeColor(colors.line).stroke();
-      }
+      y = doc.y + 34;
     });
 
     doc.end();
   });
 }
 
-async function sendReportEmail({ email, url, result }) {
-  if (!isSmtpConfigured()) {
-    return { ok: false, skipped: true, reason: 'SMTP not configured' };
-  }
-
+async function sendReportEmailWithSmtp({ email, url, result, pdfBuffer }) {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT),
@@ -243,7 +420,6 @@ async function sendReportEmail({ email, url, result }) {
     }
   });
 
-  const pdfBuffer = await generatePdfBuffer({ email, url, result });
   const brandName = sanitize(result.brandName || 'Your Brand');
   const from = process.env.MAIL_FROM;
   const replyTo = process.env.MAIL_REPLY_TO || from;
@@ -284,7 +460,70 @@ async function sendReportEmail({ email, url, result }) {
     }]
   });
 
-  return { ok: true };
+  return { ok: true, provider: 'smtp' };
+}
+
+async function sendReportEmailWithResend({ email, url, result, pdfBuffer }) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const brandName = sanitize(result.brandName || 'Your Brand');
+  const from = process.env.MAIL_FROM;
+  const replyTo = process.env.MAIL_REPLY_TO || from;
+
+  const response = await resend.emails.send({
+    from,
+    to: email,
+    replyTo,
+    subject: `${brandName} | Deep Read from SAHAR`,
+    text: [
+      `Here is your Deep Read for ${brandName}.`,
+      '',
+      'Attached is the PDF version of the report.',
+      '',
+      'If you want to turn this into sharper priorities and a clearer direction, you can book a strategic session here:',
+      'https://calendly.com/maryna-dabrytskaya/sahar-strategic-session',
+      '',
+      'SAHAR'
+    ].join('\n'),
+    html: `
+      <div style="background:#10151b;padding:32px;font-family:Helvetica,Arial,sans-serif;color:#f1ece4;">
+        <div style="max-width:640px;margin:0 auto;">
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#d5b06d;margin-bottom:18px;">SAHAR | Deep Read</div>
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:1.1;margin-bottom:14px;">${brandName}</div>
+          <p style="font-size:15px;line-height:1.75;color:#c9c3bb;margin:0 0 18px 0;">Here is your Deep Read report. The PDF is attached.</p>
+          <p style="font-size:15px;line-height:1.75;color:#c9c3bb;margin:0 0 24px 0;">If you want to turn this into sharper priorities and a clearer direction, you can book a strategic session below.</p>
+          <p style="margin:0 0 24px 0;">
+            <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" style="display:inline-block;padding:12px 18px;border:1px solid #d5b06d;color:#f1ece4;text-decoration:none;letter-spacing:1px;text-transform:uppercase;font-size:12px;">Book a Strategic Session</a>
+          </p>
+          <p style="font-size:13px;line-height:1.7;color:#8d939b;margin:0;">Website reviewed: ${sanitize(url)}</p>
+        </div>
+      </div>
+    `,
+    attachments: [{
+      filename: `${safeFilename(brandName)}-deep-read.pdf`,
+      content: pdfBuffer.toString('base64'),
+      contentType: 'application/pdf'
+    }]
+  });
+
+  if (response?.error) {
+    throw new Error(response.error.message || 'Resend email send failed');
+  }
+
+  return { ok: true, provider: 'resend' };
+}
+
+async function sendReportEmail({ email, url, result }) {
+  if (!isResendConfigured() && !isSmtpConfigured()) {
+    return { ok: false, skipped: true, reason: 'Email provider not configured' };
+  }
+
+  const pdfBuffer = await generatePdfBuffer({ email, url, result });
+
+  if (isResendConfigured()) {
+    return sendReportEmailWithResend({ email, url, result, pdfBuffer });
+  }
+
+  return sendReportEmailWithSmtp({ email, url, result, pdfBuffer });
 }
 
 module.exports = async (req, res) => {
@@ -321,8 +560,16 @@ module.exports = async (req, res) => {
     }
 
     const tasks = await Promise.allSettled([
-      appendLeadToSheet({ email, url, source, result }),
-      sendReportEmail({ email, url, result })
+      withTimeout(
+        appendLeadToSheet({ email, url, source, result }),
+        8000,
+        'Lead save'
+      ),
+      withTimeout(
+        sendReportEmail({ email, url, result }),
+        15000,
+        'Email send'
+      )
     ]);
 
     const sheetResult = tasks[0].status === 'fulfilled'
