@@ -81,6 +81,49 @@ function posterAssetPath(visualWorld = 'sage') {
   return fs.existsSync(fullPath) ? fullPath : null;
 }
 
+function posterAssetFilename(visualWorld = 'sage') {
+  const fileMap = {
+    ruler: 'Ruler.png',
+    sage: 'Sage.png',
+    magician: 'Magician.png',
+    creator: 'Creator.png',
+    lover: 'Lover.png',
+    caregiver: 'Caregiver.png',
+    hero: 'Hero.png',
+    rebel: 'Rebel.png',
+    explorer: 'Explorer.png',
+    everyman: 'Everyman.png',
+    innocent: 'Innocent.png',
+    jester: 'Jester.png'
+  };
+
+  return fileMap[String(visualWorld || '').toLowerCase()] || fileMap.sage;
+}
+
+async function loadPosterAsset(visualWorld = 'sage') {
+  const localPath = posterAssetPath(visualWorld);
+  if (localPath) {
+    return fs.readFileSync(localPath);
+  }
+
+  const fileName = posterAssetFilename(visualWorld);
+  const host =
+    process.env.PUBLIC_SITE_URL ||
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+    process.env.VERCEL_URL ||
+    'www.saharstudio.com';
+  const normalizedHost = String(host).replace(/^https?:\/\//, '').replace(/\/+$/, '');
+  const assetUrl = `https://${normalizedHost}/${encodeURIComponent(fileName)}`;
+
+  const response = await fetch(assetUrl);
+  if (!response.ok) {
+    throw new Error(`Unable to load poster asset: ${assetUrl}`);
+  }
+
+  const arrayBuffer = await response.arrayBuffer();
+  return Buffer.from(arrayBuffer);
+}
+
 function withTimeout(promise, ms, label) {
   let timeoutId;
   const timeoutPromise = new Promise((_, reject) => {
@@ -183,7 +226,7 @@ async function appendLeadToSheet({ email, url, source, result }) {
 }
 
 function generatePdfBuffer({ email, url, result }) {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     const doc = new PDFDocument({
       autoFirstPage: false,
       size: 'A4',
@@ -228,7 +271,12 @@ function generatePdfBuffer({ email, url, result }) {
     const posterY = 0;
     const posterW = pageWidth;
     const posterH = pageHeight;
-    const posterImage = posterAssetPath(result.visualWorld);
+    let posterImage = null;
+    try {
+      posterImage = await loadPosterAsset(result.visualWorld);
+    } catch (_) {
+      posterImage = null;
+    }
 
     doc.rect(0, 0, pageWidth, pageHeight).fill(colors.bg);
 
