@@ -188,6 +188,18 @@
             z-index: 1;
         }
 
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            z-index: 2;
+            transform: scale(1.015);
+            filter: saturate(1.02) contrast(1.02) brightness(0.94);
+        }
+
         .hero::after {
             content: '';
             position: absolute;
@@ -211,9 +223,9 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background:
-                radial-gradient(circle at 50% 42%, rgba(255,255,255,0.02), rgba(0,0,0,0.14) 28%, rgba(0,0,0,0.34) 100%),
-                linear-gradient(rgba(9,10,12,0.14), rgba(9,10,12,0.34));
-            z-index: 2;
+                radial-gradient(circle at 52% 40%, rgba(255,255,255,0.06), rgba(0,0,0,0.12) 30%, rgba(0,0,0,0.28) 100%),
+                linear-gradient(rgba(8,10,14,0.12), rgba(8,10,14,0.3));
+            z-index: 3;
         }
 
         .hero-content {
@@ -2169,6 +2181,9 @@
 
     <!-- HERO SECTION -->
     <header class="hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-image.jpg">
+            <source src="hero-video.mp4" type="video/mp4" />
+        </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">SAHAR</h1>
