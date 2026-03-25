@@ -180,11 +180,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url('hero-image.jpg');
-            background-size: cover;
-            background-position: center;
-            animation: heroDrift 18s ease-in-out infinite alternate;
-            transform: scale(1.03);
+            background: radial-gradient(circle at 50% 45%, rgba(255,255,255,0.04), rgba(16,19,24,0.14) 26%, rgba(16,19,24,0.92) 100%);
             z-index: 1;
         }
 
@@ -308,11 +304,6 @@
             color: rgba(239, 234, 225, 0.82);
             text-align: center;
             text-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes heroDrift {
-            0% { transform: scale(1.03) translate3d(-0.8%, 0.2%, 0); }
-            100% { transform: scale(1.06) translate3d(0.8%, -0.6%, 0); }
         }
 
         @keyframes heroSubtitleGlow {
@@ -2053,12 +2044,16 @@
             }
             .hero-question {
                 bottom: 12vh;
-                width: auto;
-                max-width: none;
+                width: min(11ch, calc(100% - 2.4rem));
+                max-width: 11ch;
                 font-size: clamp(1.55rem, 7vw, 2rem);
-                white-space: nowrap;
+                white-space: normal;
             }
             .hero-subtitle { font-size: 0.9rem; margin-bottom: 1.1rem; }
+            .hero-video {
+                object-position: 64% center;
+                transform: scale(1.045);
+            }
             .opening-hook { white-space: normal; max-width: 12ch; }
             .hero-question-sub {
                 bottom: 5.4vh;
@@ -2181,7 +2176,7 @@
 
     <!-- HERO SECTION -->
     <header class="hero">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-image.jpg">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
             <source src="hero-video.mp4" type="video/mp4" />
         </video>
         <div class="hero-overlay"></div>
