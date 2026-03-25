@@ -2021,8 +2021,26 @@
         }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 1.5rem; background: rgba(15,18,22,0.92); }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: max(1rem, env(safe-area-inset-top)) 1.15rem 0;
+                background: linear-gradient(180deg, rgba(15,18,22,0.9) 0%, rgba(15,18,22,0.64) 52%, rgba(15,18,22,0) 100%);
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.85rem 1.2rem;
+            }
+            .nav-links a {
+                font-size: 0.72rem;
+                letter-spacing: 0.13em;
+            }
+            .nav-right .btn {
+                width: min(100%, 20rem);
+                padding: 0.95rem 1.35rem;
+                font-size: 0.7rem;
+            }
             .brand-read-section {
                 margin-top: 0;
                 padding-top: 18px;
@@ -2069,15 +2087,19 @@
             .work-modal-top {
                 padding: 0.85rem 1rem;
             }
-            .hero-title { font-size: 4.5rem; }
+            .hero {
+                height: 100svh;
+                min-height: 100svh;
+            }
+            .hero-title { font-size: 4.15rem; }
             .hero-content {
                 width: 100%;
                 max-width: 100%;
                 padding: 0 1.5rem;
-                transform: translateY(-5vh);
+                transform: translateY(-1.5vh);
             }
             .hero-question {
-                bottom: 12vh;
+                bottom: 13vh;
                 width: min(11ch, calc(100% - 2.4rem));
                 max-width: 11ch;
                 font-size: clamp(1.55rem, 7vw, 2rem);
@@ -2085,12 +2107,12 @@
             }
             .hero-subtitle { font-size: 0.9rem; margin-bottom: 1.1rem; }
             .hero-video {
-                object-position: 78% 64%;
-                transform: scale(1.01);
+                object-position: 72% 58%;
+                transform: scale(1.035);
             }
             .opening-hook { white-space: normal; max-width: 12ch; }
             .hero-question-sub {
-                bottom: 5.4vh;
+                bottom: 6.5vh;
                 width: min(26rem, calc(100% - 2.6rem));
                 font-size: 0.88rem;
                 line-height: 1.6;
