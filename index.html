@@ -644,6 +644,24 @@
             box-shadow: 0 30px 70px rgba(0, 0, 0, 0.24);
         }
 
+        .brand-read-poster-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            filter: saturate(1.02) contrast(1.01) brightness(0.92);
+            pointer-events: none;
+        }
+
+        .brand-read-poster.is-placeholder .brand-read-poster-video {
+            opacity: 1;
+        }
+
         .brand-read-poster::before {
             content: '';
             position: absolute;
@@ -742,6 +760,13 @@
                 url("Jester.png") center / cover no-repeat,
                 linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.006) 40%, rgba(255,255,255,0) 100%),
                 linear-gradient(180deg, #171b20 0%, #11161b 100%);
+        }
+
+        .brand-read-poster[data-world="portal"] {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+                url("Portal.png") center / cover no-repeat,
+                linear-gradient(180deg, #171b20 0%, #10151a 100%);
         }
 
         .brand-read-poster-kicker {
@@ -2456,14 +2481,17 @@
                     <div class="brand-read-panel">
                             <div class="brand-read-result">
                                 <div class="brand-read-overview">
-                                <div class="brand-read-poster brand-read-reveal" data-world="sage" id="brand-read-poster-card">
+                                <div class="brand-read-poster brand-read-reveal is-placeholder" data-world="portal" id="brand-read-poster-card">
+                                    <video class="brand-read-poster-video" autoplay muted loop playsinline preload="auto" poster="Portal.png" aria-hidden="true">
+                                        <source src="cube-assembly.mp4" type="video/mp4" />
+                                    </video>
                                     <span class="brand-read-poster-kicker" id="brand-read-kicker">Your Brand, On Screen</span>
                                     <div class="brand-read-poster-copy">
-                                        <h3 class="brand-read-poster-title" id="brand-read-title">The Quiet Monument</h3>
-                                        <span class="brand-read-poster-genre" id="brand-read-genre">Architectural Drama</span>
+                                        <h3 class="brand-read-poster-title" id="brand-read-title">The Open Threshold</h3>
+                                        <span class="brand-read-poster-genre" id="brand-read-genre">Cinematic Reveal</span>
                                     </div>
                                     <div class="brand-read-poster-footer">
-                                        <p class="brand-read-poster-tagline" id="brand-read-tagline">Composed, elevated, and carefully held together by restraint.</p>
+                                        <p class="brand-read-poster-tagline" id="brand-read-tagline">The world is already there; the message now needs to meet its level of impact.</p>
                                         <span class="brand-read-poster-credit">Created by SAHAR</span>
                                     </div>
                                 </div>
@@ -2604,20 +2632,20 @@
             const reads = [
                 {
                     brandName: 'Your Brand',
-                    visualWorld: 'sage',
-                    symbol: 'strategy',
-                    title: 'The Quiet Monument',
-                    genre: 'Architectural Drama',
-                    tagline: 'Composed, elevated, and carefully held together by restraint.',
-                    summary: 'This brand already looks considered and polished. The words now need to carry the same confidence.',
-                    current: 'Right now, the brand feels tasteful, controlled, and visually expensive. The offer still takes slightly too long to come into focus.',
-                    strength: 'The strongest part is the restraint. The brand already feels considered, premium, and visually disciplined.',
-                    gap: 'The image says “premium” quickly. The message is slower. That delay weakens clarity.',
-                    mismatch: 'The look feels confident. Some of the wording still feels slightly cautious. That split softens the overall impression.',
-                    voice: 'The words are still slightly too polite. They need more confidence, more precision, and less filler.',
-                    direction: 'Say the main promise faster, cut anything decorative-but-vague, and let the strongest idea run the room.',
-                    amplify: 'Amplify the restraint, the premium finish, and the visual confidence. That is already working hard for you.',
-                    drop: 'Drop any wording that sounds too careful, too padded, or too eager to explain itself.'
+                    visualWorld: 'portal',
+                    symbol: 'spectacle',
+                    title: 'The Open Threshold',
+                    genre: 'Cinematic Reveal',
+                    tagline: 'The world is already there; the message now needs to meet its level of impact.',
+                    summary: 'This brand already knows how to make an entrance. Now the message needs to land with the same force.',
+                    current: 'The current signal feels premium, expansive, and high-impact. Visually, it arrives. Verbally, it is still softer than it should be.',
+                    strength: 'The strongest part is the sense of presence. The brand already knows how to make an entrance.',
+                    gap: 'The visual world hits first. The message should hit just as clearly. Right now the reveal is strong, but the takeaway is softer than it should be.',
+                    mismatch: 'The image promises confidence and clarity. The copy sometimes pulls back just when it should land the point.',
+                    voice: 'The copy should sound more decisive, more distinct, and more assured.',
+                    direction: 'Turn the visual drama into a sharper claim. Say what is valuable, say it plainly, and let the elegance come from precision.',
+                    amplify: 'Amplify the presence, the drama, and the sense of scale. The brand already knows how to catch attention.',
+                    drop: 'Drop any copy that stays vague for too long. Mystery can work. Confusion does not.'
                 },
                 {
                     brandName: 'Your Brand',
@@ -2667,8 +2695,15 @@
                 explorer: { symbol: 'story' },
                 everyman: { symbol: 'strategy' },
                 innocent: { symbol: 'strategy' },
-                jester: { symbol: 'story' }
+                jester: { symbol: 'story' },
+                portal: { symbol: 'spectacle' }
             };
+
+            const heroSection = document.querySelector('.hero');
+            const brandReadSection = document.getElementById('brand-read');
+            if (heroSection && brandReadSection && heroSection.nextElementSibling !== brandReadSection) {
+                heroSection.insertAdjacentElement('afterend', brandReadSection);
+            }
 
             const isLocalPreview = window.location.protocol === 'file:';
             let currentResult = reads[0];
@@ -2731,6 +2766,7 @@
 
             const renderRead = (read, { staged = false } = {}) => {
                 currentResult = read;
+                posterCard.classList.remove('is-placeholder');
                 fields.kicker.textContent = `${read.brandName || 'Your Brand'}, On Screen`;
                 fields.title.textContent = read.title;
                 fields.genre.textContent = read.genre;
@@ -2918,7 +2954,9 @@
                 })();
             });
 
+            posterCard.classList.add('is-placeholder');
             renderRead(currentResult);
+            posterCard.classList.add('is-placeholder');
         })();
 
         (() => {
