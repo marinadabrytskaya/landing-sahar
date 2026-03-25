@@ -208,7 +208,7 @@
                 rgba(11, 12, 15, 0) 0%,
                 rgba(11, 12, 15, 0.5) 38%,
                 rgba(11, 12, 15, 0.84) 72%,
-                var(--bg-base) 100%
+                #11161b 100%
             );
             z-index: 3;
             pointer-events: none;
@@ -350,10 +350,11 @@
         /* --- BRAND READ SECTION --- */
         .brand-read-section {
             position: relative;
-            margin-top: -2px;
+            margin-top: -10px;
             padding: 0 0 72px 0;
             background: linear-gradient(180deg, #11161b 0%, #12171c 100%);
             border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 6;
         }
 
         .brand-read-shell {
@@ -2022,6 +2023,10 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; gap: 1.5rem; background: rgba(15,18,22,0.92); }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .brand-read-section {
+                margin-top: -22px;
+                padding-top: 12px;
+            }
             .grid-3 { grid-template-columns: 1fr; }
             .work-grid { grid-template-columns: 1fr; }
             .work-card-featured {
