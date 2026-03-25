@@ -350,8 +350,8 @@
         /* --- BRAND READ SECTION --- */
         .brand-read-section {
             position: relative;
-            margin-top: -10px;
-            padding: 0 0 72px 0;
+            margin-top: 0;
+            padding: 12px 0 72px 0;
             background: linear-gradient(180deg, #11161b 0%, #12171c 100%);
             border-bottom: 1px solid rgba(255,255,255,0.05);
             z-index: 6;
@@ -360,7 +360,7 @@
         .brand-read-shell {
             max-width: none;
             width: 100%;
-            margin: 0 auto;
+            margin: -12px auto 0 auto;
             border: 1px solid var(--border-light);
             border-top: none;
             background:
@@ -2024,8 +2024,11 @@
             nav { flex-direction: column; gap: 1.5rem; background: rgba(15,18,22,0.92); }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
             .brand-read-section {
-                margin-top: -22px;
-                padding-top: 12px;
+                margin-top: 0;
+                padding-top: 18px;
+            }
+            .brand-read-shell {
+                margin-top: -18px;
             }
             .grid-3 { grid-template-columns: 1fr; }
             .work-grid { grid-template-columns: 1fr; }
@@ -2082,7 +2085,7 @@
             }
             .hero-subtitle { font-size: 0.9rem; margin-bottom: 1.1rem; }
             .hero-video {
-                object-position: 100% 80%;
+                object-position: 78% 64%;
                 transform: scale(1.01);
             }
             .opening-hook { white-space: normal; max-width: 12ch; }
