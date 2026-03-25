@@ -323,7 +323,6 @@
             padding: 82px 0 52px 0;
             text-align: center;
             background: linear-gradient(180deg, #101318 0%, #11161b 100%);
-            border-top: 1px solid rgba(255,255,255,0.05);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
@@ -352,7 +351,6 @@
         .brand-read-section {
             padding: 44px 0 72px 0;
             background: linear-gradient(180deg, #11161b 0%, #12171c 100%);
-            border-top: 1px solid rgba(255,255,255,0.05);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
@@ -2455,7 +2453,7 @@
         <div class="container">
             <div class="brand-read-shell">
                 <div class="brand-read-intro">
-                    <span class="brand-read-kicker">Private Brand Read</span>
+                    <span class="brand-read-kicker">Brand Review</span>
                     <h2 class="brand-read-title">If your brand was a movie</h2>
                     <p class="brand-read-sub">A quieter studio read of the image, the message, and where the two stop moving as one.</p>
                 </div>
@@ -2504,11 +2502,11 @@
 
                                 <div class="brand-read-rail brand-read-reveal" id="brand-read-rail">
                                 <div class="brand-read-email-gate" id="brand-read-gate">
-                                    <span class="brand-read-gate-title">Unlock the Full Read</span>
+                                    <span class="brand-read-gate-title">Unlock the Full Review</span>
                                     <p class="brand-read-gate-copy">The full read opens here and lands in your inbox.</p>
                                     <div class="brand-read-gate-row">
                                         <input id="brand-read-email" class="brand-read-email" type="email" placeholder="Your email address" />
-                                        <button type="button" class="btn" id="brand-read-unlock">Unlock Full Read</button>
+                                        <button type="button" class="btn" id="brand-read-unlock">Unlock Full Review</button>
                                     </div>
                                     <p class="brand-read-status" id="brand-read-gate-status" aria-live="polite"></p>
                                 </div>
@@ -2520,7 +2518,7 @@
                     <div class="brand-read-deep-wrap">
                         <div class="brand-read-deep-head">
                             <div class="brand-read-deep-intro">
-                                <div class="brand-read-deep-title">Full Read</div>
+                                <div class="brand-read-deep-title">Full Review</div>
                                 <p class="brand-read-status brand-read-delivery-status" id="brand-read-delivery-status" aria-live="polite"></p>
                             </div>
                             <p class="brand-read-deep-note">A studio read of what is landing, what feels off, and what to refine next.</p>
@@ -2908,19 +2906,19 @@
 
                 setStatus(gateStatus, '');
                 setStatus(deliveryStatus, '');
-                setLoading(unlockButton, true, 'Unlock Full Read', 'Opening...');
+                setLoading(unlockButton, true, 'Unlock Full Review', 'Opening...');
 
                 if (isLocalPreview) {
                     gate.classList.add('hidden');
                     deep.classList.add('visible');
-                    setLoading(unlockButton, false, 'Unlock Full Read', 'Opening...');
+                    setLoading(unlockButton, false, 'Unlock Full Review', 'Opening...');
                     setStatus(deliveryStatus, 'Local preview open. Connect the live API to send the PDF.', 'success');
                     return;
                 }
 
                 gate.classList.add('hidden');
                 deep.classList.add('visible');
-                setLoading(unlockButton, false, 'Unlock Full Read', 'Opening...');
+                setLoading(unlockButton, false, 'Unlock Full Review', 'Opening...');
                 const stopUnlockStatus = startLoadingStatus(deliveryStatus, [
                     'The full read is open.',
                     'Building the PDF now.',

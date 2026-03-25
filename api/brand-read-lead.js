@@ -232,9 +232,9 @@ function generatePdfBuffer({ email, url, result }) {
       size: 'A4',
       margins: { top: 56, bottom: 56, left: 56, right: 56 },
       info: {
-        Title: `${sanitize(result.brandName || 'Brand')} Deep Read`,
+        Title: `${sanitize(result.brandName || 'Brand')} Brand Review`,
         Author: 'SAHAR',
-        Subject: 'Brand Read Report'
+        Subject: 'Brand Review Report'
       }
     });
 
@@ -335,7 +335,7 @@ function generatePdfBuffer({ email, url, result }) {
     doc.fillColor('#201710')
       .font('Helvetica')
       .fontSize(12)
-      .text(sanitize(result.genre || 'Brand Read'), 55, genreY + 1, {
+      .text(sanitize(result.genre || 'Brand Review'), 55, genreY + 1, {
         width: pageWidth - 108,
         characterSpacing: 2.2,
         height: 22,
@@ -346,7 +346,7 @@ function generatePdfBuffer({ email, url, result }) {
     doc.fillColor(colors.gold)
       .font('Helvetica')
       .fontSize(12)
-      .text(sanitize(result.genre || 'Brand Read'), 54, genreY, {
+      .text(sanitize(result.genre || 'Brand Review'), 54, genreY, {
         width: pageWidth - 108,
         characterSpacing: 2.2,
         height: 22,
@@ -424,7 +424,7 @@ function generatePdfBuffer({ email, url, result }) {
         doc.fillColor(colors.gold)
           .font('Helvetica')
           .fontSize(10)
-          .text('SAHAR | DEEP READ', 56, 44, { characterSpacing: 2 });
+          .text('SAHAR | BRAND REVIEW', 56, 44, { characterSpacing: 2 });
         y = 90;
       }
 
@@ -476,13 +476,16 @@ async function sendReportEmailWithSmtp({ email, url, result, pdfBuffer }) {
     from,
     to: email,
     replyTo,
-    subject: `${brandName} | Deep Read from SAHAR`,
+    subject: `${brandName} | Brand Review from SAHAR`,
     text: [
-      `Here is your Deep Read for ${brandName}.`,
+      `Here is your Brand Review for ${brandName}.`,
       '',
       'Attached is the PDF version of the report.',
       '',
       'If you want to turn this into sharper priorities and a clearer direction, you can book a strategic session here:',
+      '$250 / 60 min. Paid at booking.',
+      'If we continue into a project, the fee goes toward the work.',
+      '',
       'https://calendly.com/maryna-dabrytskaya/sahar-strategic-session',
       '',
       'SAHAR'
@@ -490,19 +493,21 @@ async function sendReportEmailWithSmtp({ email, url, result, pdfBuffer }) {
     html: `
       <div style="background:#10151b;padding:32px;font-family:Helvetica,Arial,sans-serif;color:#f1ece4;">
         <div style="max-width:640px;margin:0 auto;">
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#d5b06d;margin-bottom:18px;">SAHAR | Deep Read</div>
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#d5b06d;margin-bottom:18px;">SAHAR | Brand Review</div>
           <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:1.1;margin-bottom:14px;">${brandName}</div>
-          <p style="font-size:15px;line-height:1.75;color:#c9c3bb;margin:0 0 18px 0;">Here is your Deep Read report. The PDF is attached.</p>
+          <p style="font-size:15px;line-height:1.75;color:#c9c3bb;margin:0 0 18px 0;">Here is your Brand Review report. The PDF is attached.</p>
           <p style="font-size:15px;line-height:1.75;color:#c9c3bb;margin:0 0 24px 0;">If you want to turn this into sharper priorities and a clearer direction, you can book a strategic session below.</p>
           <p style="margin:0 0 24px 0;">
             <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" style="display:inline-block;padding:12px 18px;border:1px solid #d5b06d;color:#f1ece4;text-decoration:none;letter-spacing:1px;text-transform:uppercase;font-size:12px;">Book a Strategic Session</a>
           </p>
+          <p style="font-size:13px;line-height:1.7;color:#d5b06d;margin:0 0 8px 0;">$250 / 60 min. Paid at booking.</p>
+          <p style="font-size:13px;line-height:1.7;color:#8d939b;margin:0 0 24px 0;">If we continue into a project, the fee goes toward the work.</p>
           <p style="font-size:13px;line-height:1.7;color:#8d939b;margin:0;">Website reviewed: ${sanitize(url)}</p>
         </div>
       </div>
     `,
     attachments: [{
-      filename: `${safeFilename(brandName)}-deep-read.pdf`,
+      filename: `${safeFilename(brandName)}-brand-review.pdf`,
       content: pdfBuffer,
       contentType: 'application/pdf'
     }]
@@ -521,13 +526,16 @@ async function sendReportEmailWithResend({ email, url, result, pdfBuffer }) {
     from,
     to: email,
     replyTo,
-    subject: `${brandName} | Deep Read from SAHAR`,
+    subject: `${brandName} | Brand Review from SAHAR`,
     text: [
-      `Here is your Deep Read for ${brandName}.`,
+      `Here is your Brand Review for ${brandName}.`,
       '',
       'Attached is the PDF version of the report.',
       '',
       'If you want to turn this into sharper priorities and a clearer direction, you can book a strategic session here:',
+      '$250 / 60 min. Paid at booking.',
+      'If we continue into a project, the fee goes toward the work.',
+      '',
       'https://calendly.com/maryna-dabrytskaya/sahar-strategic-session',
       '',
       'SAHAR'
@@ -535,19 +543,21 @@ async function sendReportEmailWithResend({ email, url, result, pdfBuffer }) {
     html: `
       <div style="background:#10151b;padding:32px;font-family:Helvetica,Arial,sans-serif;color:#f1ece4;">
         <div style="max-width:640px;margin:0 auto;">
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#d5b06d;margin-bottom:18px;">SAHAR | Deep Read</div>
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#d5b06d;margin-bottom:18px;">SAHAR | Brand Review</div>
           <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:1.1;margin-bottom:14px;">${brandName}</div>
-          <p style="font-size:15px;line-height:1.75;color:#c9c3bb;margin:0 0 18px 0;">Here is your Deep Read report. The PDF is attached.</p>
+          <p style="font-size:15px;line-height:1.75;color:#c9c3bb;margin:0 0 18px 0;">Here is your Brand Review report. The PDF is attached.</p>
           <p style="font-size:15px;line-height:1.75;color:#c9c3bb;margin:0 0 24px 0;">If you want to turn this into sharper priorities and a clearer direction, you can book a strategic session below.</p>
           <p style="margin:0 0 24px 0;">
             <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" style="display:inline-block;padding:12px 18px;border:1px solid #d5b06d;color:#f1ece4;text-decoration:none;letter-spacing:1px;text-transform:uppercase;font-size:12px;">Book a Strategic Session</a>
           </p>
+          <p style="font-size:13px;line-height:1.7;color:#d5b06d;margin:0 0 8px 0;">$250 / 60 min. Paid at booking.</p>
+          <p style="font-size:13px;line-height:1.7;color:#8d939b;margin:0 0 24px 0;">If we continue into a project, the fee goes toward the work.</p>
           <p style="font-size:13px;line-height:1.7;color:#8d939b;margin:0;">Website reviewed: ${sanitize(url)}</p>
         </div>
       </div>
     `,
     attachments: [{
-      filename: `${safeFilename(brandName)}-deep-read.pdf`,
+      filename: `${safeFilename(brandName)}-brand-review.pdf`,
       content: pdfBuffer.toString('base64'),
       contentType: 'application/pdf'
     }]
