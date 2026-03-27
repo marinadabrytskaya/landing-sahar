@@ -269,12 +269,21 @@
             animation: heroSubtitleGlow 8s ease-in-out infinite, heroSubtitleSweep 7.5s ease-in-out infinite;
         }
 
-        .hero-question {
+        .hero-callout {
             position: absolute;
             left: 50%;
-            bottom: 13vh;
+            bottom: 4.2vh;
             transform: translateX(-50%);
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.05rem;
+            width: min(42rem, calc(100% - 3rem));
+            text-align: center;
+        }
+
+        .hero-question {
             font-size: clamp(1.8rem, 2.8vw, 2.3rem);
             font-style: normal;
             font-weight: 400;
@@ -290,20 +299,49 @@
         }
 
         .hero-question-sub {
-            position: absolute;
-            left: 50%;
-            bottom: 7.6vh;
-            transform: translateX(-50%);
-            z-index: 10;
-            width: min(42rem, calc(100% - 3rem));
+            width: min(34rem, calc(100% - 2rem));
             margin: 0;
             font-family: var(--font-sans);
-            font-size: 0.98rem;
-            line-height: 1.75;
+            font-size: 0.95rem;
+            line-height: 1.6;
             letter-spacing: 0.01em;
             color: rgba(239, 234, 225, 0.82);
             text-align: center;
             text-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .hero-actions .btn {
+            min-width: 16rem;
+            text-align: center;
+        }
+
+        .hero-link {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            padding: 1rem 2rem;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-link:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.025);
         }
 
         @keyframes heroSubtitleGlow {
@@ -1190,6 +1228,11 @@
             font-size: 0.95rem;
             color: var(--text-muted);
             margin-bottom: 1.15rem;
+        }
+
+        .method-text p strong {
+            color: rgba(239, 234, 225, 0.92);
+            font-weight: 500;
         }
 
         .method-text ul {
@@ -2098,8 +2141,12 @@
                 padding: 0 1.5rem;
                 transform: translateY(-1.5vh);
             }
+            .hero-callout {
+                bottom: 3.2vh;
+                width: calc(100% - 2.6rem);
+                gap: 0.85rem;
+            }
             .hero-question {
-                bottom: 13vh;
                 width: min(11ch, calc(100% - 2.4rem));
                 max-width: 11ch;
                 font-size: clamp(1.55rem, 7vw, 2rem);
@@ -2112,10 +2159,19 @@
             }
             .opening-hook { white-space: normal; max-width: 12ch; }
             .hero-question-sub {
-                bottom: 6.5vh;
                 width: min(26rem, calc(100% - 2.6rem));
                 font-size: 0.88rem;
                 line-height: 1.6;
+            }
+            .hero-actions {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+            .hero-actions .btn,
+            .hero-link {
+                min-width: 0;
+                width: 100%;
+                text-align: center;
             }
             .brand-read-intro,
             .brand-read-panel {
@@ -2219,7 +2275,7 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-links">
-            <a href="#method">Method</a>
+            <a href="#method">What We Do</a>
             <a href="#work">Work</a>
             <a href="#packages">Packages</a>
             <a href="#brand-read">Brand Review</a>
@@ -2240,22 +2296,28 @@
             <h1 class="hero-title">SAHAR</h1>
             <p class="hero-subtitle">Creative Intelligence Studio</p>
         </div>
-        <h2 class="hero-question">If Your Brand Was a Movie<br>Would Anyone Watch It?</h2>
-        <p class="hero-question-sub">We shape brands that can hold attention at a higher level.</p>
+        <div class="hero-callout">
+            <h2 class="hero-question">If Your Brand Was a Movie<br>Would Anyone Watch It?</h2>
+            <p class="hero-question-sub">We help brands sharpen their strategy, story, and visual presence across websites, campaigns, and films.</p>
+            <div class="hero-actions">
+                <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
+                <a href="#brand-read" class="hero-link">Try the Brand Review</a>
+            </div>
+        </div>
     </header>
 
     <!-- OPENING SECTION -->
     <section class="opening-section">
         <div class="container">
-            <h2 class="opening-hook">We shape strategy, narrative, and visual worlds for brands that need to move with more clarity and force.</h2>
-            <p class="opening-sub">Across websites, campaigns, and films.</p>
+            <h2 class="opening-hook">We help existing brands get clearer on what they say, how they look, and how they move across every touchpoint.</h2>
+            <p class="opening-sub">From strategy and messaging to websites, campaigns, and brand films, the goal is one sharper brand presence.</p>
         </div>
     </section>
 
     <!-- METHOD SECTION -->
     <section id="method" class="method-section">
         <div class="container">
-            <h2 class="section-header">Method</h2>
+            <h2 class="section-header">What We Do</h2>
             <div class="grid-3">
                 
                 <!-- Strategy -->
@@ -2265,12 +2327,12 @@
                         <div class="method-sheen"></div>
                     </div>
                     <div class="method-text">
-                        <h3>Strategy</h3>
-                        <p>Position, audience, and direction aligned into one clearer center.</p>
+                        <h3>Brand Strategy</h3>
+                        <p><strong>For brands that need a clearer position.</strong> We define the offer, the audience, and the direction the brand should move in.</p>
                         <ul>
-                            <li>Positioning and market role</li>
-                            <li>Audience and tone</li>
-                            <li>Direction for campaigns and digital</li>
+                            <li>Positioning and offer clarity</li>
+                            <li>Audience and tone of voice</li>
+                            <li>Direction for digital and campaigns</li>
                         </ul>
                     </div>
                 </div>
@@ -2282,12 +2344,12 @@
                         <div class="method-sheen"></div>
                     </div>
                     <div class="method-text">
-                        <h3>Story</h3>
-                        <p>Narrative shaped to land with more clarity, pull, and recall.</p>
+                        <h3>Narrative & Messaging</h3>
+                        <p><strong>For brands that look strong but still sound vague.</strong> We shape the language, story, and messaging so the brand lands faster and with more confidence.</p>
                         <ul>
-                            <li>Core messaging and narrative</li>
-                            <li>Launch and campaign storylines</li>
-                            <li>Consistency across touchpoints</li>
+                            <li>Core messaging and brand narrative</li>
+                            <li>Campaign and launch storylines</li>
+                            <li>Consistency across key touchpoints</li>
                         </ul>
                     </div>
                 </div>
@@ -2299,12 +2361,12 @@
                         <div class="method-sheen"></div>
                     </div>
                     <div class="method-text">
-                        <h3>Spectacle</h3>
-                        <p>Visual worlds built from strategy and story, across websites, campaigns, and films.</p>
+                        <h3>Websites, Campaigns & Films</h3>
+                        <p><strong>For brands that need a stronger visual presence.</strong> We turn strategy and story into the website, campaign assets, and brand films people actually remember.</p>
                         <ul>
-                            <li>Websites and landing pages</li>
-                            <li>Campaign imagery and launch assets</li>
-                            <li>Brand films and presentation visuals</li>
+                            <li>Custom websites and landing pages</li>
+                            <li>Campaign visuals and launch assets</li>
+                            <li>Brand films and presentation pieces</li>
                         </ul>
                     </div>
                 </div>
@@ -2327,7 +2389,7 @@
                             <iframe
                                 id="qabastech-preview-iframe"
                                 src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=11&end=24&loop=0&iv_load_policy=3"
-                                title="Qabastech teaser"
+                                title="Cinematic brand film teaser"
                                 loading="lazy"
                                 allow="autoplay; encrypted-media; picture-in-picture"
                                 referrerpolicy="strict-origin-when-cross-origin"
@@ -2337,7 +2399,7 @@
                     <div class="work-overlay"></div>
                     <div class="work-card-copy">
                         <span class="work-kicker">Cinematic Brand Film</span>
-                        <h3 class="work-title">Qabastech</h3>
+                        <h3 class="work-title">Teaser</h3>
                         <p class="work-desc">A cinematic brand film built around scale, risk, and intelligent systems.</p>
                         <div class="work-meta">
                             <span class="work-tag">Brand Film</span>
@@ -2348,7 +2410,7 @@
                                 class="work-action"
                                 type="button"
                                 data-work-teaser
-                                data-teaser-title="Qabastech Teaser"
+                                data-teaser-title="Cinematic Brand Film Teaser"
                                 data-teaser-src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=11&end=41&disablekb=1&iv_load_policy=3"
                                 data-teaser-duration="30000"
                             >Rewatch Teaser</button>
@@ -2415,22 +2477,19 @@
     <section id="packages" class="packages-section">
         <div class="container">
             <h2 class="section-header">Packages</h2>
-            <p class="packages-note">A starting structure for the kinds of work we do most often. Scope can expand, contract, or shift with the brief.</p>
+            <p class="packages-note">A clear starting point for the work we do most often. Each package can expand or contract with the brief, but the deliverables below show what the client is actually getting.</p>
             <div class="grid-3">
                 
                 <!-- START -->
                 <div class="pack-card">
                     <h3>Brand Foundation</h3>
                     <span class="pack-sub">From $2,800</span>
-                    <p class="pack-desc">For new brands or brands that need strategic clarity and a custom website.</p>
-                    <span class="pack-includes-label">Selected Scope</span>
+                    <p class="pack-desc">For brands that need a clearer story and a custom website built around it.</p>
+                    <span class="pack-includes-label">Deliverables</span>
                     <ul class="pack-list">
-                        <li>Positioning, audience, and tone of voice</li>
-                        <li>Core brand narrative and website copy direction</li>
-                        <li>Custom website design and development</li>
-                        <li>Up to 5 pages with mobile optimization</li>
-                        <li>Basic on-page SEO setup</li>
-                        <li>Two Rounds of Revisions</li>
+                        <li>Brand positioning and core story</li>
+                        <li>Messaging and website structure</li>
+                        <li>Custom website designed and built for launch</li>
                     </ul>
                 </div>
 
@@ -2438,15 +2497,12 @@
                 <div class="pack-card">
                     <h3>Campaign</h3>
                     <span class="pack-sub">From $1,900</span>
-                    <p class="pack-desc">For launches, offers, and campaigns that need a clear concept, sharper messaging, and a visual world built around them.</p>
-                    <span class="pack-includes-label">Selected Scope</span>
+                    <p class="pack-desc">For launches and offers that need one clear campaign idea.</p>
+                    <span class="pack-includes-label">Deliverables</span>
                     <ul class="pack-list">
-                        <li>Campaign concept, messaging, and narrative direction</li>
-                        <li>Visual direction for the campaign world</li>
-                        <li>2-4 hero campaign visuals</li>
-                        <li>Campaign assets for web, social, and motion</li>
-                        <li>Scope shaped to the client request</li>
-                        <li>Two Rounds of Revisions</li>
+                        <li>Campaign idea and key message</li>
+                        <li>Visuals for web and social</li>
+                        <li>Optional motion support</li>
                     </ul>
                 </div>
 
@@ -2454,14 +2510,12 @@
                 <div class="pack-card">
                     <h3>Brand Film</h3>
                     <span class="pack-sub">From $2,300</span>
-                    <p class="pack-desc">For brands that need a cinematic piece for launches, investor presentations, and high-impact storytelling.</p>
-                    <span class="pack-includes-label">Selected Scope</span>
+                    <p class="pack-desc">For brands that need one cinematic film to launch or elevate the brand.</p>
+                    <span class="pack-includes-label">Deliverables</span>
                     <ul class="pack-list">
-                        <li>Brand film concept, story direction, and visual direction</li>
-                        <li>3-5 hero visuals</li>
-                        <li>1 brand film (60-120 seconds)</li>
-                        <li>Supporting assets for web, social, or presentation</li>
-                        <li>Two Rounds of Revisions</li>
+                        <li>Film concept and visual direction</li>
+                        <li>One final brand film</li>
+                        <li>Assets for web or presentation</li>
                     </ul>
                 </div>
 
@@ -2487,8 +2541,8 @@
             <div class="brand-read-shell">
                 <div class="brand-read-intro">
                     <span class="brand-read-kicker">Brand Review</span>
-                    <h2 class="brand-read-title">If your brand was a movie</h2>
-                    <p class="brand-read-sub">A quieter studio read of the image, the message, and where the two stop moving as one.</p>
+                    <h2 class="brand-read-title">See what your brand is already saying</h2>
+                    <p class="brand-read-sub">A quick read of what is working, what feels off, and what to refine next.</p>
                 </div>
 
                 <div class="brand-read-main">
@@ -2499,12 +2553,12 @@
                                 <input id="brand-read-url" class="brand-read-input" type="text" placeholder="https://yourbrand.com" />
                             </div>
 
-                            <p class="brand-read-helper">Start with a first poster. If it feels right, open the full read.</p>
+                            <p class="brand-read-helper">Enter your website to get a first poster and a sharper first read.</p>
                             <p class="brand-read-status" id="brand-read-status" aria-live="polite"></p>
 
                             <div class="brand-read-actions">
                                 <button type="submit" class="btn" id="brand-read-generate">Create Poster</button>
-                                <span class="brand-read-secondary">A first poster. Then the full read.</span>
+                                <span class="brand-read-secondary">A first poster. Then the full review.</span>
                             </div>
                         </form>
                     </div>
@@ -2554,7 +2608,7 @@
                                 <div class="brand-read-deep-title">Full Review</div>
                                 <p class="brand-read-status brand-read-delivery-status" id="brand-read-delivery-status" aria-live="polite"></p>
                             </div>
-                            <p class="brand-read-deep-note">A studio read of what is landing, what feels off, and what to refine next.</p>
+                            <p class="brand-read-deep-note">A practical studio review of what is working, what is unclear, and what should change first.</p>
                         </div>
 
                         <div class="brand-read-deep" id="brand-read-deep">
@@ -2611,12 +2665,12 @@
         <div class="container">
             <div class="contact-founder">
                 <span class="contact-founder-kicker">Founder Note</span>
-                <p class="contact-founder-copy">SAHAR is led by Marina Dabrytskaya-Gaffoor and built as a small team working at the intersection of strategy, image, and digital.</p>
-                <p class="contact-founder-copy">We are especially useful when a brand has ambition, but its story, visual world, and digital presence still do not move with one clear point of view.</p>
+                <p class="contact-founder-copy">SAHAR is led by Yusuf Gaffoor and Marina Dabrytskaya-Gaffoor.</p>
+                <p class="contact-founder-copy">We help brands clarify their positioning, shape stronger stories, and turn that direction into websites, campaigns, and brand films that move as one.</p>
                 <p class="contact-founder-copy">We work with brands internationally.</p>
             </div>
             <h2 class="section-header" style="margin-bottom: 2rem;">Work With Us</h2>
-            <p class="contact-sub">For brands, founders, and ventures looking for strategic clarity, campaign direction, and cinematic presence.</p>
+            <p class="contact-sub">For brands, founders, and teams looking for clearer positioning, stronger messaging, and a more cohesive presence.</p>
             <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
             <p class="contact-note">A focused 20-minute call to understand your brand, scope, and direction.</p>
             <a href="mailto:hello@saharstudio.com" class="contact-email">hello@saharstudio.com</a>
