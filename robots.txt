@@ -1,4 +1,10 @@
+User-agent: Googlebot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: *
 Allow: /
 
-Sitemap: https://saharstudio.com/sitemap.xml
+Sitemap: https://www.saharstudio.com/sitemap.xml

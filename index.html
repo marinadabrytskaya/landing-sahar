@@ -4,41 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAHAR | Brand Strategy, Campaign Direction & Brand Films</title>
-    <meta name="description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, and cinematic brand films.">
+    <meta name="description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.saharstudio.com/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SAHAR">
     <meta property="og:title" content="SAHAR | Brand Strategy, Campaign Direction & Brand Films">
-    <meta property="og:description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, and cinematic brand films.">
+    <meta property="og:description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.">
     <meta property="og:url" content="https://www.saharstudio.com/">
     <meta property="og:image" content="https://www.saharstudio.com/hero-image.jpg">
     <meta property="og:image:alt" content="SAHAR Creative Intelligence Studio">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SAHAR | Brand Strategy, Campaign Direction & Brand Films">
-    <meta name="twitter:description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, and cinematic brand films.">
+    <meta name="twitter:description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.">
     <meta name="twitter:image" content="https://www.saharstudio.com/hero-image.jpg">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "SAHAR",
-      "url": "https://www.saharstudio.com/",
-      "email": "hello@saharstudio.com",
-      "founder": [
+      "@graph": [
         {
-          "@type": "Person",
-          "name": "Yusuf Gaffoor"
+          "@type": "Organization",
+          "@id": "https://www.saharstudio.com/#organization",
+          "name": "SAHAR",
+          "url": "https://www.saharstudio.com/",
+          "email": "hello@saharstudio.com",
+          "description": "SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.",
+          "sameAs": [
+            "https://www.linkedin.com/company/sahar-studio"
+          ],
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.saharstudio.com/sahar-logo-transparent-gold.png",
+            "width": 2400,
+            "height": 900
+          },
+          "image": "https://www.saharstudio.com/hero-image.jpg",
+          "founder": [
+            {
+              "@type": "Person",
+              "name": "Yusuf Gaffoor"
+            },
+            {
+              "@type": "Person",
+              "name": "Marina Dabrytskaya-Gaffoor"
+            }
+          ],
+          "knowsAbout": [
+            "Brand strategy",
+            "Campaign direction",
+            "Brand films",
+            "Websites",
+            "Digital products",
+            "AI-powered brand experiences",
+            "Brand review"
+          ]
         },
         {
-          "@type": "Person",
-          "name": "Marina Dabrytskaya-Gaffoor"
+          "@type": "WebSite",
+          "@id": "https://www.saharstudio.com/#website",
+          "url": "https://www.saharstudio.com/",
+          "name": "SAHAR",
+          "description": "SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://www.saharstudio.com/#organization"
+          }
         }
-      ],
-      "description": "SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, and cinematic brand films."
+      ]
     }
     </script>
     
@@ -1995,6 +2030,33 @@
 
         .contact-email:hover { color: var(--gold); }
 
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.1rem;
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.46);
+        }
+
+        .contact-links a {
+            color: rgba(255,255,255,0.46);
+        }
+
+        .contact-links a:hover {
+            color: var(--gold);
+        }
+
+        .contact-links-divider {
+            width: 1px;
+            height: 12px;
+            background: rgba(255,255,255,0.12);
+        }
+
         .contact-footnotes {
             max-width: 860px;
             margin: 2.75rem auto 0 auto;
@@ -2680,6 +2742,11 @@
             <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
             <p class="contact-note">A focused 20-minute call to understand your brand, scope, and direction.</p>
             <a href="mailto:hello@saharstudio.com" class="contact-email">hello@saharstudio.com</a>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/company/sahar-studio" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <span class="contact-links-divider" aria-hidden="true"></span>
+                <a href="https://www.saharstudio.com" target="_blank" rel="noopener noreferrer">Website</a>
+            </div>
             <div class="contact-footnotes">
                 <span>&copy; 2026 SAHAR. All Rights Reserved.</span>
                 <span>Developed by SAHAR.</span>
