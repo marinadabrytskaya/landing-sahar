@@ -137,6 +137,17 @@ async function fetchWebsiteContext(url) {
       headings,
       visibleText
     };
+  } catch (error) {
+    if (error?.name === 'AbortError') {
+      throw new Error('This website took too long to respond. Try again in a moment.');
+    }
+
+    const message = String(error?.message || '');
+    if (message.includes('fetch failed')) {
+      throw new Error('This website could not be reached. Check the URL and try again.');
+    }
+
+    throw error;
   } finally {
     clearTimeout(timeout);
   }
