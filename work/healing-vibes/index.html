@@ -2060,7 +2060,25 @@
             font-size: 0.98rem;
             line-height: 1.75;
             color: rgba(239, 234, 225, 0.82);
-            margin-bottom: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin: 0 0 1.25rem;
+        }
+
+        .case-meta-pill {
+            padding: 0.48rem 0.72rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.02);
+            font-family: var(--font-sans);
+            font-size: 0.64rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: rgba(239, 234, 225, 0.74);
         }
 
         .case-hero-links {
@@ -2166,6 +2184,21 @@
             color: rgba(255,255,255,0.6);
         }
 
+        .opening-copy {
+            max-width: 46rem;
+            margin: 0.9rem auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .opening-copy p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.64);
+            margin: 0;
+        }
+
         .case-challenge-card {
             display: grid;
             grid-template-columns: minmax(0, 0.92fr) minmax(18rem, 0.88fr);
@@ -2252,6 +2285,33 @@
             gap: 0.55rem;
             margin-top: 0.95rem;
             margin-bottom: 1rem;
+        }
+
+        .case-proof-quote {
+            margin: 0 0 1rem;
+            padding: 1rem 1.05rem 0.95rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.004)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-proof-quote p {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            line-height: 1.35;
+            color: rgba(249, 243, 235, 0.94);
+            margin: 0 0 0.5rem;
+        }
+
+        .case-proof-quote span {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(226, 195, 130, 0.82);
         }
 
         .case-pill {
@@ -2795,8 +2855,13 @@
                 </div>
                 <div class="case-hero-copy">
                     <span class="case-hero-kicker">Healing Vibes Case Study</span>
-                    <h1 class="case-hero-title">Healing Vibes. Full digital ecosystem.</h1>
-                    <p class="case-hero-text">A calmer digital system shaped across the site, shop, booking flow, experiences, founder presence, and Body Intelligence Mapping.</p>
+                    <h1 class="case-hero-title">She had the gift. She needed the world to understand it.</h1>
+                    <p class="case-hero-text">Healing Vibes is a Bryanston-based wellness practice built around body-led healing. SAHAR shaped the strategy, messaging, website, booking system, shop, and AI-powered diagnostic tool that turned the practice into a clearer digital experience.</p>
+                    <div class="case-hero-meta">
+                        <span class="case-meta-pill">Bryanston / Sandton / Johannesburg</span>
+                        <span class="case-meta-pill">Wellness / Somatic Therapy</span>
+                        <span class="case-meta-pill">Built in 10 days</span>
+                    </div>
                     <div class="case-hero-links">
                         <a href="/work/" class="case-inline-link">Back To Work</a>
                         <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
@@ -2809,8 +2874,12 @@
 
     <section class="opening-section">
         <div class="container">
-            <h2 class="opening-hook">From an informational wellness site to a calmer digital system.</h2>
-            <p class="opening-sub">Website, shop, booking, experiences, and Body Intelligence Mapping were brought into one clearer brand world.</p>
+            <span class="case-eyebrow">The Brief</span>
+            <h2 class="opening-hook">Laetitia did not need another wellness website. She needed a language people could trust.</h2>
+            <div class="opening-copy">
+                <p>Her practice was already real: Therapeutic Reflexology, Reiki, and Kahuna Massage shaped by lived experience, body-awareness, and one-to-one care. What was missing was a way to communicate that with clarity in a category crowded by vague wellness language and interchangeable aesthetics.</p>
+                <p>The job was not just to make the site look better. It was to position the practice, shape the message, and build a digital journey that could move someone from first curiosity into the right treatment, the right booking path, and a clearer sense of trust.</p>
+            </div>
         </div>
     </section>
 
@@ -2819,8 +2888,8 @@
             <div class="case-challenge-card">
                 <div class="case-challenge-text">
                     <span class="case-eyebrow">The Challenge</span>
-                    <h2 class="case-heading">The earlier site was mostly informational.</h2>
-                    <p class="case-copy">There was no real online booking flow, no integrated shop, and no clearer digital path guiding people from first interest into the right treatment or booking step.</p>
+                    <h2 class="case-heading">The work was strong. The digital experience was not.</h2>
+                    <p class="case-copy">The earlier site was mostly informational. There was no real online booking flow, no integrated shop, and no clearer digital path guiding people from first interest into the right treatment or next booking step.</p>
                 </div>
                 <div class="case-media-card case-preview-frame case-challenge-shot">
                     <img src="/healing-vibes-current.png" alt="Healing Vibes previous website" />
@@ -2832,31 +2901,31 @@
     <section class="case-block case-system-section">
         <div class="container">
             <div class="case-system-head">
-                <span class="case-eyebrow">The System</span>
-                <h2 class="case-heading">What was added to the system.</h2>
-                <p class="case-copy">Not just a cleaner homepage. The direction expanded into a clearer digital experience with the website, booking, shop, experiences, and an AI-powered diagnostic tool working as one system.</p>
+                <span class="case-eyebrow">What Was Built</span>
+                <h2 class="case-heading">One system around the practice.</h2>
+                <p class="case-copy">Positioning, messaging, website direction, shop integration, booking pathways, experiences, and an AI-powered diagnostic tool were all built to work together instead of sitting as disconnected pieces.</p>
             </div>
             <div class="case-system-grid">
                 <article class="case-system-card">
                     <div class="case-media-card case-preview-frame">
                         <img src="/hv-reiki-card-web.jpg" alt="Healing Vibes Reiki card" />
                     </div>
-                    <h3>Website Direction</h3>
-                    <p>A calmer visual system shaped around the treatments, making the site feel more considered from the first screen.</p>
+                    <h3>Website & Messaging</h3>
+                    <p>A calmer visual and verbal system shaped around the treatments, so the practice finally sounded as considered as it felt in person.</p>
                 </article>
                 <article class="case-system-card">
                     <div class="case-media-card">
                         <img src="/hv-real-shop.png" alt="Healing Vibes shop and booking direction" />
                     </div>
                     <h3>Shop & Booking</h3>
-                    <p>Products, booking pathways, and support options brought into one clearer experience instead of sitting outside the site.</p>
+                    <p>Products, booking pathways, and support options were brought into one clearer experience instead of sitting outside the site.</p>
                 </article>
                 <article class="case-system-card">
                     <div class="case-media-card">
                         <img src="/hv-retreat-card.png" alt="Healing Vibes retreat experience card" />
                     </div>
                     <h3>Experiences & Founder Presence</h3>
-                    <p>Retreats, experiences, and the founder’s point of view now sit more clearly inside the same brand world.</p>
+                    <p>Retreats, experiences, and Laetitia’s point of view now sit more clearly inside the same brand world.</p>
                 </article>
             </div>
         </div>
@@ -2868,27 +2937,31 @@
                 <div class="case-body-copy">
                     <span class="case-eyebrow">Signature Layer</span>
                     <h2 class="case-heading">Body Intelligence Mapping</h2>
-                    <p class="case-copy">An AI-powered digital tool that gives people a more guided first step before booking. Instead of choosing blindly from a treatment list, they move toward a more relevant next treatment, which makes the experience clearer for the client and more useful for the business.</p>
+                    <p class="case-copy">A free AI-powered digital tool that gives people a more guided first step before booking. It is not just a feature. It works as a first moment of care, helping visitors understand what their body may be holding and guiding them toward a more relevant next treatment.</p>
                     <div class="case-body-pills">
                         <span class="case-pill">AI-Powered Tool</span>
-                        <span class="case-pill">Guided Experience</span>
-                        <span class="case-pill">Clearer Conversion</span>
+                        <span class="case-pill">Lead Magnet</span>
+                        <span class="case-pill">Guided Conversion</span>
                     </div>
                     <div class="case-hero-links" style="margin: 0 0 1rem 0;">
                         <a href="https://www.healingvibeswellness.com/body-map.html" target="_blank" rel="noopener noreferrer" class="btn">View Live Tool</a>
                     </div>
+                    <div class="case-proof-quote">
+                        <p>“The body Mapping is impressive!! such a cool idea!”</p>
+                        <span>Laetitia · Healing Vibes</span>
+                    </div>
                     <div class="case-body-mini-grid">
                         <div class="case-mini-card">
-                            <h3>Stronger Entry Point</h3>
+                            <h3>Pre-Qualifies Earlier</h3>
                             <p>The tool gives visitors something more useful than a static treatment list and helps them engage earlier.</p>
                         </div>
                         <div class="case-mini-card">
-                            <h3>More Directed Booking</h3>
+                            <h3>Leads To Booking</h3>
                             <p>It helps move people toward a more relevant treatment, support pathway, or next booking step.</p>
                         </div>
                         <div class="case-mini-card">
-                            <h3>Higher Conversion Value</h3>
-                            <p>It works as a branded digital lead-in that can increase clarity, trust, and conversion around the offer.</p>
+                            <h3>Feels Like Care</h3>
+                            <p>It works as a branded first experience instead of a generic quiz, form, or treatment menu.</p>
                         </div>
                     </div>
                 </div>
@@ -2904,21 +2977,21 @@
             <div class="case-outcome-layout">
                 <div class="case-outcome-copy">
                     <div class="case-outcome-head">
-                        <span class="case-eyebrow">What Changed</span>
-                        <h2 class="case-heading">A clearer digital experience around the practice.</h2>
+                        <span class="case-eyebrow">The Result</span>
+                        <h2 class="case-heading">A brand that now feels built from the inside out.</h2>
                     </div>
                     <div class="case-outcome-grid">
                         <div class="case-outcome-card">
-                            <h3>Digital Experience</h3>
-                            <p>The practice now has a clearer digital experience instead of just a basic informational site.</p>
+                            <h3>Clearer Positioning</h3>
+                            <p>The practice now sounds more specific, grounded, and distinct instead of blending into generic wellness language.</p>
                         </div>
                         <div class="case-outcome-card">
-                            <h3>Online Booking</h3>
-                            <p>Visitors now have clearer pathways into booking instead of only finding a phone number.</p>
+                            <h3>Digital Infrastructure</h3>
+                            <p>The website, booking, shop, and experiences now work as one system instead of scattered parts.</p>
                         </div>
                         <div class="case-outcome-card">
-                            <h3>Integrated Shop</h3>
-                            <p>The shop now feels like part of the same booking and treatment journey instead of something missing from the digital experience.</p>
+                            <h3>Body-Led Entry</h3>
+                            <p>The diagnostic tool gives the practice a more memorable first experience and a clearer path into treatment booking.</p>
                         </div>
                     </div>
                 </div>
