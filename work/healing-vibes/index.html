@@ -2302,25 +2302,29 @@
             background: #efe9df;
         }
 
-        .case-outcome-top {
+        .case-outcome-layout {
             display: grid;
-            grid-template-columns: minmax(0, 0.92fr) minmax(16rem, 0.72fr);
+            grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 0.82fr);
             gap: 1rem;
             align-items: start;
-            margin-bottom: 1.15rem;
         }
 
         .case-outcome-head {
             max-width: 38rem;
+            margin-bottom: 1rem;
         }
 
         .case-outcome-preview {
             aspect-ratio: 4 / 3;
         }
 
+        .case-outcome-copy {
+            max-width: 42rem;
+        }
+
         .case-outcome-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: 1fr;
             gap: 0.85rem;
         }
 
@@ -2430,12 +2434,6 @@
 
         .contact-links a:hover {
             color: var(--gold);
-        }
-
-        .contact-links-divider {
-            width: 1px;
-            height: 12px;
-            background: rgba(255,255,255,0.12);
         }
 
         .contact-footnotes {
@@ -2589,7 +2587,7 @@
             .case-challenge-shot {
                 aspect-ratio: 4 / 5;
             }
-            .case-outcome-top {
+            .case-outcome-layout {
                 grid-template-columns: 1fr;
             }
             .work-grid { grid-template-columns: 1fr; }
@@ -2775,9 +2773,8 @@
     <nav>
         <div class="nav-links">
             <a href="/">Home</a>
-            <a href="/#method">What We Do</a>
+            <a href="/packages/">What We Do</a>
             <a href="/work/">Work</a>
-            <a href="/#packages">Packages</a>
             <a href="/brand-review/">Brand Review</a>
             <a href="/contact/">Contact</a>
         </div>
@@ -2801,6 +2798,7 @@
                     <h1 class="case-hero-title">Healing Vibes. Full digital ecosystem.</h1>
                     <p class="case-hero-text">A calmer digital system shaped across the site, shop, booking flow, experiences, founder presence, and Body Intelligence Mapping.</p>
                     <div class="case-hero-links">
+                        <a href="/work/" class="case-inline-link">Back To Work</a>
                         <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
                         <a href="https://healingvibeswellness.com" target="_blank" rel="noopener noreferrer" class="case-inline-link">View Current Site</a>
                     </div>
@@ -2822,7 +2820,7 @@
                 <div class="case-challenge-text">
                     <span class="case-eyebrow">The Challenge</span>
                     <h2 class="case-heading">The earlier site was mostly informational.</h2>
-                    <p class="case-copy">There was no real online booking flow, no integrated shop, and very little sense of a fuller digital experience around the practice.</p>
+                    <p class="case-copy">There was no real online booking flow, no integrated shop, and no clearer digital path guiding people from first interest into the right treatment or booking step.</p>
                 </div>
                 <div class="case-media-card case-preview-frame case-challenge-shot">
                     <img src="/healing-vibes-current.png" alt="Healing Vibes previous website" />
@@ -2836,7 +2834,7 @@
             <div class="case-system-head">
                 <span class="case-eyebrow">The System</span>
                 <h2 class="case-heading">What was added to the system.</h2>
-                <p class="case-copy">Not just a cleaner homepage. The direction expanded into a fuller ecosystem with clearer pathways in and a more distinctive digital experience.</p>
+                <p class="case-copy">Not just a cleaner homepage. The direction expanded into a clearer digital experience with the website, booking, shop, experiences, and an AI-powered diagnostic tool working as one system.</p>
             </div>
             <div class="case-system-grid">
                 <article class="case-system-card">
@@ -2903,27 +2901,29 @@
 
     <section class="case-block case-outcome-section">
         <div class="container">
-            <div class="case-outcome-top">
-                <div class="case-outcome-head">
-                    <span class="case-eyebrow">What Changed</span>
-                    <h2 class="case-heading">A fuller digital experience around the practice.</h2>
+            <div class="case-outcome-layout">
+                <div class="case-outcome-copy">
+                    <div class="case-outcome-head">
+                        <span class="case-eyebrow">What Changed</span>
+                        <h2 class="case-heading">A clearer digital experience around the practice.</h2>
+                    </div>
+                    <div class="case-outcome-grid">
+                        <div class="case-outcome-card">
+                            <h3>Digital Experience</h3>
+                            <p>The practice now has a clearer digital experience instead of just a basic informational site.</p>
+                        </div>
+                        <div class="case-outcome-card">
+                            <h3>Online Booking</h3>
+                            <p>Visitors now have clearer pathways into booking instead of only finding a phone number.</p>
+                        </div>
+                        <div class="case-outcome-card">
+                            <h3>Integrated Shop</h3>
+                            <p>The shop now feels like part of the same booking and treatment journey instead of something missing from the digital experience.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="case-media-card case-preview-frame case-outcome-preview">
                     <img src="/hv-real-shop.png" alt="Healing Vibes integrated digital experience" />
-                </div>
-            </div>
-            <div class="case-outcome-grid">
-                <div class="case-outcome-card">
-                    <h3>Digital Experience</h3>
-                    <p>The practice now has a fuller digital world instead of just a basic informational site.</p>
-                </div>
-                <div class="case-outcome-card">
-                    <h3>Online Booking</h3>
-                    <p>Visitors now have clearer pathways into booking instead of only finding a phone number.</p>
-                </div>
-                <div class="case-outcome-card">
-                    <h3>Integrated Shop</h3>
-                    <p>The shop now feels like part of the brand system instead of something missing from the digital experience.</p>
                 </div>
             </div>
         </div>

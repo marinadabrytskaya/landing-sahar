@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | SAHAR</title>
-    <meta name="description" content="Contact SAHAR to book a discovery call and discuss brand strategy, websites, campaigns, brand films, and AI-powered brand experiences.">
+    <title>What We Do | SAHAR</title>
+    <meta name="description" content="What SAHAR does across brand foundations, campaign direction, brand films, and digital products or experiences.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.saharstudio.com/contact/">
+    <link rel="canonical" href="https://www.saharstudio.com/packages/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SAHAR">
-    <meta property="og:title" content="Contact | SAHAR">
-    <meta property="og:description" content="Contact SAHAR to book a discovery call and discuss brand strategy, websites, campaigns, brand films, and AI-powered brand experiences.">
-    <meta property="og:url" content="https://www.saharstudio.com/contact/">
+    <meta property="og:title" content="What We Do | SAHAR">
+    <meta property="og:description" content="What SAHAR does across brand foundations, campaign direction, brand films, and digital products or experiences.">
+    <meta property="og:url" content="https://www.saharstudio.com/packages/">
     <meta property="og:image" content="https://www.saharstudio.com/hero-image.jpg">
     <meta property="og:image:alt" content="SAHAR Creative Intelligence Studio">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Contact | SAHAR">
-    <meta name="twitter:description" content="Contact SAHAR to book a discovery call and discuss brand strategy, websites, campaigns, brand films, and AI-powered brand experiences.">
+    <meta name="twitter:title" content="What We Do | SAHAR">
+    <meta name="twitter:description" content="What SAHAR does across brand foundations, campaign direction, brand films, and digital products or experiences.">
     <meta name="twitter:image" content="https://www.saharstudio.com/hero-image.jpg">
 
     <script type="application/ld+json">
@@ -1369,7 +1369,7 @@
 
         /* --- PACKAGES SECTION --- */
         .packages-section {
-            padding: 88px 0 48px 0;
+            padding: 54px 0 48px 0;
             border-top: 1px solid var(--border-light);
             border-bottom: 1px solid var(--border-light);
             background: linear-gradient(180deg, #12171c 0%, #13181d 100%);
@@ -1377,11 +1377,20 @@
 
         .packages-note {
             max-width: 760px;
-            margin: -1.15rem auto 2.5rem auto;
+            margin: -1.35rem auto 2rem auto;
             font-size: 0.92rem;
             line-height: 1.8;
             color: rgba(255,255,255,0.56);
             text-align: center;
+        }
+
+        .packages-grid {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+            align-items: stretch;
         }
 
         .pack-card {
@@ -1389,7 +1398,7 @@
                 linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.005)),
                 linear-gradient(180deg, var(--bg-surface-lift) 0%, var(--bg-surface-warm) 100%);
             border: 1px solid var(--border-light);
-            padding: 3.5rem 2.5rem;
+            padding: 1.75rem 1.45rem;
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -1401,9 +1410,7 @@
             font-size: 1.08rem;
             letter-spacing: 0.11em;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            min-height: 1.5rem;
-            white-space: nowrap;
+            margin-bottom: 0.35rem;
         }
 
         .pack-sub {
@@ -1411,8 +1418,7 @@
             font-size: 1.4rem;
             font-style: italic;
             color: var(--gold);
-            margin-bottom: 1rem;
-            min-height: 2rem;
+            margin-bottom: 0.75rem;
             display: block;
         }
 
@@ -1420,8 +1426,7 @@
             font-size: 0.94rem;
             line-height: 1.75;
             color: rgba(255,255,255,0.62);
-            margin-bottom: 2rem;
-            min-height: 5.3rem;
+            margin-bottom: 1.1rem;
         }
 
         .pack-includes-label {
@@ -2036,147 +2041,19 @@
         /* --- CONTACT SECTION --- */
         .contact-section {
             padding: 88px 0;
+            text-align: center;
             border-top: 1px solid var(--border-light);
             background: linear-gradient(180deg, #12171c 0%, #11161b 100%);
         }
 
-        .contact-shell {
-            display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.8fr);
-            gap: 2rem;
-            align-items: stretch;
-        }
-
-        .contact-primary,
-        .contact-side {
+        .contact-founder {
+            max-width: 860px;
+            margin: 0 auto 3rem auto;
+            padding: 1.5rem 1.7rem;
             border: 1px solid rgba(255,255,255,0.08);
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.004)),
                 linear-gradient(180deg, #171b20 0%, #14181d 100%);
-        }
-
-        .contact-primary {
-            padding: 2.1rem 2.2rem 2rem;
-        }
-
-        .contact-side {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 1.65rem 1.6rem 1.5rem;
-        }
-
-        .contact-visual {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 4 / 4.7;
-            margin-bottom: 1.45rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.014), rgba(255,255,255,0.004)),
-                linear-gradient(180deg, #171b20 0%, #12171c 100%);
-        }
-
-        .contact-visual video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .contact-visual::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(180deg, rgba(10,11,14,0.08) 0%, rgba(10,11,14,0.12) 32%, rgba(10,11,14,0.52) 100%),
-                radial-gradient(circle at 50% 35%, rgba(255,255,255,0.06), rgba(255,255,255,0) 46%);
-            pointer-events: none;
-        }
-
-        .contact-visual-copy {
-            position: absolute;
-            left: 1.15rem;
-            right: 1.15rem;
-            bottom: 1rem;
-            z-index: 1;
-        }
-
-        .contact-visual-kicker {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: rgba(226, 195, 130, 0.86);
-        }
-
-        .contact-visual-title {
-            font-family: var(--font-serif);
-            font-size: clamp(1.7rem, 2.8vw, 2.2rem);
-            line-height: 0.96;
-            letter-spacing: -0.03em;
-            color: rgba(250, 244, 236, 0.96);
-            max-width: 8ch;
-        }
-
-        .contact-main-kicker {
-            display: block;
-            margin-bottom: 0.9rem;
-            font-family: var(--font-sans);
-            font-size: 0.74rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: rgba(226, 195, 130, 0.82);
-        }
-
-        .contact-main-title {
-            font-size: clamp(2.4rem, 4vw, 4.2rem);
-            line-height: 0.98;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-            max-width: 11ch;
-        }
-
-        .contact-sub {
-            max-width: 42rem;
-            margin: 0 0 1.6rem 0;
-            font-size: 1rem;
-            line-height: 1.82;
-            color: var(--text-muted);
-            text-align: left;
-        }
-
-        .contact-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .contact-inline-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            font-size: 0.74rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: rgba(245,245,245,0.78);
-            border-bottom: 1px solid rgba(197,160,89,0.26);
-            padding-bottom: 0.25rem;
-        }
-
-        .contact-inline-link:hover {
-            color: var(--gold);
-            border-bottom-color: rgba(197,160,89,0.6);
-        }
-
-        .contact-founder {
-            padding-top: 1.55rem;
-            border-top: 1px solid rgba(255,255,255,0.06);
             text-align: left;
         }
 
@@ -2203,120 +2080,38 @@
             color: rgba(255,255,255,0.64);
         }
 
+        .contact-sub {
+            max-width: 720px;
+            margin: 0 auto 2rem auto;
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+        }
+
         .contact-note {
-            margin-top: 1rem;
+            margin-top: 1.25rem;
             font-size: 0.88rem;
             line-height: 1.7;
             color: rgba(255, 255, 255, 0.58);
         }
 
         .contact-email {
-            display: inline-block;
-            margin-top: 0.2rem;
+            display: block;
+            margin-top: 2rem;
             font-family: var(--font-sans);
             font-size: 1rem;
             letter-spacing: 0.05em;
-            color: var(--text-main);
+            color: var(--text-muted);
         }
 
         .contact-email:hover { color: var(--gold); }
 
-        .contact-side-kicker {
-            display: block;
-            margin-bottom: 0.85rem;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: rgba(226, 195, 130, 0.82);
-        }
-
-        .contact-side-title {
-            font-family: var(--font-serif);
-            font-size: 1.75rem;
-            line-height: 1.05;
-            margin-bottom: 0.9rem;
-        }
-
-        .contact-side-copy {
-            font-size: 0.96rem;
-            line-height: 1.78;
-            color: var(--text-muted);
-            margin: 0 0 1.35rem 0;
-        }
-
-        .contact-practical {
-            display: grid;
-            gap: 1.1rem;
-            margin-bottom: 1.65rem;
-        }
-
-        .contact-practical-item {
-            padding: 0 0 1.05rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .contact-practical-item.contact-practical-highlight {
-            padding: 0.95rem 1rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: rgba(255,255,255,0.02);
-            border-radius: 0.2rem;
-        }
-
-        .contact-practical-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .contact-practical-label {
-            display: block;
-            margin-bottom: 0.35rem;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: rgba(255,255,255,0.46);
-        }
-
-        .contact-practical-value {
-            font-size: 0.96rem;
-            line-height: 1.7;
-            color: rgba(239, 234, 225, 0.86);
-        }
-
-        .contact-practical-note {
-            margin-top: 0.45rem;
-            font-size: 0.82rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.48);
-        }
-
-        .contact-reach {
-            margin-top: 1.9rem;
-            padding-top: 1.3rem;
-            border-top: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .contact-reach-label {
-            display: block;
-            margin-bottom: 0.7rem;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: rgba(226, 195, 130, 0.82);
-        }
-
-        .contact-reach-copy {
-            margin: 0 0 0.9rem 0;
-            font-size: 0.92rem;
-            line-height: 1.72;
-            color: rgba(255,255,255,0.58);
-        }
-
         .contact-links {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             gap: 1rem;
-            margin-top: 0.4rem;
+            margin-top: 1.1rem;
             font-family: var(--font-sans);
             font-size: 0.72rem;
             text-transform: uppercase;
@@ -2333,11 +2128,12 @@
         }
 
         .contact-footnotes {
-            margin-top: 1.8rem;
+            max-width: 860px;
+            margin: 2.75rem auto 0 auto;
             padding-top: 1.2rem;
             border-top: 1px solid rgba(255,255,255,0.06);
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
             gap: 1rem;
             flex-wrap: wrap;
@@ -2399,8 +2195,9 @@
             .brand-read-session-cta {
                 justify-content: flex-start;
             }
-            .contact-shell {
-                grid-template-columns: 1fr;
+            .packages-grid {
+                max-width: 100%;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
             .contact-footnotes {
                 justify-content: center;
@@ -2409,6 +2206,10 @@
         }
 
         @media (max-width: 768px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
             nav {
                 flex-direction: column;
                 gap: 1rem;
@@ -2602,22 +2403,9 @@
                 letter-spacing: 0.22em;
                 color: rgba(214, 197, 167, 0.42);
             }
-            .contact-primary,
-            .contact-side {
-                padding: 1.35rem;
-            }
-            .contact-main-title {
-                max-width: 9ch;
-            }
-            .contact-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .contact-actions .btn,
-            .contact-inline-link {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
+            .contact-founder {
+                padding: 1.2rem 1.2rem 1.15rem;
+                margin-bottom: 2.2rem;
             }
             .contact-footnotes {
                 flex-direction: column;
@@ -2643,69 +2431,135 @@
         </div>
     </nav>
 
-    <section id="contact" class="contact-section">
+    <section id="method" class="method-section">
         <div class="container">
-            <div class="contact-shell">
-                <div class="contact-primary">
-                    <span class="contact-main-kicker">Start Here</span>
-                    <h2 class="contact-main-title">A focused first conversation around what the brand needs next.</h2>
-                    <p class="contact-sub">This call is for founders, teams, and brands that need a clearer next version, whether that means sharper positioning, a stronger website, a campaign, a film, or a more distinctive digital experience.</p>
-                    <div class="contact-actions">
-                        <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Free Discovery Call</a>
-                        <a href="mailto:hello@saharstudio.com" class="contact-inline-link">Email Instead</a>
+            <h2 class="section-header">What We Do</h2>
+            <div class="grid-3">
+                <div class="method-card">
+                    <div class="method-visual strategy-visual">
+                        <div class="method-glow"></div>
+                        <div class="method-sheen"></div>
                     </div>
-                    <p class="contact-note">A free 20-minute call to understand the brand, the scope, and whether the next step should stay simple or expand into a larger system.</p>
-
-                    <div class="contact-founder">
-                        <span class="contact-founder-kicker">Founder Note</span>
-                        <p class="contact-founder-copy">SAHAR is led by Yusuf Gaffoor and Marina Dabrytskaya-Gaffoor.</p>
-                        <p class="contact-founder-copy">We help brands clarify their positioning, shape stronger stories, and turn that direction into websites, campaigns, films, and AI-powered brand experiences.</p>
-                        <p class="contact-founder-copy">We work with brands internationally.</p>
+                    <div class="method-text">
+                        <h3>Brand Strategy</h3>
+                        <p><strong>For brands that need a clearer position.</strong> We define the offer, the audience, and the next direction.</p>
+                        <ul>
+                            <li>Positioning and offer clarity</li>
+                            <li>Audience and tone of voice</li>
+                            <li>Direction for digital</li>
+                        </ul>
                     </div>
                 </div>
 
-                <aside class="contact-side">
-                    <div>
-                        <div class="contact-visual">
-                            <video autoplay muted loop playsinline preload="metadata" poster="/hero-image.jpg" aria-hidden="true">
-                                <source src="/contact-shoes-rope.mp4" type="video/mp4" />
-                            </video>
-                            <div class="contact-visual-copy">
-                                <span class="contact-visual-kicker">First Step</span>
-                                <div class="contact-visual-title">Start with a clearer conversation.</div>
-                            </div>
-                        </div>
-                        <span class="contact-side-kicker">Practical</span>
-                        <h3 class="contact-side-title">What to expect</h3>
-                        <p class="contact-side-copy">A short conversation to understand where the brand is now, what feels unclear, and which direction is actually worth building next.</p>
-
-                        <div class="contact-practical">
-                            <div class="contact-practical-item">
-                                <span class="contact-practical-label">Format</span>
-                                <div class="contact-practical-value">Free 20-minute discovery call</div>
-                            </div>
-                            <div class="contact-practical-item">
-                                <span class="contact-practical-label">Best For</span>
-                                <div class="contact-practical-value">New brands, resets, campaigns, films, websites, and digital experiences.</div>
-                            </div>
-                        </div>
+                <div class="method-card">
+                    <div class="method-visual story-visual">
+                        <div class="method-glow"></div>
+                        <div class="method-sheen"></div>
                     </div>
-
-                    <div>
-                        <div class="contact-reach">
-                            <span class="contact-reach-label">Or Start By Email</span>
-                            <p class="contact-reach-copy">If it is easier to start there, send the brand, the scope, and what feels unclear right now.</p>
-                            <a href="mailto:hello@saharstudio.com" class="contact-email">hello@saharstudio.com</a>
-                        </div>
-                        <div class="contact-links">
-                            <a href="https://www.linkedin.com/company/sahar-studio" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        </div>
-                        <div class="contact-footnotes">
-                            <span>&copy; 2026 SAHAR. All Rights Reserved.</span>
-                            <span>Developed by SAHAR.</span>
-                        </div>
+                    <div class="method-text">
+                        <h3>Narrative & Messaging</h3>
+                        <p><strong>For brands that look strong but still sound vague.</strong> We shape the story and messaging so the brand lands faster.</p>
+                        <ul>
+                            <li>Core messaging and brand narrative</li>
+                            <li>Launch and campaign storylines</li>
+                            <li>Consistency across touchpoints</li>
+                        </ul>
                     </div>
-                </aside>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-visual spectacle-visual">
+                        <div class="method-glow"></div>
+                        <div class="method-sheen"></div>
+                    </div>
+                    <div class="method-text">
+                        <h3>Websites, Digital Products & Brand Experiences</h3>
+                        <p><strong>For brands that need more than a website.</strong> We turn strategy and story into websites, tools, campaigns, films, and AI-powered experiences.</p>
+                        <ul>
+                            <li>Custom websites and landing pages</li>
+                            <li>Interactive tools and AI-powered experiences</li>
+                            <li>Campaigns and films</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages" class="packages-section">
+        <div class="container">
+            <h2 class="section-header">Packages</h2>
+            <p class="packages-note">A starting point for the kinds of systems, campaigns, films, and digital experiences we build around a brand.</p>
+            <div class="packages-grid">
+                <div class="pack-card">
+                    <h3>Brand Foundation</h3>
+                    <span class="pack-sub">From $2,800</span>
+                    <p class="pack-desc">For brands that need story, positioning, and website direction built as one system.</p>
+                    <span class="pack-includes-label">Deliverables</span>
+                    <ul class="pack-list">
+                        <li>Brand story and core direction</li>
+                        <li>Website structure and messaging</li>
+                        <li>Custom website ready to launch</li>
+                    </ul>
+                </div>
+
+                <div class="pack-card">
+                    <h3>Campaign Direction</h3>
+                    <span class="pack-sub">From $1,900</span>
+                    <p class="pack-desc">For launches and offers that need one strong campaign idea and a clearer visual world.</p>
+                    <span class="pack-includes-label">Deliverables</span>
+                    <ul class="pack-list">
+                        <li>Campaign idea and key message</li>
+                        <li>Key visuals for launch or rollout</li>
+                        <li>Launch-ready campaign direction</li>
+                    </ul>
+                </div>
+
+                <div class="pack-card">
+                    <h3>Brand Film</h3>
+                    <span class="pack-sub">From $2,300</span>
+                    <p class="pack-desc">For brands that need one cinematic piece to launch, elevate, or reframe the brand.</p>
+                    <span class="pack-includes-label">Deliverables</span>
+                    <ul class="pack-list">
+                        <li>Film concept and visual direction</li>
+                        <li>One brand film (60-180 sec)</li>
+                        <li>Short cut for social media</li>
+                    </ul>
+                </div>
+
+                <div class="pack-card">
+                    <h3>Digital Product / Experience</h3>
+                    <span class="pack-sub">From $2,200</span>
+                    <p class="pack-desc">For brands that need an interactive tool or AI-powered experience built into the brand.</p>
+                    <span class="pack-includes-label">Deliverables</span>
+                    <ul class="pack-list">
+                        <li>Tool concept and user pathway</li>
+                        <li>Branded digital flow</li>
+                        <li>Interactive experience inside the brand</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-founder">
+                <span class="contact-founder-kicker">Need Help Choosing?</span>
+                <p class="contact-founder-copy">Some projects need a tighter foundation. Others need a campaign, a film, or a more distinctive digital layer.</p>
+                <p class="contact-founder-copy">A discovery call is the fastest way to figure out what actually fits the brand and the scope.</p>
+            </div>
+            <h2 class="section-header" style="margin-bottom: 2rem;">Book A Discovery Call</h2>
+            <p class="contact-sub">We can talk through the scope, the right package, and whether the work should stay simple or expand into something bigger.</p>
+            <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
+            <p class="contact-note">A focused 20-minute call to understand the brand, the scope, and what kind of work makes sense next.</p>
+            <a href="mailto:hello@saharstudio.com" class="contact-email">hello@saharstudio.com</a>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/company/sahar-studio" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+            <div class="contact-footnotes">
+                <span>&copy; 2026 SAHAR. All Rights Reserved.</span>
+                <span>Developed by SAHAR.</span>
             </div>
         </div>
     </section>

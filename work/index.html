@@ -205,6 +205,77 @@
 
         .nav-links a:hover { color: var(--gold); }
 
+        body.inner-page nav {
+            position: sticky;
+            background: rgba(16, 19, 24, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 1.4rem 5%;
+        }
+
+        body.inner-page .nav-links a {
+            color: rgba(245,245,245,0.92);
+        }
+
+        .page-top {
+            padding: 3.75rem 0 2.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: linear-gradient(180deg, rgba(20,24,29,0.9) 0%, #101318 100%);
+        }
+
+        .page-top-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            align-items: flex-end;
+        }
+
+        .page-top-copy {
+            max-width: 42rem;
+        }
+
+        .page-top-kicker {
+            display: inline-block;
+            margin-bottom: 0.9rem;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.84);
+        }
+
+        .page-top-title {
+            font-size: clamp(2.9rem, 5vw, 4.8rem);
+            line-height: 0.96;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.9rem;
+        }
+
+        .page-top-sub {
+            max-width: 38rem;
+            font-size: 0.98rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.74rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(245,245,245,0.8);
+            border-bottom: 1px solid rgba(197,160,89,0.26);
+            padding-bottom: 0.25rem;
+            white-space: nowrap;
+        }
+
+        .back-home:hover {
+            color: var(--gold);
+            border-bottom-color: rgba(197,160,89,0.6);
+        }
+
         /* --- HERO SECTION --- */
         .hero {
             position: relative;
@@ -1732,7 +1803,7 @@
         .work-website-state {
             display: flex;
             flex-direction: column;
-            gap: 0.65rem;
+            gap: 0.8rem;
             min-width: 0;
         }
 
@@ -1742,12 +1813,6 @@
             text-transform: uppercase;
             letter-spacing: 0.16em;
             color: rgba(226, 195, 130, 0.82);
-        }
-
-        .work-website-domain {
-            font-family: var(--font-sans);
-            font-size: 0.82rem;
-            color: rgba(255,255,255,0.54);
         }
 
         .work-website-frame {
@@ -1778,9 +1843,8 @@
 
         .work-website-concept {
             background:
-                radial-gradient(circle at 68% 18%, rgba(230, 211, 185, 0.22), rgba(230, 211, 185, 0) 26%),
-                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.006)),
-                linear-gradient(180deg, #d7c9b7 0%, #c6b29a 42%, #aa8f76 100%);
+                linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.003)),
+                linear-gradient(180deg, #171b20 0%, #12171c 100%);
         }
 
         .work-browser-bar {
@@ -1809,12 +1873,15 @@
 
         .work-concept-body {
             position: absolute;
-            inset: 0;
-            padding: 1.15rem;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1rem 1.05rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-end;
             color: #fff9f1;
+            z-index: 2;
         }
 
         .work-concept-kicker {
@@ -1855,6 +1922,131 @@
             object-fit: cover;
             object-position: center;
             filter: sepia(0.18) saturate(0.72) contrast(0.92) brightness(0.82);
+        }
+
+        .work-concept-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .work-concept-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(11,13,16,0.04) 0%, rgba(11,13,16,0.06) 46%, rgba(11,13,16,0.42) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .work-site-ui {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1rem 1.1rem 1rem;
+            color: #f4eee5;
+            pointer-events: none;
+        }
+
+        .work-site-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .work-site-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 0;
+        }
+
+        .work-site-brand-mark {
+            width: 0.48rem;
+            height: 0.48rem;
+            border-radius: 50%;
+            background: rgba(197,160,89,0.82);
+            box-shadow: 0 0 14px rgba(197,160,89,0.32);
+        }
+
+        .work-site-brand-name {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            line-height: 1;
+            color: rgba(248,242,234,0.92);
+            white-space: nowrap;
+        }
+
+        .work-site-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            font-family: var(--font-sans);
+            font-size: 0.6rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(248,242,234,0.72);
+        }
+
+        .work-site-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.42rem 0.78rem;
+            border: 1px solid rgba(244, 238, 229, 0.22);
+            border-radius: 999px;
+            background: rgba(248,242,234,0.06);
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(249,243,235,0.86);
+        }
+
+        .work-site-bottom {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .work-site-copy {
+            max-width: 13rem;
+        }
+
+        .work-site-kicker {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(226,195,130,0.86);
+        }
+
+        .work-site-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.65rem, 2.4vw, 2.1rem);
+            line-height: 0.94;
+            letter-spacing: -0.03em;
+            color: rgba(249,243,235,0.95);
+        }
+
+        .work-site-actions {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            max-width: 15rem;
         }
 
         .work-website-copy {
@@ -2049,12 +2241,6 @@
 
         .contact-links a:hover {
             color: var(--gold);
-        }
-
-        .contact-links-divider {
-            width: 1px;
-            height: 12px;
-            background: rgba(255,255,255,0.12);
         }
 
         .contact-footnotes {
@@ -2338,15 +2524,13 @@
         }
     </style>
 </head>
-<body>
-<body>
+<body class="inner-page">
 
     <nav>
         <div class="nav-links">
             <a href="/">Home</a>
-            <a href="/#method">What We Do</a>
+            <a href="/packages/">What We Do</a>
             <a href="/work/">Work</a>
-            <a href="/#packages">Packages</a>
             <a href="/brand-review/">Brand Review</a>
             <a href="/contact/">Contact</a>
         </div>
@@ -2355,29 +2539,16 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto">
-            <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">SAHAR</h1>
-            <p class="hero-subtitle">Selected Work</p>
-        </div>
-        <div class="hero-callout">
-            <h2 class="hero-question">Work That Holds<br>Direction, Atmosphere,<br>and Clarity</h2>
-            <p class="hero-question-sub">A focused selection of how SAHAR shapes brands across film, websites, and AI-powered brand experiences.</p>
-            <div class="hero-actions">
-                <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
-                <a href="/contact/" class="hero-link">Work With Us</a>
-            </div>
-        </div>
-    </header>
-
-    <section class="opening-section">
+    <section class="page-top">
         <div class="container">
-            <h2 class="opening-hook">Selected work from SAHAR.</h2>
-            <p class="opening-sub">A small set of projects where strategy, story, digital presence, and atmosphere were brought into one clearer brand system.</p>
+            <div class="page-top-row">
+                <div class="page-top-copy">
+                    <span class="page-top-kicker">Selected Work</span>
+                    <h1 class="page-top-title">A closer look at the systems, films, and brand worlds.</h1>
+                    <p class="page-top-sub">A focused selection of how SAHAR turns strategy and direction into work people can actually see, feel, and step into.</p>
+                </div>
+                <a href="/" class="back-home">Back To Home</a>
+            </div>
         </div>
     </section>
 
@@ -2393,7 +2564,7 @@
                             <div class="work-teaser-cover"></div>
                             <iframe
                                 id="qabastech-preview-iframe"
-                                src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=0&end=20&loop=0&iv_load_policy=3"
+                                src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=0&end=30&loop=0&iv_load_policy=3"
                                 title="Cinematic brand film teaser"
                                 loading="lazy"
                                 allow="autoplay; encrypted-media; picture-in-picture"
@@ -2410,8 +2581,7 @@
                             <span class="work-tag">Brand Film</span>
                             <span class="work-tag">Visual World</span>
                             <span class="work-tag">Narrative Direction</span>
-                            <span class="work-link">Film In Progress</span>
-                            <a class="work-action" href="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&controls=1&playsinline=1&rel=0&modestbranding=1&start=0&end=25&iv_load_policy=3" target="_blank" rel="noopener noreferrer">Watch Teaser</a>
+                            <span class="work-tag">30-Second Cut</span>
                         </div>
                     </div>
                 </div>
@@ -2419,54 +2589,70 @@
                 <div class="work-card work-card-website">
                     <div class="work-website-head">
                         <div class="work-website-intro">
-                            <span class="work-kicker">Digital Ecosystem in Development</span>
+                            <span class="work-kicker">Digital Ecosystem</span>
                             <h3 class="work-title">Healing Vibes</h3>
                             <p class="work-desc">From an informational wellness site to a fuller digital ecosystem with more clarity, atmosphere, and guidance into the offer.</p>
                         </div>
-                        <div class="work-website-summary">
-                            <p class="work-note">A more intentional digital world for the practice, where the website, shop, booking flow, experiences, and Body Intelligence Mapping sit as one clearer system.</p>
-                            <div class="work-meta">
-                                <span class="work-tag">Website System</span>
-                                <span class="work-tag">Shop & Booking</span>
-                                <span class="work-tag">Experience Design</span>
-                                <span class="work-tag">Body Intelligence Mapping</span>
-                                <a class="work-link" href="/work/healing-vibes/">Open Case</a>
-                                <a class="work-link" href="https://healingvibeswellness.com" target="_blank" rel="noopener noreferrer">View Current Site</a>
-                            </div>
-                        </div>
+                <div class="work-website-summary">
+                    <p class="work-note">A clearer digital experience for the practice, where the website, shop, booking flow, experiences, and an AI-powered diagnostic tool work together to guide people toward the right next booking.</p>
+                    <div class="work-meta">
+                        <span class="work-tag">Website System</span>
+                        <span class="work-tag">Shop & Booking</span>
+                        <span class="work-tag">Experience Design</span>
+                        <span class="work-tag">Body Intelligence Mapping</span>
+                        <a class="work-link" href="/work/healing-vibes/">Open Case</a>
+                        <a class="work-link" href="https://healingvibeswellness.com" target="_blank" rel="noopener noreferrer">View Current Site</a>
                     </div>
-                    <div class="work-website-compare">
-                        <div class="work-website-state">
-                            <span class="work-website-label">Current Site</span>
-                            <span class="work-website-domain">healingvibeswellness.com</span>
-                            <div class="work-website-frame work-website-current">
-                                <div class="work-browser-bar">
-                                    <span class="work-browser-dot"></span>
-                                    <span class="work-browser-dot"></span>
+                </div>
+            </div>
+            <div class="work-website-compare">
+                <div class="work-website-state">
+                    <span class="work-website-label">Previous Site</span>
+                    <div class="work-website-frame work-website-current">
+                        <div class="work-browser-bar">
+                            <span class="work-browser-dot"></span>
+                            <span class="work-browser-dot"></span>
                                     <span class="work-browser-dot"></span>
                                 </div>
-                                <img class="work-website-shot" src="/healing-vibes-current.png" alt="Healing Vibes current site" />
+                                <img class="work-website-shot" src="/healing-vibes-current.png" alt="Healing Vibes previous site" />
                             </div>
-                        </div>
-                        <div class="work-website-state">
-                            <span class="work-website-label">Concept Direction</span>
-                            <span class="work-website-domain">Website in Development</span>
-                            <div class="work-website-frame work-website-concept">
-                                <img class="work-concept-photo" src="/healing-vibes-concept.jpg" alt="Healing Vibes concept direction" />
-                                <div class="work-concept-body">
-                                    <div>
-                                        <span class="work-concept-kicker">Healing Vibes</span>
-                                    </div>
-                                    <div>
-                                        <div class="work-concept-title">Body Intelligence Mapping</div>
-                                        <div class="work-concept-line"></div>
-                                        <div class="work-concept-copy">A digital self-awareness experience for recognising tension, holding, and disconnection.</div>
-                                    </div>
+                </div>
+                <div class="work-website-state">
+                    <span class="work-website-label">Current Site</span>
+                    <div class="work-website-frame work-website-concept">
+                        <video class="work-concept-video" autoplay muted loop playsinline preload="metadata" poster="/hv-real-site-page.png" aria-hidden="true">
+                            <source src="/healing-vibes-hero-video.mp4" type="video/mp4" />
+                        </video>
+                        <div class="work-concept-overlay"></div>
+                        <div class="work-site-ui" aria-hidden="true">
+                            <div class="work-site-top">
+                                <div class="work-site-brand">
+                                    <span class="work-site-brand-mark"></span>
+                                    <span class="work-site-brand-name">Healing Vibes</span>
+                                </div>
+                                <div class="work-site-nav">
+                                    <span>Treatments</span>
+                                    <span>Shop</span>
+                                    <span>Workshops</span>
+                                    <span>About</span>
+                                    <span>Contact</span>
+                                </div>
+                            </div>
+                            <div class="work-site-bottom">
+                                <div class="work-site-copy">
+                                    <span class="work-site-kicker">Current Site</span>
+                                    <div class="work-site-title">A calmer digital experience.</div>
+                                </div>
+                                <div class="work-site-actions">
+                                    <span class="work-site-pill">Book Your Session</span>
+                                    <span class="work-site-pill">Explore Experiences</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
             </div>
         </div>
@@ -2481,9 +2667,28 @@
             </div>
             <h2 class="section-header" style="margin-bottom: 2rem;">Work With Us</h2>
             <p class="contact-sub">For founders and brands looking for clearer direction, stronger messaging, and a more cohesive digital presence.</p>
-            <a href="/contact/" class="btn">Open Contact</a>
+            <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
         </div>
     </section>
+
+    <script>
+        (() => {
+            const workVideoShell = document.querySelector('.work-video-shell');
+            const teaserIframe = document.getElementById('qabastech-preview-iframe');
+
+            if (!workVideoShell || !teaserIframe) return;
+
+            const revealTeaser = () => {
+                workVideoShell.classList.add('is-ready');
+            };
+
+            teaserIframe.addEventListener('load', () => {
+                window.setTimeout(revealTeaser, 350);
+            });
+
+            window.setTimeout(revealTeaser, 1800);
+        })();
+    </script>
 
 </body>
 </html>
