@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAHAR | Brand Strategy, Campaign Direction & Brand Films</title>
-    <meta name="description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.">
+    <title>Healing Vibes Case Study | SAHAR</title>
+    <meta name="description" content="A SAHAR case study on Healing Vibes: a fuller digital ecosystem shaped across website direction, shop, booking, experiences, and Body Intelligence Mapping.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.saharstudio.com/">
+    <link rel="canonical" href="https://www.saharstudio.com/work/healing-vibes/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SAHAR">
-    <meta property="og:title" content="SAHAR | Brand Strategy, Campaign Direction & Brand Films">
-    <meta property="og:description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.">
-    <meta property="og:url" content="https://www.saharstudio.com/">
+    <meta property="og:title" content="Healing Vibes Case Study | SAHAR">
+    <meta property="og:description" content="A SAHAR case study on Healing Vibes: a fuller digital ecosystem shaped across website direction, shop, booking, experiences, and Body Intelligence Mapping.">
+    <meta property="og:url" content="https://www.saharstudio.com/work/healing-vibes/">
     <meta property="og:image" content="https://www.saharstudio.com/hero-image.jpg">
     <meta property="og:image:alt" content="SAHAR Creative Intelligence Studio">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SAHAR | Brand Strategy, Campaign Direction & Brand Films">
-    <meta name="twitter:description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.">
+    <meta name="twitter:title" content="Healing Vibes Case Study | SAHAR">
+    <meta name="twitter:description" content="A SAHAR case study on Healing Vibes: a fuller digital ecosystem shaped across website direction, shop, booking, experiences, and Body Intelligence Mapping.">
     <meta name="twitter:image" content="https://www.saharstudio.com/hero-image.jpg">
 
     <script type="application/ld+json">
@@ -180,13 +180,15 @@
 
         /* --- NAVIGATION --- */
         nav {
-            position: absolute;
-            top: 0; left: 0; width: 100%;
-            padding: 2.5rem 5%;
+            position: relative;
+            width: 100%;
+            padding: 1.75rem 5%;
             z-index: 50;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: linear-gradient(180deg, #11161b 0%, #12171c 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
 
         .nav-links {
@@ -286,6 +288,30 @@
             letter-spacing: 0.05em;
         }
 
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.98rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            display: inline-block;
+            color: var(--gold);
+            background: linear-gradient(
+                90deg,
+                rgba(197, 160, 89, 0.72) 0%,
+                rgba(232, 208, 156, 0.96) 28%,
+                rgba(255, 245, 212, 0.98) 50%,
+                rgba(232, 208, 156, 0.96) 72%,
+                rgba(197, 160, 89, 0.72) 100%
+            );
+            background-size: 220% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 16px rgba(160, 121, 46, 0.18);
+            margin-bottom: 1.45rem;
+            animation: heroSubtitleGlow 8s ease-in-out infinite, heroSubtitleSweep 7.5s ease-in-out infinite;
+        }
+
         .hero-callout {
             position: absolute;
             left: 50%;
@@ -295,8 +321,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.9rem;
-            width: min(36rem, calc(100% - 3rem));
+            gap: 1.05rem;
+            width: min(42rem, calc(100% - 3rem));
             text-align: center;
         }
 
@@ -316,11 +342,11 @@
         }
 
         .hero-question-sub {
-            width: min(24rem, calc(100% - 2rem));
+            width: min(34rem, calc(100% - 2rem));
             margin: 0;
             font-family: var(--font-sans);
-            font-size: 0.94rem;
-            line-height: 1.45;
+            font-size: 0.95rem;
+            line-height: 1.6;
             letter-spacing: 0.01em;
             color: rgba(239, 234, 225, 0.82);
             text-align: center;
@@ -331,23 +357,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.85rem;
+            gap: 1rem;
             width: 100%;
         }
 
         .hero-actions .btn {
-            min-width: 14.5rem;
+            min-width: 16rem;
             text-align: center;
         }
 
         .hero-link {
             display: inline-block;
             font-family: var(--font-sans);
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--text-main);
-            padding: 0.95rem 1.55rem;
+            padding: 1rem 2rem;
             border: 1px solid rgba(197, 160, 89, 0.4);
             background: rgba(255, 255, 255, 0.01);
             backdrop-filter: blur(6px);
@@ -361,313 +387,45 @@
             background: rgba(255, 255, 255, 0.025);
         }
 
+        @keyframes heroSubtitleGlow {
+            0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 10px rgba(189, 148, 73, 0.1)); }
+            50% { opacity: 1; filter: drop-shadow(0 0 18px rgba(214, 179, 103, 0.18)); }
+        }
+
+        @keyframes heroSubtitleSweep {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
         /* --- OPENING SECTION --- */
         .opening-section {
             position: relative;
             z-index: 4;
-            padding: 72px 0 64px 0;
+            padding: 82px 0 52px 0;
             text-align: center;
-            background:
-                radial-gradient(circle at 50% 0%, rgba(197,160,89,0.08), rgba(17,22,27,0) 36%),
-                linear-gradient(180deg, #101318 0%, #11161b 100%);
+            background: linear-gradient(180deg, #101318 0%, #11161b 100%);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .opening-hook {
-            font-size: clamp(1.95rem, 3vw, 2.45rem);
-            line-height: 1.08;
-            letter-spacing: -0.025em;
+            font-size: clamp(2.05rem, 3.35vw, 2.8rem);
+            line-height: 1.12;
+            letter-spacing: -0.02em;
             color: var(--text-main);
-            max-width: 20ch;
-            margin: 0 auto 1.9rem;
+            margin-bottom: 1.4rem;
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
             text-wrap: balance;
         }
 
-        .opening-audience-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.35rem;
-            margin-top: 0;
-        }
-
-        .opening-audience-card {
-            border: 1px solid var(--border-light);
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.005)),
-                linear-gradient(180deg, var(--bg-surface-lift) 0%, var(--bg-surface-warm) 100%);
-            padding: 1.55rem 1.4rem;
-            min-height: 100%;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-            text-align: left;
-        }
-
-        .opening-audience-card h3 {
+        .opening-sub {
             font-family: var(--font-sans);
-            font-size: 0.78rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            line-height: 1.45;
-            margin-bottom: 0.85rem;
-            color: rgba(239, 234, 225, 0.94);
-        }
-
-        .opening-audience-card p {
-            font-size: 0.88rem;
-            line-height: 1.65;
-            color: rgba(255,255,255,0.62);
-        }
-
-        .page-teaser-section {
-            padding: 56px 0;
-            border-top: 1px solid var(--border-light);
-            background: linear-gradient(180deg, #13181d 0%, #12171c 100%);
-        }
-
-        .page-teaser-note {
-            max-width: 760px;
-            margin: -1.15rem auto 2.5rem auto;
-            font-size: 0.92rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.56);
-            text-align: center;
-        }
-
-        .page-teaser-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 2rem;
-        }
-
-        .page-teaser-card {
-            border: 1px solid var(--border-light);
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
-                linear-gradient(180deg, #171b20 0%, #14181d 100%);
-            padding: 2.4rem 2.2rem;
-            min-height: 100%;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .brand-review-teaser {
-            display: grid;
-            grid-template-columns: minmax(0, 1.18fr) 280px;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .brand-review-teaser-copy {
-            min-width: 0;
-        }
-
-        .brand-review-poster-mini {
-            position: relative;
-            aspect-ratio: 4 / 5.35;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: #12161b;
-            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
-        }
-
-        .brand-review-poster-mini img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .brand-review-poster-mini::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(10,12,15,0.08) 0%, rgba(10,12,15,0.28) 42%, rgba(10,12,15,0.8) 100%);
-        }
-
-        .brand-review-poster-copy {
-            position: absolute;
-            left: 1.15rem;
-            right: 1.15rem;
-            bottom: 1.15rem;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .brand-review-poster-kicker {
-            font-family: var(--font-sans);
-            font-size: 0.62rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: rgba(226, 195, 130, 0.9);
-        }
-
-        .brand-review-poster-title {
-            font-size: clamp(1.9rem, 2.4vw, 2.45rem);
-            line-height: 0.92;
-            max-width: 8ch;
-        }
-
-        .brand-review-poster-tagline {
-            font-size: 0.78rem;
-            line-height: 1.5;
-            color: rgba(239, 234, 225, 0.78);
-            max-width: 18ch;
-        }
-
-        .page-teaser-kicker {
-            display: block;
-            font-family: var(--font-sans);
-            font-size: 0.74rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: rgba(226, 195, 130, 0.82);
-            margin-bottom: 0.9rem;
-        }
-
-        .page-teaser-title {
-            font-size: clamp(2rem, 3vw, 2.6rem);
-            line-height: 1.08;
-            margin-bottom: 1rem;
-        }
-
-        .page-teaser-copy {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.62);
-            margin-bottom: 1.4rem;
-            max-width: 34rem;
-        }
-
-        .page-teaser-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.55rem;
-            margin-bottom: 1.45rem;
-        }
-
-        .page-teaser-meta span {
-            padding: 0.5rem 0.8rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            font-family: var(--font-sans);
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 0.13em;
-            color: rgba(255,255,255,0.58);
-            background: rgba(255,255,255,0.015);
-        }
-
-        .page-teaser-links {
-            display: flex;
-            gap: 0.9rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .page-teaser-inline-link {
-            font-family: var(--font-sans);
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: rgba(255,255,255,0.56);
-        }
-
-        .page-teaser-inline-link:hover {
-            color: var(--gold);
-        }
-
-        .home-work-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 2rem;
-        }
-
-        .home-work-card {
-            position: relative;
-            min-height: 36rem;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
-                linear-gradient(180deg, #171b20 0%, #14181d 100%);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .home-work-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(10,12,15,0.04) 0%, rgba(10,12,15,0.16) 35%, rgba(10,12,15,0.74) 100%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .home-work-media,
-        .home-work-media img,
-        .home-work-media video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-            object-fit: cover;
-            display: block;
-        }
-
-        .home-work-media {
-            overflow: hidden;
-        }
-
-        .home-work-media iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 177.78%;
-            height: 100%;
-            border: 0;
-            display: block;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        .home-work-copy {
-            position: absolute;
-            left: 1.7rem;
-            right: 1.7rem;
-            bottom: 1.65rem;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .home-work-kicker {
-            font-family: var(--font-sans);
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: rgba(226, 195, 130, 0.82);
-        }
-
-        .home-work-title {
-            font-size: clamp(2.1rem, 3.3vw, 3rem);
-            line-height: 0.98;
-            max-width: 10ch;
-        }
-
-        .home-work-desc {
-            font-size: 0.92rem;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.72);
-            max-width: 30rem;
-        }
-
-        .home-work-links {
-            display: flex;
-            gap: 0.9rem;
-            flex-wrap: wrap;
-            align-items: center;
+            font-size: 0.98rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+            max-width: 860px;
+            margin: 0 auto;
         }
 
         /* --- BRAND READ SECTION --- */
@@ -1557,12 +1315,6 @@
             text-align: center;
         }
 
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 2rem;
-        }
-
         .pack-card {
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.005)),
@@ -1577,12 +1329,12 @@
 
         .pack-card h3 {
             font-family: var(--font-sans);
-            font-size: 0.96rem;
+            font-size: 1.08rem;
             letter-spacing: 0.11em;
             text-transform: uppercase;
             margin-bottom: 0.5rem;
-            min-height: 2.8rem;
-            white-space: normal;
+            min-height: 1.5rem;
+            white-space: nowrap;
         }
 
         .pack-sub {
@@ -1600,7 +1352,7 @@
             line-height: 1.75;
             color: rgba(255,255,255,0.62);
             margin-bottom: 2rem;
-            min-height: 6rem;
+            min-height: 5.3rem;
         }
 
         .pack-includes-label {
@@ -2212,23 +1964,402 @@
             display: block;
         }
 
+        .case-hero-shell {
+            position: relative;
+            padding: 1.6rem 0 3.25rem;
+            border-bottom: 1px solid var(--border-light);
+            background: #101318;
+        }
+
+        .case-hero-stage {
+            position: relative;
+            min-height: 74svh;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 0 3rem;
+            overflow: hidden;
+            background: #101318;
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 1.35rem;
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
+        }
+
+        .case-hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            z-index: 1;
+            filter: saturate(1.02) brightness(0.92);
+            transform: scale(1.015);
+        }
+
+        .case-hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background:
+                linear-gradient(180deg, rgba(8, 10, 13, 0.16) 0%, rgba(8, 10, 13, 0.2) 26%, rgba(8, 10, 13, 0.78) 100%),
+                radial-gradient(circle at 62% 26%, rgba(255,255,255,0.08), rgba(255,255,255,0) 26%);
+        }
+
+        .case-hero-frame {
+            position: absolute;
+            inset: 1rem;
+            z-index: 2;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 0.95rem;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+            pointer-events: none;
+        }
+
+        .case-hero-dots {
+            position: absolute;
+            top: 0.95rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .case-hero-dots span {
+            width: 0.44rem;
+            height: 0.44rem;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.32);
+        }
+
+        .case-hero-copy {
+            position: relative;
+            z-index: 3;
+            max-width: 38rem;
+            padding: 0 2.35rem;
+        }
+
+        .case-hero-kicker {
+            display: block;
+            margin-bottom: 0.9rem;
+            font-family: var(--font-sans);
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.84);
+        }
+
+        .case-hero-title {
+            font-size: clamp(2.9rem, 5vw, 4.6rem);
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.9rem;
+            max-width: 10ch;
+        }
+
+        .case-hero-text {
+            max-width: 34rem;
+            font-size: 0.98rem;
+            line-height: 1.75;
+            color: rgba(239, 234, 225, 0.82);
+            margin-bottom: 1.4rem;
+        }
+
+        .case-hero-links {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .case-inline-link {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(239,234,225,0.76);
+            border-bottom: 1px solid rgba(197,160,89,0.28);
+            padding-bottom: 0.2rem;
+        }
+
+        .case-inline-link:hover {
+            color: var(--gold);
+            border-bottom-color: rgba(197,160,89,0.62);
+        }
+
+        .case-block {
+            padding: 54px 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .case-eyebrow {
+            display: block;
+            margin-bottom: 0.85rem;
+            font-family: var(--font-sans);
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(226, 195, 130, 0.82);
+        }
+
+        .case-heading {
+            font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.95rem;
+            max-width: 12ch;
+        }
+
+        .case-copy {
+            font-size: 0.94rem;
+            line-height: 1.74;
+            color: rgba(255,255,255,0.66);
+            max-width: 40rem;
+        }
+
+        .case-media-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .case-media-card img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .case-preview-frame {
+            padding: 0.9rem;
+            background: linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0.008));
+        }
+
+        .case-preview-frame img {
+            background: #efe9df;
+        }
+
+        .opening-section {
+            position: relative;
+            z-index: 4;
+            padding: 54px 0 42px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #101318 0%, #11161b 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .opening-hook {
+            font-size: clamp(1.95rem, 3vw, 2.55rem);
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.9rem;
+            text-wrap: balance;
+        }
+
+        .opening-sub {
+            font-size: 0.94rem;
+            line-height: 1.75;
+            max-width: 42rem;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .case-challenge-card {
+            display: grid;
+            grid-template-columns: minmax(0, 0.92fr) minmax(18rem, 0.88fr);
+            gap: 1.3rem;
+            align-items: center;
+            padding: 1.15rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.004)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .case-challenge-text h2,
+        .case-system-head h2,
+        .case-body-copy h2,
+        .case-outcome-head h2 {
+            margin-bottom: 0.85rem;
+        }
+
+        .case-challenge-shot {
+            aspect-ratio: 16 / 10;
+        }
+
+        .case-challenge-shot img {
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .case-system-head {
+            max-width: 40rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .case-system-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .case-system-card {
+            padding: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.004)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+        }
+
+        .case-system-card .case-media-card {
+            aspect-ratio: 4 / 3;
+            margin-bottom: 0.8rem;
+            box-shadow: none;
+        }
+
+        .case-system-card img {
+            object-position: top center;
+        }
+
+        .case-system-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.32rem;
+        }
+
+        .case-system-card p {
+            font-size: 0.86rem;
+            line-height: 1.62;
+            color: rgba(255,255,255,0.62);
+        }
+
+        .case-body-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.86fr) minmax(24rem, 0.98fr);
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .case-body-copy {
+            max-width: 40rem;
+        }
+
+        .case-body-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-pill {
+            padding: 0.52rem 0.76rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.018);
+            font-family: var(--font-sans);
+            font-size: 0.66rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: rgba(239,234,225,0.72);
+        }
+
+        .case-body-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+
+        .case-mini-card {
+            padding: 0.85rem 0.8rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.004)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+        }
+
+        .case-mini-card h3 {
+            font-size: 0.96rem;
+            margin-bottom: 0.28rem;
+        }
+
+        .case-mini-card p {
+            font-size: 0.84rem;
+            line-height: 1.58;
+            color: rgba(255,255,255,0.62);
+        }
+
+        .case-body-preview {
+            aspect-ratio: 0.9 / 1;
+            align-self: stretch;
+        }
+
+        .case-body-preview img {
+            object-fit: contain;
+            object-position: center center;
+            padding: 0.4rem;
+            background: #efe9df;
+        }
+
+        .case-outcome-top {
+            display: grid;
+            grid-template-columns: minmax(0, 0.92fr) minmax(16rem, 0.72fr);
+            gap: 1rem;
+            align-items: start;
+            margin-bottom: 1.15rem;
+        }
+
+        .case-outcome-head {
+            max-width: 38rem;
+        }
+
+        .case-outcome-preview {
+            aspect-ratio: 4 / 3;
+        }
+
+        .case-outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+        }
+
+        .case-outcome-card {
+            padding: 0.95rem 0.9rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.004)),
+                linear-gradient(180deg, #171b20 0%, #14181d 100%);
+        }
+
+        .case-outcome-card h3 {
+            font-size: 0.98rem;
+            margin-bottom: 0.32rem;
+        }
+
+        .case-outcome-card p {
+            font-size: 0.84rem;
+            line-height: 1.58;
+            color: rgba(255,255,255,0.62);
+        }
+
         /* --- CONTACT SECTION --- */
         .contact-section {
-            padding: 88px 0;
+            padding: 72px 0;
             text-align: center;
             border-top: 1px solid var(--border-light);
             background: linear-gradient(180deg, #12171c 0%, #11161b 100%);
         }
 
         .contact-founder {
-            max-width: 860px;
-            margin: 0 auto 3rem auto;
-            padding: 1.5rem 1.7rem;
+            max-width: 760px;
+            margin: 0 auto 2.2rem auto;
+            padding: 1.2rem 1.25rem;
             border: 1px solid rgba(255,255,255,0.08);
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.004)),
                 linear-gradient(180deg, #171b20 0%, #14181d 100%);
-            text-align: left;
+            text-align: center;
         }
 
         .contact-founder-kicker {
@@ -2328,12 +2459,15 @@
         @media (max-width: 1024px) {
             .grid-3 { grid-template-columns: repeat(2, 1fr); }
             .pack-card, .method-card { height: auto; }
-            .page-teaser-grid { grid-template-columns: 1fr; }
-            .home-work-grid { grid-template-columns: 1fr; }
-            .brand-review-teaser { grid-template-columns: 1fr; }
-            .brand-review-poster-mini { max-width: 280px; width: 100%; justify-self: center; }
-            .packages-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .opening-audience-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .case-body-layout,
+            .case-challenge-card {
+                grid-template-columns: 1fr;
+            }
+            .case-system-grid,
+            .case-body-mini-grid,
+            .case-outcome-grid {
+                grid-template-columns: 1fr;
+            }
             .work-card-featured {
                 grid-column: span 2;
                 aspect-ratio: 16 / 10.5;
@@ -2391,8 +2525,7 @@
             nav {
                 flex-direction: column;
                 gap: 1rem;
-                padding: max(1rem, env(safe-area-inset-top)) 1.15rem 0;
-                background: linear-gradient(180deg, rgba(15,18,22,0.9) 0%, rgba(15,18,22,0.64) 52%, rgba(15,18,22,0) 100%);
+                padding: max(1rem, env(safe-area-inset-top)) 1.15rem 1rem;
             }
             .nav-links {
                 flex-wrap: wrap;
@@ -2416,14 +2549,49 @@
                 margin-top: -18px;
             }
             .grid-3 { grid-template-columns: 1fr; }
-            .page-teaser-grid { grid-template-columns: 1fr; }
-            .home-work-grid { grid-template-columns: 1fr; }
-            .brand-review-teaser { grid-template-columns: 1fr; }
-            .packages-grid { grid-template-columns: 1fr; }
-            .opening-section { padding: 68px 0 52px; }
-            .opening-hook { margin-bottom: 1.65rem; }
-            .opening-audience-grid { grid-template-columns: 1fr; gap: 0.9rem; }
-            .opening-audience-card { padding: 1.2rem 1.1rem; }
+            .case-block,
+            .case-hero-shell {
+                padding: 56px 0;
+            }
+            .case-hero-shell {
+                padding: 1rem 0 2.35rem;
+            }
+            .case-hero-stage {
+                min-height: 66svh;
+                padding: 0 0 2.2rem;
+                border-radius: 1rem;
+            }
+            .case-hero-title {
+                max-width: 8ch;
+            }
+            .case-hero-text {
+                font-size: 0.92rem;
+                max-width: 28rem;
+            }
+            .case-hero-copy {
+                padding: 0 1.3rem;
+            }
+            .case-hero-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .case-hero-links .btn,
+            .case-inline-link {
+                width: 100%;
+                text-align: center;
+            }
+            .opening-hook {
+                max-width: 13ch;
+            }
+            .case-body-preview {
+                aspect-ratio: 4 / 5;
+            }
+            .case-challenge-shot {
+                aspect-ratio: 4 / 5;
+            }
+            .case-outcome-top {
+                grid-template-columns: 1fr;
+            }
             .work-grid { grid-template-columns: 1fr; }
             .work-card-featured {
                 grid-column: auto;
@@ -2484,46 +2652,12 @@
                 font-size: clamp(1.55rem, 7vw, 2rem);
                 white-space: normal;
             }
+            .hero-subtitle { font-size: 0.9rem; margin-bottom: 1.1rem; }
             .hero-video {
                 object-position: 72% 58%;
                 transform: scale(1.035);
             }
-            .opening-hook { white-space: normal; max-width: 15ch; }
-            .hero-question-sub {
-                width: min(18rem, calc(100% - 2.6rem));
-                font-size: 0.88rem;
-                line-height: 1.55;
-            }
-            .who-card,
-            .page-teaser-card {
-                padding: 1.8rem 1.45rem;
-            }
-            .home-work-card {
-                min-height: 31rem;
-            }
-            .home-work-copy {
-                left: 1.35rem;
-                right: 1.35rem;
-                bottom: 1.3rem;
-            }
-            .home-work-links {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .home-work-links .btn,
-            .home-work-links .page-teaser-inline-link {
-                width: 100%;
-                text-align: center;
-            }
-            .page-teaser-links {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .page-teaser-links .btn,
-            .page-teaser-inline-link {
-                width: 100%;
-                text-align: center;
-            }
+            .opening-hook { white-space: normal; max-width: 12ch; }
             .hero-question-sub {
                 width: min(26rem, calc(100% - 2.6rem));
                 font-size: 0.88rem;
@@ -2634,16 +2768,16 @@
             .work-card:not(.work-card-featured):not(.work-card-website) .work-title { font-size: 1.5rem; bottom: 1.5rem; left: 1.5rem; transform: translateY(0); }
             :root { --spacing-section: 80px; }
         }
-    </style>
+</style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
     <nav>
         <div class="nav-links">
-            <a href="#method">What We Do</a>
+            <a href="/">Home</a>
+            <a href="/#method">What We Do</a>
             <a href="/work/">Work</a>
-            <a href="#packages">Packages</a>
+            <a href="/#packages">Packages</a>
             <a href="/brand-review/">Brand Review</a>
             <a href="/contact/">Contact</a>
         </div>
@@ -2652,697 +2786,156 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="hero">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto">
-            <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">SAHAR</h1>
-        </div>
-        <div class="hero-callout">
-            <h2 class="hero-question">If Your Brand Was a Movie<br>Would Anyone Watch It?</h2>
-            <p class="hero-question-sub">We build brands that hold attention.</p>
-            <div class="hero-actions">
-                <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
-                <a href="/brand-review/" class="btn">Try the Brand Review</a>
+    <section class="case-hero-shell">
+        <div class="container">
+            <div class="case-hero-stage">
+                <video class="case-hero-video" autoplay muted loop playsinline preload="metadata" poster="/hv-real-editorial.png">
+                    <source src="/healing-vibes-hero-video.mp4" type="video/mp4">
+                </video>
+                <div class="case-hero-overlay"></div>
+                <div class="case-hero-frame">
+                    <div class="case-hero-dots"><span></span><span></span><span></span></div>
+                </div>
+                <div class="case-hero-copy">
+                    <span class="case-hero-kicker">Healing Vibes Case Study</span>
+                    <h1 class="case-hero-title">Healing Vibes. Full digital ecosystem.</h1>
+                    <p class="case-hero-text">A calmer digital system shaped across the site, shop, booking flow, experiences, founder presence, and Body Intelligence Mapping.</p>
+                    <div class="case-hero-links">
+                        <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
+                        <a href="https://healingvibeswellness.com" target="_blank" rel="noopener noreferrer" class="case-inline-link">View Current Site</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- OPENING SECTION -->
     <section class="opening-section">
         <div class="container">
-            <h2 class="opening-hook">For new brands, resets, and stronger next versions.</h2>
-            <div class="opening-audience-grid">
-                <article class="opening-audience-card">
-                    <h3>Existing Brands</h3>
-                    <p>When the business has moved on and the brand needs a sharper next version.</p>
-                </article>
-                <article class="opening-audience-card">
-                    <h3>New Brands</h3>
-                    <p>When the story, website, and digital experience need to be built clearly from the ground up.</p>
-                </article>
-                <article class="opening-audience-card">
-                    <h3>Campaigns & Experiences</h3>
-                    <p>When a campaign, film, website, or AI-powered tool needs more clarity, atmosphere, and direction.</p>
-                </article>
+            <h2 class="opening-hook">From an informational wellness site to a calmer digital system.</h2>
+            <p class="opening-sub">Website, shop, booking, experiences, and Body Intelligence Mapping were brought into one clearer brand world.</p>
+        </div>
+    </section>
+
+    <section class="case-block case-challenge-section">
+        <div class="container">
+            <div class="case-challenge-card">
+                <div class="case-challenge-text">
+                    <span class="case-eyebrow">The Challenge</span>
+                    <h2 class="case-heading">The earlier site was mostly informational.</h2>
+                    <p class="case-copy">There was no real online booking flow, no integrated shop, and very little sense of a fuller digital experience around the practice.</p>
+                </div>
+                <div class="case-media-card case-preview-frame case-challenge-shot">
+                    <img src="/healing-vibes-current.png" alt="Healing Vibes previous website" />
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- METHOD SECTION -->
-    <section id="method" class="method-section">
+    <section class="case-block case-system-section">
         <div class="container">
-            <h2 class="section-header">What We Do</h2>
-            <div class="grid-3">
-                
-                <!-- Strategy -->
-                <div class="method-card">
-                    <div class="method-visual strategy-visual">
-                        <div class="method-glow"></div>
-                        <div class="method-sheen"></div>
-                    </div>
-                    <div class="method-text">
-                        <h3>Brand Strategy</h3>
-                        <p><strong>For brands that need a clearer position.</strong> We define the offer, the audience, and the next direction.</p>
-                        <ul>
-                            <li>Positioning and offer clarity</li>
-                            <li>Audience and tone of voice</li>
-                            <li>Direction for digital</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Story -->
-                <div class="method-card">
-                    <div class="method-visual story-visual">
-                        <div class="method-glow"></div>
-                        <div class="method-sheen"></div>
-                    </div>
-                    <div class="method-text">
-                        <h3>Narrative & Messaging</h3>
-                        <p><strong>For brands that look strong but still sound vague.</strong> We shape the story and messaging so the brand lands faster.</p>
-                        <ul>
-                            <li>Core messaging and brand narrative</li>
-                            <li>Launch and campaign storylines</li>
-                            <li>Consistency across touchpoints</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Spectacle -->
-                <div class="method-card">
-                    <div class="method-visual spectacle-visual">
-                        <div class="method-glow"></div>
-                        <div class="method-sheen"></div>
-                    </div>
-                    <div class="method-text">
-                        <h3>Websites, Digital Products & Brand Experiences</h3>
-                        <p><strong>For brands that need more than a website.</strong> We turn strategy and story into websites, tools, campaigns, films, and AI-powered experiences.</p>
-                        <ul>
-                            <li>Custom websites and landing pages</li>
-                            <li>Interactive tools and AI-powered experiences</li>
-                            <li>Campaigns and films</li>
-                        </ul>
-                    </div>
-                </div>
-
+            <div class="case-system-head">
+                <span class="case-eyebrow">The System</span>
+                <h2 class="case-heading">What was added to the system.</h2>
+                <p class="case-copy">Not just a cleaner homepage. The direction expanded into a fuller ecosystem with clearer pathways in and a more distinctive digital experience.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- WORK SECTION -->
-    <section id="work" class="page-teaser-section">
-        <div class="container">
-            <h2 class="section-header">Selected Work</h2>
-            <p class="page-teaser-note">A look at the worlds SAHAR is building across film, websites, and branded digital systems.</p>
-            <div class="home-work-grid">
-                <article class="home-work-card">
-                    <div class="home-work-media">
-                        <iframe
-                            src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=0&end=30&loop=1&playlist=z-Qs34iREqs&iv_load_policy=3"
-                            title="Cinematic teaser preview"
-                            loading="lazy"
-                            allow="autoplay; encrypted-media; picture-in-picture"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                        ></iframe>
+            <div class="case-system-grid">
+                <article class="case-system-card">
+                    <div class="case-media-card case-preview-frame">
+                        <img src="/hv-reiki-card-web.jpg" alt="Healing Vibes Reiki card" />
                     </div>
-                    <div class="home-work-copy">
-                        <span class="home-work-kicker">Brand Film</span>
-                        <h3 class="home-work-title">Teaser</h3>
-                        <p class="home-work-desc">A cinematic teaser built around scale, precision, and atmosphere.</p>
-                        <div class="home-work-links">
-                            <a href="/work/" class="btn">View Work</a>
-                            <a href="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&controls=1&playsinline=1&rel=0&modestbranding=1&start=0&end=30&iv_load_policy=3" target="_blank" rel="noopener noreferrer" class="page-teaser-inline-link">Watch Teaser</a>
-                        </div>
-                    </div>
+                    <h3>Website Direction</h3>
+                    <p>A calmer visual system shaped around the treatments, making the site feel more considered from the first screen.</p>
                 </article>
-                <article class="home-work-card">
-                    <div class="home-work-media">
-                        <video autoplay muted loop playsinline preload="metadata" poster="/healing-vibes-concept.jpg">
-                            <source src="/healing-vibes-hero-video.mp4" type="video/mp4" />
-                        </video>
+                <article class="case-system-card">
+                    <div class="case-media-card">
+                        <img src="/hv-real-shop.png" alt="Healing Vibes shop and booking direction" />
                     </div>
-                    <div class="home-work-copy">
-                        <span class="home-work-kicker">Digital Ecosystem</span>
-                        <h3 class="home-work-title">Healing Vibes</h3>
-                        <p class="home-work-desc">A fuller digital system for a wellness practice, bringing the website, shop, booking pathways, experiences, and Body Intelligence Mapping into one calmer brand world.</p>
-                        <div class="home-work-links">
-                            <a href="/work/healing-vibes/" class="btn">Open Case</a>
-                            <a href="https://healingvibeswellness.com" target="_blank" rel="noopener noreferrer" class="page-teaser-inline-link">View Current Site</a>
-                        </div>
+                    <h3>Shop & Booking</h3>
+                    <p>Products, booking pathways, and support options brought into one clearer experience instead of sitting outside the site.</p>
+                </article>
+                <article class="case-system-card">
+                    <div class="case-media-card">
+                        <img src="/hv-retreat-card.png" alt="Healing Vibes retreat experience card" />
                     </div>
+                    <h3>Experiences & Founder Presence</h3>
+                    <p>Retreats, experiences, and the founder’s point of view now sit more clearly inside the same brand world.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- PACKAGES SECTION -->
-    <section id="packages" class="packages-section">
+    <section class="case-block case-body-section">
         <div class="container">
-            <h2 class="section-header">Packages</h2>
-            <p class="packages-note">Four common ways we work, from brand foundations to digital tools and experiences.</p>
-            <div class="packages-grid">
-                
-                <!-- START -->
-                <div class="pack-card">
-                    <h3>Brand Foundation</h3>
-                    <span class="pack-sub">From $2,800</span>
-                    <p class="pack-desc">For brands that need story, positioning, and website direction built as one system.</p>
-                    <span class="pack-includes-label">Deliverables</span>
-                    <ul class="pack-list">
-                        <li>Brand story and core direction</li>
-                        <li>Website structure and messaging</li>
-                        <li>Custom website ready to launch</li>
-                    </ul>
-                </div>
-
-                <!-- CAMPAIGN -->
-                <div class="pack-card">
-                    <h3>Campaign Direction</h3>
-                    <span class="pack-sub">From $1,900</span>
-                    <p class="pack-desc">For launches and offers that need one strong campaign idea and a clearer visual world.</p>
-                    <span class="pack-includes-label">Deliverables</span>
-                    <ul class="pack-list">
-                        <li>Campaign idea and key message</li>
-                        <li>Key visuals for launch or rollout</li>
-                        <li>Assets for rollout</li>
-                    </ul>
-                </div>
-
-                <!-- BRAND FILM -->
-                <div class="pack-card">
-                    <h3>Brand Film</h3>
-                    <span class="pack-sub">From $2,300</span>
-                    <p class="pack-desc">For brands that need one cinematic piece to launch, elevate, or reframe the brand.</p>
-                    <span class="pack-includes-label">Deliverables</span>
-                    <ul class="pack-list">
-                        <li>Film concept and visual direction</li>
-                        <li>One teaser or brand film</li>
-                        <li>Supporting rollout assets</li>
-                    </ul>
-                </div>
-
-                <div class="pack-card">
-                    <h3>Digital Product / Experience</h3>
-                    <span class="pack-sub">From $2,200</span>
-                    <p class="pack-desc">For brands that need an interactive tool or AI-powered experience built into the brand.</p>
-                    <span class="pack-includes-label">Deliverables</span>
-                    <ul class="pack-list">
-                        <li>Tool concept and user pathway</li>
-                        <li>Branded interface and interaction logic</li>
-                        <li>Digital experience built around the brand</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="brand-read" class="page-teaser-section">
-        <div class="container">
-            <h2 class="section-header">Brand Review</h2>
-            <p class="page-teaser-note">A first look at what your current site is already signaling, and what to sharpen first.</p>
-            <div class="page-teaser-card" style="max-width: 980px; margin: 0 auto;">
-                <div class="brand-review-teaser">
-                    <div class="brand-review-teaser-copy">
-                        <span class="page-teaser-kicker">Interactive Tool</span>
-                        <h3 class="page-teaser-title">A first read before the full project</h3>
-                        <p class="page-teaser-copy">The review gives you a first diagnosis, a poster, and a sharper read of what to fix first.</p>
-                        <div class="page-teaser-meta">
-                            <span>Website Review</span>
-                            <span>Brand Signal</span>
-                            <span>PDF Report</span>
-                            <span>Strategic Session</span>
-                        </div>
-                        <div class="page-teaser-links">
-                            <a href="/brand-review/" class="btn">Open Brand Review</a>
-                            <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" target="_blank" rel="noopener noreferrer" class="page-teaser-inline-link">Book A Strategic Session</a>
-                        </div>
+            <div class="case-body-layout">
+                <div class="case-body-copy">
+                    <span class="case-eyebrow">Signature Layer</span>
+                    <h2 class="case-heading">Body Intelligence Mapping</h2>
+                    <p class="case-copy">An AI-powered digital tool that gives people a more guided first step before booking. Instead of choosing blindly from a treatment list, they move toward a more relevant next treatment, which makes the experience clearer for the client and more useful for the business.</p>
+                    <div class="case-body-pills">
+                        <span class="case-pill">AI-Powered Tool</span>
+                        <span class="case-pill">Guided Experience</span>
+                        <span class="case-pill">Clearer Conversion</span>
                     </div>
-                    <div class="brand-review-poster-mini">
-                        <img src="/Portal.png" alt="Brand Review poster preview" />
-                        <div class="brand-review-poster-copy">
-                            <span class="brand-review-poster-kicker">Brand Review</span>
-                            <h4 class="brand-review-poster-title">The Open Threshold</h4>
-                            <p class="brand-review-poster-tagline">A first poster for what the brand is already signaling.</p>
+                    <div class="case-hero-links" style="margin: 0 0 1rem 0;">
+                        <a href="https://www.healingvibeswellness.com/body-map.html" target="_blank" rel="noopener noreferrer" class="btn">View Live Tool</a>
+                    </div>
+                    <div class="case-body-mini-grid">
+                        <div class="case-mini-card">
+                            <h3>Stronger Entry Point</h3>
+                            <p>The tool gives visitors something more useful than a static treatment list and helps them engage earlier.</p>
+                        </div>
+                        <div class="case-mini-card">
+                            <h3>More Directed Booking</h3>
+                            <p>It helps move people toward a more relevant treatment, support pathway, or next booking step.</p>
+                        </div>
+                        <div class="case-mini-card">
+                            <h3>Higher Conversion Value</h3>
+                            <p>It works as a branded digital lead-in that can increase clarity, trust, and conversion around the offer.</p>
                         </div>
                     </div>
                 </div>
+                <div class="case-media-card case-body-preview">
+                    <img src="/hv-body-map-ui-screenshot.png" alt="Body Intelligence Mapping interface screenshot" />
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="contact-section">
+    <section class="case-block case-outcome-section">
         <div class="container">
-            <div class="contact-founder">
-                <span class="contact-founder-kicker">Founder Note</span>
-                <p class="contact-founder-copy">SAHAR is led by Yusuf Gaffoor and Marina Dabrytskaya-Gaffoor.</p>
-                <p class="contact-founder-copy">We help brands clarify their positioning, shape stronger stories, and turn that direction into websites, campaigns, films, and AI-powered brand experiences.</p>
-                <p class="contact-founder-copy">We work with brands internationally.</p>
+            <div class="case-outcome-top">
+                <div class="case-outcome-head">
+                    <span class="case-eyebrow">What Changed</span>
+                    <h2 class="case-heading">A fuller digital experience around the practice.</h2>
+                </div>
+                <div class="case-media-card case-preview-frame case-outcome-preview">
+                    <img src="/hv-real-shop.png" alt="Healing Vibes integrated digital experience" />
+                </div>
             </div>
-            <h2 class="section-header" style="margin-bottom: 2rem;">Work With Us</h2>
-            <p class="contact-sub">If the brand is ready for a clearer position, a stronger website, a sharper campaign, or a more intentional brand experience, start with a discovery call.</p>
-            <a href="/contact/" class="btn">Open Contact</a>
-            <p class="contact-note">Book a call, email us directly, or continue into the full contact page.</p>
+            <div class="case-outcome-grid">
+                <div class="case-outcome-card">
+                    <h3>Digital Experience</h3>
+                    <p>The practice now has a fuller digital world instead of just a basic informational site.</p>
+                </div>
+                <div class="case-outcome-card">
+                    <h3>Online Booking</h3>
+                    <p>Visitors now have clearer pathways into booking instead of only finding a phone number.</p>
+                </div>
+                <div class="case-outcome-card">
+                    <h3>Integrated Shop</h3>
+                    <p>The shop now feels like part of the brand system instead of something missing from the digital experience.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <script>
-        (() => {
-            const form = document.getElementById('brand-read-form');
-            const input = document.getElementById('brand-read-url');
-            const emailInput = document.getElementById('brand-read-email');
-            const unlockButton = document.getElementById('brand-read-unlock');
-            const generateButton = document.getElementById('brand-read-generate');
-            const gate = document.getElementById('brand-read-gate');
-            const deep = document.getElementById('brand-read-deep');
-            const poster = document.querySelector('.brand-read-poster');
-            const status = document.getElementById('brand-read-status');
-            const gateStatus = document.getElementById('brand-read-gate-status');
-            const deliveryStatus = document.getElementById('brand-read-delivery-status');
-            const posterCard = document.getElementById('brand-read-poster-card');
-            const firstReadCard = document.getElementById('brand-read-first-read');
-            const rail = document.getElementById('brand-read-rail');
-
-            if (!form || !input || !emailInput || !unlockButton || !generateButton || !gate || !deep || !poster || !status || !gateStatus || !deliveryStatus || !posterCard || !firstReadCard || !rail) {
-                return;
-            }
-
-            const fields = {
-                kicker: document.getElementById('brand-read-kicker'),
-                title: document.getElementById('brand-read-title'),
-                genre: document.getElementById('brand-read-genre'),
-                tagline: document.getElementById('brand-read-tagline'),
-                summary: document.getElementById('brand-read-summary'),
-                current: document.getElementById('brand-read-current'),
-                strength: document.getElementById('brand-read-strength'),
-                gap: document.getElementById('brand-read-gap'),
-                mismatch: document.getElementById('brand-read-mismatch'),
-                voice: document.getElementById('brand-read-voice'),
-                direction: document.getElementById('brand-read-direction'),
-                amplify: document.getElementById('brand-read-amplify'),
-                drop: document.getElementById('brand-read-drop')
-            };
-
-            const reads = [
-                {
-                    brandName: 'Your Brand',
-                    visualWorld: 'portal',
-                    symbol: 'spectacle',
-                    title: 'The Open Threshold',
-                    genre: 'Cinematic Reveal',
-                    tagline: 'The world is already there; the message now needs to meet its level of impact.',
-                    summary: 'This brand already knows how to make an entrance. Now the message needs to land with the same force.',
-                    current: 'The current signal feels premium, expansive, and high-impact. Visually, it arrives. Verbally, it is still softer than it should be.',
-                    strength: 'The strongest part is the sense of presence. The brand already knows how to make an entrance.',
-                    gap: 'The visual world hits first. The message should hit just as clearly. Right now the reveal is strong, but the takeaway is softer than it should be.',
-                    mismatch: 'The image promises confidence and clarity. The copy sometimes pulls back just when it should land the point.',
-                    voice: 'The copy should sound more decisive, more distinct, and more assured.',
-                    direction: 'Turn the visual drama into a sharper claim. Say what is valuable, say it plainly, and let the elegance come from precision.',
-                    amplify: 'Amplify the presence, the drama, and the sense of scale. The brand already knows how to catch attention.',
-                    drop: 'Drop any copy that stays vague for too long. Mystery can work. Confusion does not.'
-                },
-                {
-                    brandName: 'Your Brand',
-                    visualWorld: 'creator',
-                    symbol: 'story',
-                    title: 'Between the Lines',
-                    genre: 'Narrative Tension',
-                    tagline: 'There is movement, allure, and intention, but the story wants a clearer spine.',
-                    summary: 'The brand has mood, motion, and charm. It now needs a clearer line of meaning.',
-                    current: 'At first glance, the brand feels expressive, layered, and interesting. But the meaning can still drift a little behind the styling.',
-                    strength: 'The strongest part is the atmosphere. There is already personality here, and people can feel that quickly.',
-                    gap: 'The atmosphere is doing its job. The message is not always keeping up. Beautiful, yes. Fully clear, not yet.',
-                    mismatch: 'The mood suggests a strong point of view, but parts of the message still feel a little vague. That softens the impact.',
-                    voice: 'The tone has charm, but it meanders. It needs a cleaner point of view and more precision.',
-                    direction: 'Keep the richness, but sharpen the line of thought. People should understand both the mood and the value quickly.',
-                    amplify: 'Amplify the personality, the texture, and the emotional pull. Those are the parts people will remember.',
-                    drop: 'Drop any lines that feel decorative but non-committal. If it sounds lovely but says little, it is not helping.'
-                },
-                {
-                    brandName: 'Your Brand',
-                    visualWorld: 'magician',
-                    symbol: 'spectacle',
-                    title: 'The Open Threshold',
-                    genre: 'Cinematic Reveal',
-                    tagline: 'The world is already there; the message now needs to meet its level of impact.',
-                    summary: 'This brand already knows how to make an entrance. Now the message needs to land with the same force.',
-                    current: 'The current signal feels premium, expansive, and high-impact. Visually, it arrives. Verbally, it is still softer than it should be.',
-                    strength: 'The strongest part is the sense of presence. The brand already knows how to make an entrance.',
-                    gap: 'The visual world hits first. The message should hit just as clearly. Right now the reveal is strong, but the takeaway is softer than it should be.',
-                    mismatch: 'The image promises confidence and clarity. The copy sometimes pulls back just when it should land the point.',
-                    voice: 'The copy should sound more decisive, more distinct, and more assured.',
-                    direction: 'Turn the visual drama into a sharper claim. Say what is valuable, say it plainly, and let the elegance come from precision.',
-                    amplify: 'Amplify the presence, the drama, and the sense of scale. The brand already knows how to catch attention.',
-                    drop: 'Drop any copy that stays vague for too long. Mystery can work. Confusion does not.'
-                }
-            ];
-
-            const VISUAL_VAULT = {
-                ruler: { symbol: 'strategy' },
-                sage: { symbol: 'strategy' },
-                magician: { symbol: 'spectacle' },
-                creator: { symbol: 'story' },
-                lover: { symbol: 'spectacle' },
-                caregiver: { symbol: 'strategy' },
-                hero: { symbol: 'spectacle' },
-                rebel: { symbol: 'spectacle' },
-                explorer: { symbol: 'story' },
-                everyman: { symbol: 'strategy' },
-                innocent: { symbol: 'strategy' },
-                jester: { symbol: 'story' },
-                portal: { symbol: 'spectacle' }
-            };
-
-            const isLocalPreview = window.location.protocol === 'file:';
-            let currentResult = reads[0];
-            let currentUrl = '';
-            let revealTimers = [];
-
-            const setStatus = (element, message = '', tone = '') => {
-                if (!element) return;
-                element.textContent = message;
-                if (tone) element.dataset.tone = tone;
-                else element.removeAttribute('data-tone');
-            };
-
-            const setLoading = (button, loading, idleLabel, loadingLabel) => {
-                button.disabled = loading;
-                button.textContent = loading ? loadingLabel : idleLabel;
-            };
-
-            const startLoadingStatus = (element, messages, intervalMs = 2200) => {
-                if (!element || !messages?.length) return () => {};
-                let index = 0;
-                setStatus(element, messages[index], 'loading');
-                const timer = setInterval(() => {
-                    index = (index + 1) % messages.length;
-                    setStatus(element, messages[index], 'loading');
-                }, intervalMs);
-                return () => clearInterval(timer);
-            };
-
-            const revealNodes = [posterCard, firstReadCard, rail].filter(Boolean);
-
-            const clearRevealTimers = () => {
-                revealTimers.forEach((timer) => window.clearTimeout(timer));
-                revealTimers = [];
-            };
-
-            const setRevealHidden = (hidden) => {
-                revealNodes.forEach((node) => {
-                    node.classList.toggle('is-hidden', hidden);
-                });
-            };
-
-            const playRevealSequence = () => {
-                clearRevealTimers();
-                setRevealHidden(true);
-                revealNodes.forEach((node, index) => {
-                    const timer = window.setTimeout(() => {
-                        node.classList.remove('is-hidden');
-                    }, 160 + (index * 180));
-                    revealTimers.push(timer);
-                });
-            };
-
-            const pickRead = (value) => {
-                const normalized = (value || '').trim().toLowerCase();
-                let score = 0;
-                for (let i = 0; i < normalized.length; i += 1) score += normalized.charCodeAt(i);
-                return reads[score % reads.length];
-            };
-
-            const renderRead = (read, { staged = false } = {}) => {
-                currentResult = read;
-                posterCard.classList.remove('is-placeholder');
-                fields.kicker.textContent = `${read.brandName || 'Your Brand'}, On Screen`;
-                fields.title.textContent = read.title;
-                fields.genre.textContent = read.genre;
-                fields.tagline.textContent = read.tagline;
-                fields.summary.textContent = read.summary;
-                fields.current.textContent = read.current;
-                fields.strength.textContent = read.strength;
-                fields.gap.textContent = read.gap;
-                fields.mismatch.textContent = read.mismatch;
-                fields.voice.textContent = read.voice;
-                fields.direction.textContent = read.direction;
-                fields.amplify.textContent = read.amplify;
-                fields.drop.textContent = read.drop;
-                const world = VISUAL_VAULT[read.visualWorld] ? read.visualWorld : 'sage';
-                poster.dataset.world = world;
-                deep.classList.remove('visible');
-                gate.classList.remove('hidden');
-                emailInput.value = '';
-                setStatus(gateStatus, '');
-                setStatus(deliveryStatus, '');
-                if (staged) playRevealSequence();
-                else {
-                    clearRevealTimers();
-                    setRevealHidden(false);
-                }
-            };
-
-            const validateUrl = (value) => {
-                if (!value) return null;
-                try {
-                    return new URL(value).toString();
-                } catch (_) {
-                    try {
-                        return new URL(`https://${value}`).toString();
-                    } catch {
-                        return null;
-                    }
-                }
-            };
-
-            const requestJson = async (path, payload, timeoutMs = 30000) => {
-                const controller = new AbortController();
-                const timeout = setTimeout(() => controller.abort(), timeoutMs);
-                let response;
-
-                try {
-                    response = await fetch(path, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload),
-                        signal: controller.signal
-                    });
-                } catch (error) {
-                    clearTimeout(timeout);
-                    if (error?.name === 'AbortError') {
-                        throw new Error('The request took too long. Try again in a moment.');
-                    }
-                    throw error;
-                }
-
-                clearTimeout(timeout);
-
-                const data = await response.json().catch(() => ({}));
-
-                if (!response.ok) {
-                    const message = data.detail ? `${data.error || 'Something went wrong.'} ${data.detail}` : (data.error || 'Something went wrong.');
-                    throw new Error(message);
-                }
-
-                return data;
-            };
-
-            form.addEventListener('submit', async (event) => {
-                event.preventDefault();
-                const normalizedUrl = validateUrl(input.value.trim());
-
-                if (!normalizedUrl) {
-                    setStatus(status, 'Enter a valid website URL to generate the poster.', 'error');
-                    input.focus();
-                    return;
-                }
-
-                currentUrl = normalizedUrl;
-                setStatus(status, '');
-                setStatus(gateStatus, '');
-                setStatus(deliveryStatus, '');
-                setLoading(generateButton, true, 'Create Poster', 'Creating...');
-                const stopGenerateStatus = startLoadingStatus(status, [
-                    'Reading the site and pulling the strongest signals.',
-                    'Shaping the poster direction.',
-                    'Refining the first read.'
-                ]);
-
-                if (isLocalPreview) {
-                    renderRead(pickRead(normalizedUrl), { staged: true });
-                    stopGenerateStatus();
-                    setStatus(status, 'Showing a local sample result. Connect the live API to analyze real websites.', 'success');
-                    setLoading(generateButton, false, 'Create Poster', 'Creating...');
-                    return;
-                }
-
-                try {
-                    const data = await requestJson('/api/brand-read', {
-                        source: 'website',
-                        url: normalizedUrl
-                    }, 45000);
-                    currentUrl = data.url || normalizedUrl;
-                    renderRead(data.result, { staged: true });
-                    stopGenerateStatus();
-                    setStatus(status, 'Poster generated from the current website signal.', 'success');
-                } catch (error) {
-                    stopGenerateStatus();
-                    if (isLocalPreview) {
-                        renderRead(pickRead(normalizedUrl), { staged: true });
-                        setStatus(status, 'Showing a local sample result. Connect the live API to analyze real websites.', 'success');
-                    } else {
-                        setStatus(status, error.message || 'Unable to generate the poster right now.', 'error');
-                    }
-                } finally {
-                    setLoading(generateButton, false, 'Create Poster', 'Creating...');
-                }
-            });
-
-            unlockButton.addEventListener('click', async () => {
-                const email = emailInput.value.trim();
-
-                if (!email) {
-                    setStatus(gateStatus, 'Enter your email to open the full read.', 'error');
-                    emailInput.focus();
-                    return;
-                }
-
-                if (!currentResult) {
-                    setStatus(gateStatus, 'Generate the poster first.', 'error');
-                    return;
-                }
-
-                setStatus(gateStatus, '');
-                setStatus(deliveryStatus, '');
-                setLoading(unlockButton, true, 'Unlock Full Review', 'Opening...');
-
-                if (isLocalPreview) {
-                    gate.classList.add('hidden');
-                    deep.classList.add('visible');
-                    setLoading(unlockButton, false, 'Unlock Full Review', 'Opening...');
-                    setStatus(deliveryStatus, 'Local preview open. Connect the live API to send the PDF.', 'success');
-                    return;
-                }
-
-                gate.classList.add('hidden');
-                deep.classList.add('visible');
-                setLoading(unlockButton, false, 'Unlock Full Review', 'Opening...');
-                const stopUnlockStatus = startLoadingStatus(deliveryStatus, [
-                    'The full read is open.',
-                    'Building the PDF now.',
-                    'Sending it to your inbox.'
-                ], 1900);
-
-                void (async () => {
-                    try {
-                        const leadResponse = await requestJson('/api/brand-read-lead', {
-                            source: 'website',
-                            url: currentUrl || validateUrl(input.value.trim()) || input.value.trim(),
-                            email,
-                            result: currentResult
-                        }, 15000);
-                        stopUnlockStatus();
-                        if (leadResponse?.emailed) {
-                            setStatus(deliveryStatus, 'The PDF has been sent to your email.', 'success');
-                        } else if (leadResponse?.savedLead) {
-                            setStatus(deliveryStatus, 'The full read is open. Email delivery can be retried from our side.', 'success');
-                        } else {
-                            setStatus(deliveryStatus, 'The full read is open.', 'success');
-                        }
-                    } catch (error) {
-                        stopUnlockStatus();
-                        if (isLocalPreview) {
-                            setStatus(deliveryStatus, 'Local preview open. Connect Google Sheets to capture leads.', 'success');
-                        } else {
-                            setStatus(deliveryStatus, 'The full read is open. We could not send the PDF this time.', 'success');
-                        }
-                    }
-                })();
-            });
-
-            posterCard.classList.add('is-placeholder');
-            renderRead(currentResult);
-            posterCard.classList.add('is-placeholder');
-        })();
-
-        (() => {
-            const previewFrame = document.getElementById('qabastech-preview-iframe');
-            const previewShell = previewFrame?.closest('.work-video-shell');
-
-            if (previewFrame && previewShell) {
-                previewFrame.addEventListener('load', () => {
-                    window.setTimeout(() => {
-                        previewShell.classList.add('is-ready');
-                    }, 900);
-                });
-            }
-        })();
-
-        (() => {
-            const modal = document.getElementById('work-modal');
-            const modalTitle = document.getElementById('work-modal-title');
-            const modalPlayerHost = document.getElementById('work-modal-player');
-            const closeButton = document.getElementById('work-modal-close');
-            const triggers = document.querySelectorAll('[data-work-teaser]');
-
-            if (!modal || !modalTitle || !modalPlayerHost || !closeButton || !triggers.length) return;
-            let teaserTimeout = null;
-
-            const clearTeaser = () => {
-                if (teaserTimeout) {
-                    window.clearTimeout(teaserTimeout);
-                    teaserTimeout = null;
-                }
-
-                modalPlayerHost.innerHTML = '';
-            };
-
-            const closeModal = () => {
-                modal.classList.remove('open');
-                modal.setAttribute('aria-hidden', 'true');
-                clearTeaser();
-            };
-
-            triggers.forEach((trigger) => {
-                trigger.addEventListener('click', () => {
-                    modalTitle.textContent = trigger.dataset.teaserTitle || 'Teaser';
-                    clearTeaser();
-
-                    const iframe = document.createElement('iframe');
-                    iframe.src = trigger.dataset.teaserSrc || '';
-                    iframe.title = trigger.dataset.teaserTitle || 'Teaser';
-                    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-                    iframe.allowFullscreen = true;
-                    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-                    modalPlayerHost.appendChild(iframe);
-
-                    modal.classList.add('open');
-                    modal.setAttribute('aria-hidden', 'false');
-
-                    teaserTimeout = window.setTimeout(closeModal, Number(trigger.dataset.teaserDuration || 30000) + 400);
-                });
-            });
-
-            closeButton.addEventListener('click', closeModal);
-
-            modal.addEventListener('click', (event) => {
-                if (event.target === modal) closeModal();
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && modal.classList.contains('open')) {
-                    closeModal();
-                }
-            });
-        })();
-    </script>
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-header" style="margin-bottom: 1rem;">Discuss A Similar Project</h2>
+            <p class="contact-sub">If your brand needs a clearer digital system, we can map the next version with you.</p>
+            <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
+        </div>
+    </section>
 
 </body>
 </html>

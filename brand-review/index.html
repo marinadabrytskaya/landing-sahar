@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAHAR | Brand Strategy, Campaign Direction & Brand Films</title>
-    <meta name="description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.">
+    <title>Brand Review | SAHAR</title>
+    <meta name="description" content="A studio brand review by SAHAR. Enter your website to get a first poster, a sharper read, and a deeper review sent to your inbox.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.saharstudio.com/">
+    <link rel="canonical" href="https://www.saharstudio.com/brand-review/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SAHAR">
-    <meta property="og:title" content="SAHAR | Brand Strategy, Campaign Direction & Brand Films">
-    <meta property="og:description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.">
-    <meta property="og:url" content="https://www.saharstudio.com/">
+    <meta property="og:title" content="Brand Review | SAHAR">
+    <meta property="og:description" content="A studio brand review by SAHAR. Enter your website to get a first poster, a sharper read, and a deeper review sent to your inbox.">
+    <meta property="og:url" content="https://www.saharstudio.com/brand-review/">
     <meta property="og:image" content="https://www.saharstudio.com/hero-image.jpg">
     <meta property="og:image:alt" content="SAHAR Creative Intelligence Studio">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SAHAR | Brand Strategy, Campaign Direction & Brand Films">
-    <meta name="twitter:description" content="SAHAR is a creative intelligence studio shaping brands through strategy, narrative, websites, campaigns, brand films, and AI-powered brand experiences.">
+    <meta name="twitter:title" content="Brand Review | SAHAR">
+    <meta name="twitter:description" content="A studio brand review by SAHAR. Enter your website to get a first poster, a sharper read, and a deeper review sent to your inbox.">
     <meta name="twitter:image" content="https://www.saharstudio.com/hero-image.jpg">
 
     <script type="application/ld+json">
@@ -286,6 +286,30 @@
             letter-spacing: 0.05em;
         }
 
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.98rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            display: inline-block;
+            color: var(--gold);
+            background: linear-gradient(
+                90deg,
+                rgba(197, 160, 89, 0.72) 0%,
+                rgba(232, 208, 156, 0.96) 28%,
+                rgba(255, 245, 212, 0.98) 50%,
+                rgba(232, 208, 156, 0.96) 72%,
+                rgba(197, 160, 89, 0.72) 100%
+            );
+            background-size: 220% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 16px rgba(160, 121, 46, 0.18);
+            margin-bottom: 1.45rem;
+            animation: heroSubtitleGlow 8s ease-in-out infinite, heroSubtitleSweep 7.5s ease-in-out infinite;
+        }
+
         .hero-callout {
             position: absolute;
             left: 50%;
@@ -295,8 +319,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.9rem;
-            width: min(36rem, calc(100% - 3rem));
+            gap: 1.05rem;
+            width: min(42rem, calc(100% - 3rem));
             text-align: center;
         }
 
@@ -316,11 +340,11 @@
         }
 
         .hero-question-sub {
-            width: min(24rem, calc(100% - 2rem));
+            width: min(34rem, calc(100% - 2rem));
             margin: 0;
             font-family: var(--font-sans);
-            font-size: 0.94rem;
-            line-height: 1.45;
+            font-size: 0.95rem;
+            line-height: 1.6;
             letter-spacing: 0.01em;
             color: rgba(239, 234, 225, 0.82);
             text-align: center;
@@ -331,23 +355,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.85rem;
+            gap: 1rem;
             width: 100%;
         }
 
         .hero-actions .btn {
-            min-width: 14.5rem;
+            min-width: 16rem;
             text-align: center;
         }
 
         .hero-link {
             display: inline-block;
             font-family: var(--font-sans);
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--text-main);
-            padding: 0.95rem 1.55rem;
+            padding: 1rem 2rem;
             border: 1px solid rgba(197, 160, 89, 0.4);
             background: rgba(255, 255, 255, 0.01);
             backdrop-filter: blur(6px);
@@ -361,313 +385,45 @@
             background: rgba(255, 255, 255, 0.025);
         }
 
+        @keyframes heroSubtitleGlow {
+            0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 10px rgba(189, 148, 73, 0.1)); }
+            50% { opacity: 1; filter: drop-shadow(0 0 18px rgba(214, 179, 103, 0.18)); }
+        }
+
+        @keyframes heroSubtitleSweep {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
         /* --- OPENING SECTION --- */
         .opening-section {
             position: relative;
             z-index: 4;
-            padding: 72px 0 64px 0;
+            padding: 82px 0 52px 0;
             text-align: center;
-            background:
-                radial-gradient(circle at 50% 0%, rgba(197,160,89,0.08), rgba(17,22,27,0) 36%),
-                linear-gradient(180deg, #101318 0%, #11161b 100%);
+            background: linear-gradient(180deg, #101318 0%, #11161b 100%);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .opening-hook {
-            font-size: clamp(1.95rem, 3vw, 2.45rem);
-            line-height: 1.08;
-            letter-spacing: -0.025em;
+            font-size: clamp(2.05rem, 3.35vw, 2.8rem);
+            line-height: 1.12;
+            letter-spacing: -0.02em;
             color: var(--text-main);
-            max-width: 20ch;
-            margin: 0 auto 1.9rem;
+            margin-bottom: 1.4rem;
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
             text-wrap: balance;
         }
 
-        .opening-audience-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.35rem;
-            margin-top: 0;
-        }
-
-        .opening-audience-card {
-            border: 1px solid var(--border-light);
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.005)),
-                linear-gradient(180deg, var(--bg-surface-lift) 0%, var(--bg-surface-warm) 100%);
-            padding: 1.55rem 1.4rem;
-            min-height: 100%;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-            text-align: left;
-        }
-
-        .opening-audience-card h3 {
+        .opening-sub {
             font-family: var(--font-sans);
-            font-size: 0.78rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            line-height: 1.45;
-            margin-bottom: 0.85rem;
-            color: rgba(239, 234, 225, 0.94);
-        }
-
-        .opening-audience-card p {
-            font-size: 0.88rem;
-            line-height: 1.65;
-            color: rgba(255,255,255,0.62);
-        }
-
-        .page-teaser-section {
-            padding: 56px 0;
-            border-top: 1px solid var(--border-light);
-            background: linear-gradient(180deg, #13181d 0%, #12171c 100%);
-        }
-
-        .page-teaser-note {
-            max-width: 760px;
-            margin: -1.15rem auto 2.5rem auto;
-            font-size: 0.92rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.56);
-            text-align: center;
-        }
-
-        .page-teaser-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 2rem;
-        }
-
-        .page-teaser-card {
-            border: 1px solid var(--border-light);
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
-                linear-gradient(180deg, #171b20 0%, #14181d 100%);
-            padding: 2.4rem 2.2rem;
-            min-height: 100%;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .brand-review-teaser {
-            display: grid;
-            grid-template-columns: minmax(0, 1.18fr) 280px;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .brand-review-teaser-copy {
-            min-width: 0;
-        }
-
-        .brand-review-poster-mini {
-            position: relative;
-            aspect-ratio: 4 / 5.35;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: #12161b;
-            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
-        }
-
-        .brand-review-poster-mini img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .brand-review-poster-mini::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(10,12,15,0.08) 0%, rgba(10,12,15,0.28) 42%, rgba(10,12,15,0.8) 100%);
-        }
-
-        .brand-review-poster-copy {
-            position: absolute;
-            left: 1.15rem;
-            right: 1.15rem;
-            bottom: 1.15rem;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .brand-review-poster-kicker {
-            font-family: var(--font-sans);
-            font-size: 0.62rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: rgba(226, 195, 130, 0.9);
-        }
-
-        .brand-review-poster-title {
-            font-size: clamp(1.9rem, 2.4vw, 2.45rem);
-            line-height: 0.92;
-            max-width: 8ch;
-        }
-
-        .brand-review-poster-tagline {
-            font-size: 0.78rem;
-            line-height: 1.5;
-            color: rgba(239, 234, 225, 0.78);
-            max-width: 18ch;
-        }
-
-        .page-teaser-kicker {
-            display: block;
-            font-family: var(--font-sans);
-            font-size: 0.74rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: rgba(226, 195, 130, 0.82);
-            margin-bottom: 0.9rem;
-        }
-
-        .page-teaser-title {
-            font-size: clamp(2rem, 3vw, 2.6rem);
-            line-height: 1.08;
-            margin-bottom: 1rem;
-        }
-
-        .page-teaser-copy {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.62);
-            margin-bottom: 1.4rem;
-            max-width: 34rem;
-        }
-
-        .page-teaser-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.55rem;
-            margin-bottom: 1.45rem;
-        }
-
-        .page-teaser-meta span {
-            padding: 0.5rem 0.8rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            font-family: var(--font-sans);
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 0.13em;
-            color: rgba(255,255,255,0.58);
-            background: rgba(255,255,255,0.015);
-        }
-
-        .page-teaser-links {
-            display: flex;
-            gap: 0.9rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .page-teaser-inline-link {
-            font-family: var(--font-sans);
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: rgba(255,255,255,0.56);
-        }
-
-        .page-teaser-inline-link:hover {
-            color: var(--gold);
-        }
-
-        .home-work-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 2rem;
-        }
-
-        .home-work-card {
-            position: relative;
-            min-height: 36rem;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)),
-                linear-gradient(180deg, #171b20 0%, #14181d 100%);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .home-work-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(10,12,15,0.04) 0%, rgba(10,12,15,0.16) 35%, rgba(10,12,15,0.74) 100%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .home-work-media,
-        .home-work-media img,
-        .home-work-media video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-            object-fit: cover;
-            display: block;
-        }
-
-        .home-work-media {
-            overflow: hidden;
-        }
-
-        .home-work-media iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 177.78%;
-            height: 100%;
-            border: 0;
-            display: block;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        .home-work-copy {
-            position: absolute;
-            left: 1.7rem;
-            right: 1.7rem;
-            bottom: 1.65rem;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .home-work-kicker {
-            font-family: var(--font-sans);
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: rgba(226, 195, 130, 0.82);
-        }
-
-        .home-work-title {
-            font-size: clamp(2.1rem, 3.3vw, 3rem);
-            line-height: 0.98;
-            max-width: 10ch;
-        }
-
-        .home-work-desc {
-            font-size: 0.92rem;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.72);
-            max-width: 30rem;
-        }
-
-        .home-work-links {
-            display: flex;
-            gap: 0.9rem;
-            flex-wrap: wrap;
-            align-items: center;
+            font-size: 0.98rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+            max-width: 860px;
+            margin: 0 auto;
         }
 
         /* --- BRAND READ SECTION --- */
@@ -1557,12 +1313,6 @@
             text-align: center;
         }
 
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 2rem;
-        }
-
         .pack-card {
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.005)),
@@ -1577,12 +1327,12 @@
 
         .pack-card h3 {
             font-family: var(--font-sans);
-            font-size: 0.96rem;
+            font-size: 1.08rem;
             letter-spacing: 0.11em;
             text-transform: uppercase;
             margin-bottom: 0.5rem;
-            min-height: 2.8rem;
-            white-space: normal;
+            min-height: 1.5rem;
+            white-space: nowrap;
         }
 
         .pack-sub {
@@ -1600,7 +1350,7 @@
             line-height: 1.75;
             color: rgba(255,255,255,0.62);
             margin-bottom: 2rem;
-            min-height: 6rem;
+            min-height: 5.3rem;
         }
 
         .pack-includes-label {
@@ -2328,12 +2078,6 @@
         @media (max-width: 1024px) {
             .grid-3 { grid-template-columns: repeat(2, 1fr); }
             .pack-card, .method-card { height: auto; }
-            .page-teaser-grid { grid-template-columns: 1fr; }
-            .home-work-grid { grid-template-columns: 1fr; }
-            .brand-review-teaser { grid-template-columns: 1fr; }
-            .brand-review-poster-mini { max-width: 280px; width: 100%; justify-self: center; }
-            .packages-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .opening-audience-grid { grid-template-columns: 1fr; gap: 1rem; }
             .work-card-featured {
                 grid-column: span 2;
                 aspect-ratio: 16 / 10.5;
@@ -2416,14 +2160,6 @@
                 margin-top: -18px;
             }
             .grid-3 { grid-template-columns: 1fr; }
-            .page-teaser-grid { grid-template-columns: 1fr; }
-            .home-work-grid { grid-template-columns: 1fr; }
-            .brand-review-teaser { grid-template-columns: 1fr; }
-            .packages-grid { grid-template-columns: 1fr; }
-            .opening-section { padding: 68px 0 52px; }
-            .opening-hook { margin-bottom: 1.65rem; }
-            .opening-audience-grid { grid-template-columns: 1fr; gap: 0.9rem; }
-            .opening-audience-card { padding: 1.2rem 1.1rem; }
             .work-grid { grid-template-columns: 1fr; }
             .work-card-featured {
                 grid-column: auto;
@@ -2484,46 +2220,12 @@
                 font-size: clamp(1.55rem, 7vw, 2rem);
                 white-space: normal;
             }
+            .hero-subtitle { font-size: 0.9rem; margin-bottom: 1.1rem; }
             .hero-video {
                 object-position: 72% 58%;
                 transform: scale(1.035);
             }
-            .opening-hook { white-space: normal; max-width: 15ch; }
-            .hero-question-sub {
-                width: min(18rem, calc(100% - 2.6rem));
-                font-size: 0.88rem;
-                line-height: 1.55;
-            }
-            .who-card,
-            .page-teaser-card {
-                padding: 1.8rem 1.45rem;
-            }
-            .home-work-card {
-                min-height: 31rem;
-            }
-            .home-work-copy {
-                left: 1.35rem;
-                right: 1.35rem;
-                bottom: 1.3rem;
-            }
-            .home-work-links {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .home-work-links .btn,
-            .home-work-links .page-teaser-inline-link {
-                width: 100%;
-                text-align: center;
-            }
-            .page-teaser-links {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .page-teaser-links .btn,
-            .page-teaser-inline-link {
-                width: 100%;
-                text-align: center;
-            }
+            .opening-hook { white-space: normal; max-width: 12ch; }
             .hero-question-sub {
                 width: min(26rem, calc(100% - 2.6rem));
                 font-size: 0.88rem;
@@ -2637,13 +2339,14 @@
     </style>
 </head>
 <body>
+<body>
 
-    <!-- NAVIGATION -->
     <nav>
         <div class="nav-links">
-            <a href="#method">What We Do</a>
+            <a href="/">Home</a>
+            <a href="/#method">What We Do</a>
             <a href="/work/">Work</a>
-            <a href="#packages">Packages</a>
+            <a href="/#packages">Packages</a>
             <a href="/brand-review/">Brand Review</a>
             <a href="/contact/">Contact</a>
         </div>
@@ -2652,7 +2355,6 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="hero">
         <video class="hero-video" autoplay muted loop playsinline preload="auto">
             <source src="/hero-video.mp4" type="video/mp4" />
@@ -2660,234 +2362,142 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">SAHAR</h1>
+            <p class="hero-subtitle">Brand Review</p>
         </div>
         <div class="hero-callout">
-            <h2 class="hero-question">If Your Brand Was a Movie<br>Would Anyone Watch It?</h2>
-            <p class="hero-question-sub">We build brands that hold attention.</p>
+            <h2 class="hero-question">See What Your Brand<br>Is Already Saying</h2>
+            <p class="hero-question-sub">Enter your website to get a first poster, a sharper first read, and a deeper review sent to your inbox.</p>
             <div class="hero-actions">
-                <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
-                <a href="/brand-review/" class="btn">Try the Brand Review</a>
+                <a href="#brand-read" class="btn">Start The Review</a>
+                <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" target="_blank" rel="noopener noreferrer" class="hero-link">Strategic Session</a>
             </div>
         </div>
     </header>
 
-    <!-- OPENING SECTION -->
     <section class="opening-section">
         <div class="container">
-            <h2 class="opening-hook">For new brands, resets, and stronger next versions.</h2>
-            <div class="opening-audience-grid">
-                <article class="opening-audience-card">
-                    <h3>Existing Brands</h3>
-                    <p>When the business has moved on and the brand needs a sharper next version.</p>
-                </article>
-                <article class="opening-audience-card">
-                    <h3>New Brands</h3>
-                    <p>When the story, website, and digital experience need to be built clearly from the ground up.</p>
-                </article>
-                <article class="opening-audience-card">
-                    <h3>Campaigns & Experiences</h3>
-                    <p>When a campaign, film, website, or AI-powered tool needs more clarity, atmosphere, and direction.</p>
-                </article>
-            </div>
+            <h2 class="opening-hook">A clearer look at what your brand signals.</h2>
+            <p class="opening-sub">This tool is designed to surface what is already working, what is unclear, and where the brand still needs more alignment between message and image.</p>
         </div>
     </section>
 
-    <!-- METHOD SECTION -->
-    <section id="method" class="method-section">
+    <section id="brand-read" class="brand-read-section">
         <div class="container">
-            <h2 class="section-header">What We Do</h2>
-            <div class="grid-3">
-                
-                <!-- Strategy -->
-                <div class="method-card">
-                    <div class="method-visual strategy-visual">
-                        <div class="method-glow"></div>
-                        <div class="method-sheen"></div>
-                    </div>
-                    <div class="method-text">
-                        <h3>Brand Strategy</h3>
-                        <p><strong>For brands that need a clearer position.</strong> We define the offer, the audience, and the next direction.</p>
-                        <ul>
-                            <li>Positioning and offer clarity</li>
-                            <li>Audience and tone of voice</li>
-                            <li>Direction for digital</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Story -->
-                <div class="method-card">
-                    <div class="method-visual story-visual">
-                        <div class="method-glow"></div>
-                        <div class="method-sheen"></div>
-                    </div>
-                    <div class="method-text">
-                        <h3>Narrative & Messaging</h3>
-                        <p><strong>For brands that look strong but still sound vague.</strong> We shape the story and messaging so the brand lands faster.</p>
-                        <ul>
-                            <li>Core messaging and brand narrative</li>
-                            <li>Launch and campaign storylines</li>
-                            <li>Consistency across touchpoints</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Spectacle -->
-                <div class="method-card">
-                    <div class="method-visual spectacle-visual">
-                        <div class="method-glow"></div>
-                        <div class="method-sheen"></div>
-                    </div>
-                    <div class="method-text">
-                        <h3>Websites, Digital Products & Brand Experiences</h3>
-                        <p><strong>For brands that need more than a website.</strong> We turn strategy and story into websites, tools, campaigns, films, and AI-powered experiences.</p>
-                        <ul>
-                            <li>Custom websites and landing pages</li>
-                            <li>Interactive tools and AI-powered experiences</li>
-                            <li>Campaigns and films</li>
-                        </ul>
-                    </div>
+            <div class="brand-read-shell">
+                <div class="brand-read-intro">
+                    <span class="brand-read-kicker">Brand Review</span>
+                    <h2 class="brand-read-title">See what your brand is already saying</h2>
+                    <p class="brand-read-sub">A quick read of what is working, what feels off, and what to refine next.</p>
                 </div>
 
-            </div>
-        </div>
-    </section>
+                <div class="brand-read-main">
+                    <div class="brand-read-panel">
+                        <form class="brand-read-form" id="brand-read-form">
+                            <div>
+                                <label class="brand-read-label" for="brand-read-url">Enter your website</label>
+                                <input id="brand-read-url" class="brand-read-input" type="text" placeholder="https://yourbrand.com" />
+                            </div>
 
-    <!-- WORK SECTION -->
-    <section id="work" class="page-teaser-section">
-        <div class="container">
-            <h2 class="section-header">Selected Work</h2>
-            <p class="page-teaser-note">A look at the worlds SAHAR is building across film, websites, and branded digital systems.</p>
-            <div class="home-work-grid">
-                <article class="home-work-card">
-                    <div class="home-work-media">
-                        <iframe
-                            src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=0&end=30&loop=1&playlist=z-Qs34iREqs&iv_load_policy=3"
-                            title="Cinematic teaser preview"
-                            loading="lazy"
-                            allow="autoplay; encrypted-media; picture-in-picture"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                        ></iframe>
+                            <p class="brand-read-helper">Enter your website to get a first poster and a sharper first read.</p>
+                            <p class="brand-read-status" id="brand-read-status" aria-live="polite"></p>
+
+                            <div class="brand-read-actions">
+                                <button type="submit" class="btn" id="brand-read-generate">Create Poster</button>
+                                <span class="brand-read-secondary">A first poster. Then the full review.</span>
+                            </div>
+                        </form>
                     </div>
-                    <div class="home-work-copy">
-                        <span class="home-work-kicker">Brand Film</span>
-                        <h3 class="home-work-title">Teaser</h3>
-                        <p class="home-work-desc">A cinematic teaser built around scale, precision, and atmosphere.</p>
-                        <div class="home-work-links">
-                            <a href="/work/" class="btn">View Work</a>
-                            <a href="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&controls=1&playsinline=1&rel=0&modestbranding=1&start=0&end=30&iv_load_policy=3" target="_blank" rel="noopener noreferrer" class="page-teaser-inline-link">Watch Teaser</a>
+
+                    <div class="brand-read-panel">
+                            <div class="brand-read-result">
+                                <div class="brand-read-overview">
+                                <div class="brand-read-poster brand-read-reveal is-placeholder" data-world="portal" id="brand-read-poster-card">
+                                    <video class="brand-read-poster-video" autoplay muted loop playsinline preload="auto" poster="/Portal.png" aria-hidden="true">
+                                        <source src="/cube-assembly.mp4" type="video/mp4" />
+                                    </video>
+                                    <span class="brand-read-poster-kicker" id="brand-read-kicker">Your Brand, On Screen</span>
+                                    <div class="brand-read-poster-copy">
+                                        <h3 class="brand-read-poster-title" id="brand-read-title">The Open Threshold</h3>
+                                        <span class="brand-read-poster-genre" id="brand-read-genre">Cinematic Reveal</span>
+                                    </div>
+                                    <div class="brand-read-poster-footer">
+                                        <p class="brand-read-poster-tagline" id="brand-read-tagline">The world is already there; the message now needs to meet its level of impact.</p>
+                                        <span class="brand-read-poster-credit">Created by SAHAR</span>
+                                    </div>
+                                </div>
+
+                                <div class="brand-read-mini brand-read-reveal" id="brand-read-first-read">
+                                <h4>First Read</h4>
+                                <p id="brand-read-summary">This brand already looks considered and polished. The words now need to carry the same confidence.</p>
+                                </div>
+                                </div>
+
+                                <div class="brand-read-rail brand-read-reveal" id="brand-read-rail">
+                                <div class="brand-read-email-gate" id="brand-read-gate">
+                                    <span class="brand-read-gate-title">Unlock the Full Review</span>
+                                    <p class="brand-read-gate-copy">The full read opens here and lands in your inbox.</p>
+                                    <div class="brand-read-gate-row">
+                                        <input id="brand-read-email" class="brand-read-email" type="email" placeholder="Your email address" />
+                                        <button type="button" class="btn" id="brand-read-unlock">Unlock Full Review</button>
+                                    </div>
+                                    <p class="brand-read-status" id="brand-read-gate-status" aria-live="polite"></p>
+                                </div>
+                                </div>
                         </div>
                     </div>
-                </article>
-                <article class="home-work-card">
-                    <div class="home-work-media">
-                        <video autoplay muted loop playsinline preload="metadata" poster="/healing-vibes-concept.jpg">
-                            <source src="/healing-vibes-hero-video.mp4" type="video/mp4" />
-                        </video>
-                    </div>
-                    <div class="home-work-copy">
-                        <span class="home-work-kicker">Digital Ecosystem</span>
-                        <h3 class="home-work-title">Healing Vibes</h3>
-                        <p class="home-work-desc">A fuller digital system for a wellness practice, bringing the website, shop, booking pathways, experiences, and Body Intelligence Mapping into one calmer brand world.</p>
-                        <div class="home-work-links">
-                            <a href="/work/healing-vibes/" class="btn">Open Case</a>
-                            <a href="https://healingvibeswellness.com" target="_blank" rel="noopener noreferrer" class="page-teaser-inline-link">View Current Site</a>
+                </div>
+                <div class="brand-read-deep-area">
+                    <div class="brand-read-deep-wrap">
+                        <div class="brand-read-deep-head">
+                            <div class="brand-read-deep-intro">
+                                <div class="brand-read-deep-title">Full Review</div>
+                                <p class="brand-read-status brand-read-delivery-status" id="brand-read-delivery-status" aria-live="polite"></p>
+                            </div>
+                            <p class="brand-read-deep-note">A practical studio review of what is working, what is unclear, and what should change first.</p>
                         </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
 
-    <!-- PACKAGES SECTION -->
-    <section id="packages" class="packages-section">
-        <div class="container">
-            <h2 class="section-header">Packages</h2>
-            <p class="packages-note">Four common ways we work, from brand foundations to digital tools and experiences.</p>
-            <div class="packages-grid">
-                
-                <!-- START -->
-                <div class="pack-card">
-                    <h3>Brand Foundation</h3>
-                    <span class="pack-sub">From $2,800</span>
-                    <p class="pack-desc">For brands that need story, positioning, and website direction built as one system.</p>
-                    <span class="pack-includes-label">Deliverables</span>
-                    <ul class="pack-list">
-                        <li>Brand story and core direction</li>
-                        <li>Website structure and messaging</li>
-                        <li>Custom website ready to launch</li>
-                    </ul>
-                </div>
-
-                <!-- CAMPAIGN -->
-                <div class="pack-card">
-                    <h3>Campaign Direction</h3>
-                    <span class="pack-sub">From $1,900</span>
-                    <p class="pack-desc">For launches and offers that need one strong campaign idea and a clearer visual world.</p>
-                    <span class="pack-includes-label">Deliverables</span>
-                    <ul class="pack-list">
-                        <li>Campaign idea and key message</li>
-                        <li>Key visuals for launch or rollout</li>
-                        <li>Assets for rollout</li>
-                    </ul>
-                </div>
-
-                <!-- BRAND FILM -->
-                <div class="pack-card">
-                    <h3>Brand Film</h3>
-                    <span class="pack-sub">From $2,300</span>
-                    <p class="pack-desc">For brands that need one cinematic piece to launch, elevate, or reframe the brand.</p>
-                    <span class="pack-includes-label">Deliverables</span>
-                    <ul class="pack-list">
-                        <li>Film concept and visual direction</li>
-                        <li>One teaser or brand film</li>
-                        <li>Supporting rollout assets</li>
-                    </ul>
-                </div>
-
-                <div class="pack-card">
-                    <h3>Digital Product / Experience</h3>
-                    <span class="pack-sub">From $2,200</span>
-                    <p class="pack-desc">For brands that need an interactive tool or AI-powered experience built into the brand.</p>
-                    <span class="pack-includes-label">Deliverables</span>
-                    <ul class="pack-list">
-                        <li>Tool concept and user pathway</li>
-                        <li>Branded interface and interaction logic</li>
-                        <li>Digital experience built around the brand</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="brand-read" class="page-teaser-section">
-        <div class="container">
-            <h2 class="section-header">Brand Review</h2>
-            <p class="page-teaser-note">A first look at what your current site is already signaling, and what to sharpen first.</p>
-            <div class="page-teaser-card" style="max-width: 980px; margin: 0 auto;">
-                <div class="brand-review-teaser">
-                    <div class="brand-review-teaser-copy">
-                        <span class="page-teaser-kicker">Interactive Tool</span>
-                        <h3 class="page-teaser-title">A first read before the full project</h3>
-                        <p class="page-teaser-copy">The review gives you a first diagnosis, a poster, and a sharper read of what to fix first.</p>
-                        <div class="page-teaser-meta">
-                            <span>Website Review</span>
-                            <span>Brand Signal</span>
-                            <span>PDF Report</span>
-                            <span>Strategic Session</span>
+                        <div class="brand-read-deep" id="brand-read-deep">
+                            <div class="brand-read-deep-card">
+                                <h4>What It Signals</h4>
+                                <p id="brand-read-current">Right now, the brand feels tasteful and well put together, but the offer is still not fully clear at first glance.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>How It Comes Across</h4>
+                                <p id="brand-read-strength">The strongest part is the overall mood. It already feels considered, elevated, and visually self-aware.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>What Is Missing</h4>
+                                <p id="brand-read-gap">The look says “premium.” The message does not always say exactly why. That gap weakens clarity and slows trust.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>Mixed Signals</h4>
+                                <p id="brand-read-mismatch">Some parts of the brand are aiming for polish and authority, while others still feel softer or less sure of themselves.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>Tone Check</h4>
+                                <p id="brand-read-voice">The visual language feels assured. The copy still needs more clarity, confidence, and less filler.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>What To Do Next</h4>
+                                <p id="brand-read-direction">Say the core promise faster, trim the extra noise, and make every part of the brand point to the same big idea.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>What To Amplify</h4>
+                                <p id="brand-read-amplify">Lean harder into what already feels distinct, polished, and memorable. That is where the real brand equity is hiding.</p>
+                            </div>
+                            <div class="brand-read-deep-card">
+                                <h4>What To Drop</h4>
+                                <p id="brand-read-drop">Pull back anything vague, over-explained, or too careful. If it weakens the main impression, it should probably go.</p>
+                            </div>
                         </div>
-                        <div class="page-teaser-links">
-                            <a href="/brand-review/" class="btn">Open Brand Review</a>
-                            <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" target="_blank" rel="noopener noreferrer" class="page-teaser-inline-link">Book A Strategic Session</a>
-                        </div>
-                    </div>
-                    <div class="brand-review-poster-mini">
-                        <img src="/Portal.png" alt="Brand Review poster preview" />
-                        <div class="brand-review-poster-copy">
-                            <span class="brand-review-poster-kicker">Brand Review</span>
-                            <h4 class="brand-review-poster-title">The Open Threshold</h4>
-                            <p class="brand-review-poster-tagline">A first poster for what the brand is already signaling.</p>
+
+                        <div class="brand-read-session">
+                            <p class="brand-read-session-copy"><span class="brand-read-session-kicker">Strategic Session</span>A paid 60-minute session to turn the read into priorities: what to sharpen, what to simplify, and where to focus first.</p>
+                            <div class="brand-read-session-cta">
+                                <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" target="_blank" rel="noopener noreferrer" class="btn">Book a Strategic Session</a>
+                                <span class="brand-read-secondary">$250 / 60 min</span>
+                            </div>
+                            <p class="brand-read-session-note">$250 is paid at booking. If we continue into a project, the fee goes toward the work. Or email <a href="mailto:hello@saharstudio.com" class="brand-read-secondary">hello@saharstudio.com</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -2905,9 +2515,19 @@
                 <p class="contact-founder-copy">We work with brands internationally.</p>
             </div>
             <h2 class="section-header" style="margin-bottom: 2rem;">Work With Us</h2>
-            <p class="contact-sub">If the brand is ready for a clearer position, a stronger website, a sharper campaign, or a more intentional brand experience, start with a discovery call.</p>
-            <a href="/contact/" class="btn">Open Contact</a>
-            <p class="contact-note">Book a call, email us directly, or continue into the full contact page.</p>
+            <p class="contact-sub">For brands, founders, and teams looking for clearer positioning, stronger messaging, and a more cohesive presence.</p>
+            <a href="https://calendly.com/maryna-dabrytskaya/30min" target="_blank" rel="noopener noreferrer" class="btn">Book a Discovery Call</a>
+            <p class="contact-note">A focused 20-minute call to understand your brand, scope, and direction.</p>
+            <a href="mailto:hello@saharstudio.com" class="contact-email">hello@saharstudio.com</a>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/company/sahar-studio" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <span class="contact-links-divider" aria-hidden="true"></span>
+                <a href="https://www.saharstudio.com" target="_blank" rel="noopener noreferrer">Website</a>
+            </div>
+            <div class="contact-footnotes">
+                <span>&copy; 2026 SAHAR. All Rights Reserved.</span>
+                <span>Developed by SAHAR.</span>
+            </div>
         </div>
     </section>
 
@@ -2927,10 +2547,6 @@
             const posterCard = document.getElementById('brand-read-poster-card');
             const firstReadCard = document.getElementById('brand-read-first-read');
             const rail = document.getElementById('brand-read-rail');
-
-            if (!form || !input || !emailInput || !unlockButton || !generateButton || !gate || !deep || !poster || !status || !gateStatus || !deliveryStatus || !posterCard || !firstReadCard || !rail) {
-                return;
-            }
 
             const fields = {
                 kicker: document.getElementById('brand-read-kicker'),
@@ -3017,6 +2633,12 @@
                 jester: { symbol: 'story' },
                 portal: { symbol: 'spectacle' }
             };
+
+            const heroSection = document.querySelector('.hero');
+            const brandReadSection = document.getElementById('brand-read');
+            if (heroSection && brandReadSection && heroSection.nextElementSibling !== brandReadSection) {
+                heroSection.insertAdjacentElement('afterend', brandReadSection);
+            }
 
             const isLocalPreview = window.location.protocol === 'file:';
             let currentResult = reads[0];
