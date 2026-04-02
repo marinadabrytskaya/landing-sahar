@@ -1562,7 +1562,11 @@
 
         .work-card-featured {
             grid-column: span 2;
-            aspect-ratio: 16 / 8.8;
+            aspect-ratio: auto;
+            min-height: 0;
+            padding: 2rem;
+            display: grid;
+            gap: 1.5rem;
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.004)),
                 linear-gradient(180deg, #171b20 0%, #12171c 100%);
@@ -1657,6 +1661,16 @@
             text-align: center;
         }
 
+        .work-teaser-stage {
+            position: relative;
+            width: 100%;
+            max-width: 63rem;
+            height: clamp(23rem, 38vw, 34rem);
+            border: 1px solid rgba(255,255,255,0.08);
+            overflow: hidden;
+            background: linear-gradient(180deg, #171c21 0%, #11161b 100%);
+        }
+
         .work-video-shell {
             position: absolute;
             inset: 0;
@@ -1721,12 +1735,13 @@
         }
 
         .work-card-copy {
-            position: absolute;
-            left: 2.2rem;
-            right: 2.2rem;
-            bottom: 2rem;
+            position: relative;
             z-index: 3;
-            max-width: 34rem;
+            max-width: 54rem;
+        }
+
+        .work-card-copy--stacked {
+            padding-right: 0;
         }
 
         .work-kicker {
@@ -1776,6 +1791,10 @@
 
         .work-context + .work-context {
             margin-top: 0;
+        }
+
+        .work-card-featured .work-meta {
+            margin-top: 0.3rem;
         }
 
         .work-meta {
@@ -2288,7 +2307,7 @@
             .pack-card, .method-card { height: auto; }
             .work-card-featured {
                 grid-column: span 2;
-                aspect-ratio: 16 / 10.5;
+                padding: 1.65rem;
             }
             .work-card-website {
                 grid-column: span 2;
@@ -2299,7 +2318,10 @@
                 gap: 1rem;
             }
             .work-card-copy {
-                max-width: 28rem;
+                max-width: 100%;
+            }
+            .work-teaser-stage {
+                height: clamp(20rem, 44vw, 28rem);
             }
             .brand-read-main {
                 grid-template-columns: 1fr;
@@ -2371,7 +2393,7 @@
             .work-grid { grid-template-columns: 1fr; }
             .work-card-featured {
                 grid-column: auto;
-                aspect-ratio: 4 / 5;
+                padding: 1.35rem;
             }
             .work-card-website {
                 grid-column: auto;
@@ -2386,14 +2408,11 @@
             .work-website-frame {
                 height: 20rem;
             }
-            .work-card-copy {
-                left: 1.35rem;
-                right: 1.35rem;
-                bottom: 1.3rem;
-                max-width: none;
-            }
             .work-card-copy .work-title {
                 font-size: 2rem;
+            }
+            .work-teaser-stage {
+                height: 18rem;
             }
             .work-desc {
                 font-size: 0.92rem;
@@ -2581,21 +2600,7 @@
             <div class="work-grid">
 
                 <div class="work-card work-card-featured">
-                    <div class="work-video-shell" aria-hidden="true">
-                        <div class="work-teaser-visual">
-                            <div class="work-teaser-cover"></div>
-                            <iframe
-                                id="qabastech-preview-iframe"
-                                src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=0&end=30&loop=0&iv_load_policy=3"
-                                title="Cinematic brand film teaser"
-                                loading="lazy"
-                                allow="autoplay; encrypted-media; picture-in-picture"
-                                referrerpolicy="strict-origin-when-cross-origin"
-                            ></iframe>
-                        </div>
-                    </div>
-                    <div class="work-overlay"></div>
-                    <div class="work-card-copy">
+                    <div class="work-card-copy work-card-copy--stacked">
                         <span class="work-kicker">Cinematic Brand Film</span>
                         <h3 class="work-title">Teaser</h3>
                         <span class="work-client-line">Riyadh-Based Consulting Firm · 2:10 Brand Film</span>
@@ -2609,6 +2614,21 @@
                             <span class="work-tag">Cultural Code</span>
                             <span class="work-tag">AI Training</span>
                             <span class="work-tag">2:10 Film</span>
+                        </div>
+                    </div>
+                    <div class="work-teaser-stage">
+                        <div class="work-video-shell" aria-hidden="true">
+                            <div class="work-teaser-visual">
+                                <div class="work-teaser-cover"></div>
+                                <iframe
+                                    id="qabastech-preview-iframe"
+                                    src="https://www.youtube-nocookie.com/embed/z-Qs34iREqs?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&start=0&end=30&loop=0&iv_load_policy=3"
+                                    title="Cinematic brand film teaser"
+                                    loading="lazy"
+                                    allow="autoplay; encrypted-media; picture-in-picture"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                ></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
