@@ -7,6 +7,7 @@ try {
 const cheerio = require('cheerio');
 
 const DEFAULT_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+const DEFAULT_FALLBACK_MODEL = process.env.GEMINI_FALLBACK_MODEL || 'gemini-2.0-flash';
 const MODEL_RETRYABLE_STATUSES = new Set([429, 500, 503, 504]);
 
 function sendJson(res, status, payload) {
@@ -280,92 +281,102 @@ Return JSON with exactly these keys:
 }
 `;
 
-  for (let attempt = 0; attempt < 2; attempt += 1) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 20000);
+  const modelsToTry = [...new Set([DEFAULT_MODEL, DEFAULT_FALLBACK_MODEL].filter(Boolean))];
+  let sawHighDemand = false;
+  let sawTimeout = false;
 
-    try {
-      const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${DEFAULT_MODEL}:generateContent?key=${apiKey}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          signal: controller.signal,
-          body: JSON.stringify({
-            contents: [
-              {
-                role: 'user',
-                parts: [{ text: prompt }]
+  for (const model of modelsToTry) {
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 20000);
+
+      try {
+        const response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            signal: controller.signal,
+            body: JSON.stringify({
+              contents: [
+                {
+                  role: 'user',
+                  parts: [{ text: prompt }]
+                }
+              ],
+              generationConfig: {
+                temperature: 0.7,
+                responseMimeType: 'application/json'
               }
-            ],
-            generationConfig: {
-              temperature: 0.7,
-              responseMimeType: 'application/json'
+            })
+          }
+        );
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          if (MODEL_RETRYABLE_STATUSES.has(response.status)) {
+            sawHighDemand = true;
+            if (attempt === 0) {
+              await sleep(1200);
+              continue;
             }
-          })
-        }
-      );
+            break;
+          }
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        if (MODEL_RETRYABLE_STATUSES.has(response.status) && attempt === 0) {
-          await sleep(1200);
-          continue;
-        }
-
-        if (MODEL_RETRYABLE_STATUSES.has(response.status)) {
           throw createAppError(
-            'Brand Review is experiencing high demand right now. Please try again in a moment.',
-            { statusCode: 503 }
+            'Unable to generate the brand read right now. Please try again shortly.',
+            { statusCode: 502, detail: errorText }
           );
         }
 
-        throw createAppError(
-          'Unable to generate the brand read right now. Please try again shortly.',
-          { statusCode: 502, detail: errorText }
-        );
-      }
+        const payload = await response.json();
+        const text = payload?.candidates?.[0]?.content?.parts?.map((part) => part.text || '').join('') || '';
 
-      const payload = await response.json();
-      const text = payload?.candidates?.[0]?.content?.parts?.map((part) => part.text || '').join('') || '';
+        if (!text) {
+          throw createAppError(
+            'Unable to generate the brand read right now. Please try again shortly.',
+            { statusCode: 502 }
+          );
+        }
 
-      if (!text) {
-        throw createAppError(
-          'Unable to generate the brand read right now. Please try again shortly.',
-          { statusCode: 502 }
-        );
-      }
+        return normalizeResult(extractJson(text), hints);
+      } catch (error) {
+        if (error?.name === 'AbortError') {
+          sawTimeout = true;
+          if (attempt === 0) {
+            await sleep(800);
+            continue;
+          }
+          break;
+        }
 
-      return normalizeResult(extractJson(text), hints);
-    } catch (error) {
-      if (error?.name === 'AbortError') {
+        if (error?.statusCode) {
+          throw error;
+        }
+
         if (attempt === 0) {
           await sleep(800);
           continue;
         }
-
-        throw createAppError('The brand read took too long. Please try again in a moment.', {
-          statusCode: 504
-        });
+        break;
+      } finally {
+        clearTimeout(timeout);
       }
-
-      if (error?.statusCode) {
-        throw error;
-      }
-
-      if (attempt === 0) {
-        await sleep(800);
-        continue;
-      }
-
-      throw createAppError('Unable to generate the brand read right now. Please try again shortly.', {
-        statusCode: 500
-      });
-    } finally {
-      clearTimeout(timeout);
     }
+  }
+
+  if (sawHighDemand) {
+    throw createAppError('Brand Review is experiencing high demand right now. Please try again in a moment.', {
+      statusCode: 503
+    });
+  }
+
+  if (sawTimeout) {
+    throw createAppError('The brand read took too long. Please try again in a moment.', {
+      statusCode: 504
+    });
   }
 
   throw createAppError('Unable to generate the brand read right now. Please try again shortly.', {
