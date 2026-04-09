@@ -483,7 +483,7 @@ async function sendReportEmailWithSmtp({ email, url, result, pdfBuffer }) {
       'Attached is the PDF version of the report.',
       '',
       'If you want to turn this into sharper priorities and a clearer direction, you can book a strategic session here:',
-      '$250 / 60 min. Paid at booking.',
+      '$197 / 60 min. Paid at booking.',
       'If we continue into a project, the fee goes toward the work.',
       '',
       'https://calendly.com/maryna-dabrytskaya/sahar-strategic-session',
@@ -500,7 +500,7 @@ async function sendReportEmailWithSmtp({ email, url, result, pdfBuffer }) {
           <p style="margin:0 0 24px 0;">
             <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" style="display:inline-block;padding:12px 18px;border:1px solid #d5b06d;color:#f1ece4;text-decoration:none;letter-spacing:1px;text-transform:uppercase;font-size:12px;">Book a Strategic Session</a>
           </p>
-          <p style="font-size:13px;line-height:1.7;color:#d5b06d;margin:0 0 8px 0;">$250 / 60 min. Paid at booking.</p>
+          <p style="font-size:13px;line-height:1.7;color:#d5b06d;margin:0 0 8px 0;">$197 / 60 min. Paid at booking.</p>
           <p style="font-size:13px;line-height:1.7;color:#8d939b;margin:0 0 24px 0;">If we continue into a project, the fee goes toward the work.</p>
           <p style="font-size:13px;line-height:1.7;color:#8d939b;margin:0;">Website reviewed: ${sanitize(url)}</p>
         </div>
@@ -533,7 +533,7 @@ async function sendReportEmailWithResend({ email, url, result, pdfBuffer }) {
       'Attached is the PDF version of the report.',
       '',
       'If you want to turn this into sharper priorities and a clearer direction, you can book a strategic session here:',
-      '$250 / 60 min. Paid at booking.',
+      '$197 / 60 min. Paid at booking.',
       'If we continue into a project, the fee goes toward the work.',
       '',
       'https://calendly.com/maryna-dabrytskaya/sahar-strategic-session',
@@ -550,7 +550,7 @@ async function sendReportEmailWithResend({ email, url, result, pdfBuffer }) {
           <p style="margin:0 0 24px 0;">
             <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" style="display:inline-block;padding:12px 18px;border:1px solid #d5b06d;color:#f1ece4;text-decoration:none;letter-spacing:1px;text-transform:uppercase;font-size:12px;">Book a Strategic Session</a>
           </p>
-          <p style="font-size:13px;line-height:1.7;color:#d5b06d;margin:0 0 8px 0;">$250 / 60 min. Paid at booking.</p>
+          <p style="font-size:13px;line-height:1.7;color:#d5b06d;margin:0 0 8px 0;">$197 / 60 min. Paid at booking.</p>
           <p style="font-size:13px;line-height:1.7;color:#8d939b;margin:0 0 24px 0;">If we continue into a project, the fee goes toward the work.</p>
           <p style="font-size:13px;line-height:1.7;color:#8d939b;margin:0;">Website reviewed: ${sanitize(url)}</p>
         </div>
