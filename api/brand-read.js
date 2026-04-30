@@ -51,6 +51,12 @@ function truncate(value, maxLength) {
   return value.length > maxLength ? `${value.slice(0, maxLength - 1)}…` : value;
 }
 
+function normalizeScore(value, fallback = 68) {
+  const score = Number.parseInt(value, 10);
+  if (!Number.isFinite(score)) return fallback;
+  return Math.max(0, Math.min(100, score));
+}
+
 function inferVisualWorldHints(websiteContext = {}) {
   const combined = normalizeWhitespace([
     websiteContext.title,
@@ -189,10 +195,18 @@ function normalizeResult(data, hints = null) {
     brandName: truncate(normalizeWhitespace(data.brandName || ''), 64) || 'Your Brand',
     visualWorld: resolvedWorld,
     symbol: ['strategy', 'story', 'spectacle'].includes(data.symbol) ? data.symbol : 'strategy',
-    title: truncate(normalizeWhitespace(data.title || ''), 64) || 'Untitled',
-    genre: truncate(normalizeWhitespace(data.genre || ''), 34) || 'Brand Drama',
-    tagline: truncate(normalizeWhitespace(data.tagline || ''), 92) || 'A brand in search of a sharper signal.',
+    title: truncate(normalizeWhitespace(data.title || ''), 64) || 'Live Signal Scan',
+    genre: truncate(normalizeWhitespace(data.genre || ''), 34) || 'Brand Signal Scan',
+    tagline: truncate(normalizeWhitespace(data.tagline || ''), 140) || 'A brand in search of a sharper signal.',
     summary: truncate(normalizeWhitespace(data.summary || ''), 320) || 'The brand has a clear mood. Now the message needs to land with the same clarity.',
+    positioningClarity: normalizeScore(data.positioningClarity ?? data.clarityScore, 68),
+    toneCoherence: normalizeScore(data.toneCoherence ?? data.aiVisibility, 66),
+    visualCredibility: normalizeScore(data.visualCredibility ?? data.premiumScore, 72),
+    offerSpecificity: normalizeScore(data.offerSpecificity, 68),
+    conversionReadiness: normalizeScore(data.conversionReadiness, 66),
+    strongestSignal: truncate(normalizeWhitespace(data.strongestSignal || ''), 760),
+    mainFriction: truncate(normalizeWhitespace(data.mainFriction || ''), 760),
+    nextMove: truncate(normalizeWhitespace(data.nextMove || ''), 760),
     current: truncate(normalizeWhitespace(data.current || ''), 900) || 'Right now, the brand looks considered and ambitious, but the offer is still not fully obvious on first glance.',
     strength: truncate(normalizeWhitespace(data.strength || ''), 760) || 'The strongest part is the mood. The brand already feels considered and visually self-aware.',
     gap: truncate(normalizeWhitespace(data.gap || ''), 900) || 'The look is doing one job and the message is doing another. They need to align more quickly.',
@@ -213,11 +227,11 @@ async function generateBrandRead(url, websiteContext) {
   const hints = inferVisualWorldHints(websiteContext);
 
   const prompt = `
-You are SAHAR, a premium brand strategy and creative studio.
+  You are Brand Mirror by SAHAR, a premium brand intelligence and creative strategy product.
 
-Your task is to read a website homepage and produce two layers:
-1. A public-facing cinematic poster interpretation that feels aspirational, elegant, and shareable.
-2. A deeper private strategic read that identifies the gap between image, message, and voice.
+  Your task is to read a website homepage and produce two layers:
+  1. A free first-read live scan that feels sharp, useful, and commercially intelligent.
+  2. A deeper private strategic read that identifies the gap between image, message, tone, and visual identity.
 
 Important rules:
 - Be specific, not generic.
@@ -228,9 +242,9 @@ Important rules:
 - Sound lightly witty and observant, but still composed. Think elegant, not chatty.
 - Short sentences are better than grand speeches.
 - If you can say it simply, do that.
-- Keep the poster layer concise and elegant.
-- The public result should never embarrass the brand.
-- The deeper report should feel substantial, specific, and readable, not like notes or bullet fragments.
+  - Keep the first-read scan concise and elegant.
+  - The public result should never embarrass the brand.
+  - The deeper report should feel substantial, specific, and readable, not like notes or bullet fragments.
 - Do not mention AI, scraping, or missing data.
 - Infer one dominant visual world from this set only:
   ruler, sage, magician, creator, lover, caregiver, hero, rebel, explorer, everyman, innocent, jester
@@ -259,19 +273,34 @@ Likely dominant visual world based on lexical brand signals:
 - Confidence score: ${hints.confidence}
 - Top signal worlds: ${hints.topSignals.map(([world, score]) => `${world}(${score})`).join(', ') || 'none'}
 
-Choose one symbol only from: strategy, story, spectacle.
+  Score the five Brand Mirror indicators from 0 to 100.
+  - positioningClarity = how quickly a first-time visitor can say what the company does
+  - toneCoherence = AI visibility: whether AI tools can find, understand, and confidently recommend the brand
+  - visualCredibility = whether the design signals quality, control, and category trust
+  - offerSpecificity = how directly the page states what is sold, to whom, and why it matters now
+  - conversionReadiness = whether the page has earned a clear, confident next step
 
-Return JSON with exactly these keys:
-{
-  "brandName": "brand name as it should appear on the poster",
-  "visualWorld": "one of the allowed visual worlds",
-  "symbol": "strategy | story | spectacle",
-  "title": "poster title",
-  "genre": "poster genre, ideally 2-4 words",
-  "tagline": "short elegant tagline, ideally 6-12 words",
-  "summary": "1-2 concise sentences in plain English",
-  "current": "what the brand currently signals, 4-6 sentences",
-  "strength": "what already feels strong or convincing, 3-5 sentences",
+  Choose one symbol only from: strategy, story, spectacle.
+
+  Return JSON with exactly these keys:
+  {
+    "brandName": "brand name as it should appear in the scan",
+    "visualWorld": "one of the allowed visual worlds",
+    "symbol": "strategy | story | spectacle",
+    "title": "short scan title, ideally 2-4 words",
+    "genre": "scan category, ideally 2-4 words",
+    "tagline": "one-line brand snapshot, concise and elegant",
+    "summary": "1-2 concise sentences in plain English",
+    "positioningClarity": "number from 0 to 100",
+    "toneCoherence": "number from 0 to 100",
+    "visualCredibility": "number from 0 to 100",
+    "offerSpecificity": "number from 0 to 100",
+    "conversionReadiness": "number from 0 to 100",
+    "strongestSignal": "what already feels credible or compelling, 2-3 sentences",
+    "mainFriction": "the main issue slowing trust, clarity, or conversion, 2-3 sentences",
+    "nextMove": "one practical next move, 2-3 sentences",
+    "current": "what the brand currently signals, 4-6 sentences",
+    "strength": "what already feels strong or convincing, 3-5 sentences",
   "gap": "what is missing or unclear, 4-6 sentences",
   "mismatch": "where the brand feels slightly out of sync with itself, 3-5 sentences",
   "voice": "how the tone compares to the visual world, 4-6 sentences",

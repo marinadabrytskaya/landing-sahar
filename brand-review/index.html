@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Review | SAHAR</title>
-    <meta name="description" content="A studio brand review by SAHAR. Enter your website to get a first poster, a sharper read, and a deeper review sent to your inbox.">
+    <title>Brand Mirror Sample | SAHAR</title>
+    <meta name="description" content="Preview a Brand Mirror sample by SAHAR, then enter your website to run the real scan inside the Brand Mirror app.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.saharstudio.com/brand-review/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SAHAR">
-    <meta property="og:title" content="Brand Review | SAHAR">
-    <meta property="og:description" content="A studio brand review by SAHAR. Enter your website to get a first poster, a sharper read, and a deeper review sent to your inbox.">
+    <meta property="og:title" content="Brand Mirror Sample | SAHAR">
+    <meta property="og:description" content="Preview a Brand Mirror sample by SAHAR, then enter your website to run the real scan inside the Brand Mirror app.">
     <meta property="og:url" content="https://www.saharstudio.com/brand-review/">
     <meta property="og:image" content="https://www.saharstudio.com/hero-image.jpg">
     <meta property="og:image:alt" content="SAHAR Creative Intelligence Studio">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Brand Review | SAHAR">
-    <meta name="twitter:description" content="A studio brand review by SAHAR. Enter your website to get a first poster, a sharper read, and a deeper review sent to your inbox.">
+    <meta name="twitter:title" content="Brand Mirror Sample | SAHAR">
+    <meta name="twitter:description" content="Preview a Brand Mirror sample by SAHAR, then enter your website to run the real scan inside the Brand Mirror app.">
     <meta name="twitter:image" content="https://www.saharstudio.com/hero-image.jpg">
 
     <script type="application/ld+json">
@@ -59,7 +59,8 @@
             "Websites",
             "Digital products",
             "AI-powered brand experiences",
-            "Brand review"
+            "Brand review",
+            "Brand Mirror"
           ]
         },
         {
@@ -715,7 +716,7 @@
 
         .brand-read-overview {
             display: grid;
-            grid-template-columns: minmax(300px, 1.08fr) minmax(220px, 0.78fr);
+            grid-template-columns: 1fr;
             gap: 0.75rem;
             align-items: stretch;
             width: 100%;
@@ -734,7 +735,7 @@
         }
 
         .brand-read-rail {
-            display: flex;
+            display: none;
             flex-direction: column;
             gap: 0.8rem;
             width: 100%;
@@ -750,6 +751,7 @@
         }
 
         .brand-read-deep-area {
+            display: none;
             border-top: 1px solid rgba(255,255,255,0.06);
             padding: 1.55rem 1.6rem 1.75rem;
         }
@@ -1028,7 +1030,249 @@
             text-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
+        .brand-scan-card {
+            position: relative;
+            width: 100%;
+            min-height: 720px;
+            border: 1px solid rgba(197, 160, 89, 0.44);
+            border-radius: 1.8rem;
+            background: #050609;
+            padding: 2.15rem 1.8rem 1.7rem;
+            overflow: hidden;
+            box-shadow: 0 34px 100px rgba(0, 0, 0, 0.42);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .brand-scan-card::before {
+            content: '';
+            position: absolute;
+            inset: 0.65rem;
+            border-radius: 1.25rem;
+            background:
+                linear-gradient(var(--gold), var(--gold)) left top / 1px 1.05rem no-repeat,
+                linear-gradient(var(--gold), var(--gold)) left top / 1.05rem 1px no-repeat,
+                linear-gradient(var(--gold), var(--gold)) right top / 1px 1.05rem no-repeat,
+                linear-gradient(var(--gold), var(--gold)) right top / 1.05rem 1px no-repeat,
+                linear-gradient(var(--gold), var(--gold)) left bottom / 1px 1.05rem no-repeat,
+                linear-gradient(var(--gold), var(--gold)) left bottom / 1.05rem 1px no-repeat,
+                linear-gradient(var(--gold), var(--gold)) right bottom / 1px 1.05rem no-repeat,
+                linear-gradient(var(--gold), var(--gold)) right bottom / 1.05rem 1px no-repeat;
+            opacity: 0.85;
+            pointer-events: none;
+        }
+
+        .brand-scan-card::after {
+            content: '';
+            position: absolute;
+            inset: auto -12% -18% auto;
+            width: 42%;
+            height: 36%;
+            background: radial-gradient(circle, rgba(197, 160, 89,0.12), rgba(197, 160, 89,0));
+            opacity: 0.65;
+            pointer-events: none;
+        }
+
+        .brand-scan-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-scan-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            gap: 1rem;
+        }
+
+        .brand-scan-kicker,
+        .brand-scan-label {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.64rem;
+            text-transform: uppercase;
+            letter-spacing: 0.54em;
+            color: rgba(244,245,248,0.46);
+        }
+
+        .brand-scan-title {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: clamp(3.2rem, 6.4vw, 4.65rem);
+            line-height: 0.9;
+            letter-spacing: -0.075em;
+            color: #f4f5f8;
+            max-width: none;
+            text-align: center;
+        }
+
+        .brand-scan-type {
+            font-family: var(--font-sans);
+            font-size: 0.64rem;
+            text-transform: uppercase;
+            letter-spacing: 0.56em;
+            color: rgba(244,245,248,0.42);
+            text-align: center;
+        }
+
+        .brand-scan-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.72rem;
+            margin-top: 1.2rem;
+        }
+
+        .brand-scan-gauge {
+            position: relative;
+            width: min(15rem, 58%);
+            margin: 1.2rem auto 0;
+            aspect-ratio: 2 / 1;
+        }
+
+        .brand-scan-gauge svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .brand-scan-gauge-value {
+            position: absolute;
+            inset: 56% 0 auto;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: var(--font-sans);
+            color: #f5b83b;
+            z-index: 2;
+        }
+
+        .brand-scan-gauge-value strong {
+            font-size: clamp(2.65rem, 4.8vw, 3.75rem);
+            line-height: 0.82;
+            letter-spacing: -0.06em;
+        }
+
+        .brand-scan-gauge-value span {
+            margin-top: 0.8rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            color: rgba(244,245,248,0.7);
+        }
+
+        .brand-scan-snapshot {
+            border: 0;
+            background: transparent;
+            padding: 0;
+            max-width: 26rem;
+            margin: 0 auto 1.2rem;
+            text-align: center;
+        }
+
+        .brand-scan-snapshot p {
+            margin: 0;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 600;
+            font-size: clamp(1.16rem, 2vw, 1.42rem);
+            line-height: 1.32;
+            color: rgba(244,245,248,0.93);
+        }
+
+        .brand-scan-lines {
+            display: none;
+        }
+
+        .brand-scan-score-list {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid rgba(244,245,248,0.1);
+        }
+
+        .brand-scan-score-row {
+            display: grid;
+            grid-template-columns: minmax(8.5rem, 0.42fr) minmax(8rem, 1fr) 4rem;
+            align-items: center;
+            gap: 1.15rem;
+            min-height: 4.05rem;
+            border-bottom: 1px solid rgba(244,245,248,0.09);
+        }
+
+        .brand-scan-score-label {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: rgba(244,245,248,0.66);
+        }
+
+        .brand-scan-score-track {
+            position: relative;
+            height: 0.22rem;
+            border-radius: 999px;
+            background: rgba(244,245,248,0.13);
+            overflow: hidden;
+        }
+
+        .brand-scan-score-fill {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: var(--score-width, 50%);
+            border-radius: inherit;
+            background: var(--score-color, var(--gold));
+        }
+
+        .brand-scan-score-value {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: clamp(2rem, 3.4vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: var(--score-color, var(--gold));
+            text-align: right;
+        }
+
+        .brand-scan-cta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            min-height: 3.1rem;
+            border: 1px solid rgba(244,245,248,0.12);
+            border-radius: 1rem;
+            padding: 0.78rem 1.02rem;
+            margin-top: 0.2rem;
+        }
+
+        .brand-scan-cta-label {
+            font-family: var(--font-sans);
+            font-size: 0.64rem;
+            text-transform: uppercase;
+            letter-spacing: 0.36em;
+            color: rgba(244,245,248,0.52);
+        }
+
+        .brand-scan-cta {
+            appearance: none;
+            border: 0;
+            background: transparent;
+            color: var(--gold);
+            font-family: var(--font-sans);
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
         .brand-read-mini {
+            display: none;
             border: 1px solid rgba(255,255,255,0.06);
             background: rgba(255,255,255,0.014);
             padding: 1rem 1.05rem;
@@ -2364,7 +2608,8 @@
             .brand-read-gate-row {
                 flex-direction: column;
             }
-            .brand-read-poster {
+            .brand-read-poster,
+            .brand-scan-card {
                 padding: 1.15rem;
             }
             .brand-read-poster-kicker {
@@ -2407,6 +2652,24 @@
                 letter-spacing: 0.22em;
                 color: rgba(214, 197, 167, 0.42);
             }
+            .brand-scan-card {
+                min-height: 0;
+            }
+            .brand-scan-scores {
+                grid-template-columns: 1fr;
+            }
+            .brand-scan-title {
+                font-size: clamp(2.05rem, 10vw, 2.85rem);
+            }
+            .brand-scan-score {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+            .brand-scan-score-value {
+                font-size: 2.1rem;
+            }
             .contact-founder {
                 padding: 1.2rem 1.2rem 1.15rem;
                 margin-bottom: 2.2rem;
@@ -2418,6 +2681,575 @@
             .work-card:not(.work-card-featured):not(.work-card-website) .work-title { font-size: 1.5rem; bottom: 1.5rem; left: 1.5rem; transform: translateY(0); }
             :root { --spacing-section: 80px; }
         }
+
+        /* --- BRANDMIRROR SAMPLE PAGE --- */
+        .brandmirror-sample {
+            padding: 0;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(197, 160, 89, 0.08), rgba(197, 160, 89, 0) 24rem),
+                radial-gradient(circle at 94% 10%, rgba(245, 184, 59, 0.07), rgba(245, 184, 59, 0) 26rem),
+                linear-gradient(180deg, #11151d 0%, #0d1016 52%, #11151d 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+
+        .brandmirror-container {
+            max-width: 1440px;
+            padding: 0 clamp(1.4rem, 5vw, 6rem);
+        }
+
+        .brandmirror-hero {
+            min-height: calc(100svh - 88px);
+            display: grid;
+            grid-template-columns: minmax(24rem, 0.88fr) minmax(34rem, 1.12fr);
+            gap: clamp(2rem, 4vw, 4.2rem);
+            align-items: center;
+            padding: clamp(2.5rem, 5vw, 5.5rem) 0 clamp(2.25rem, 4vw, 4.5rem);
+        }
+
+        .brandmirror-copy {
+            max-width: 35rem;
+        }
+
+        .brandmirror-kicker {
+            display: block;
+            margin-bottom: 1.1rem;
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: rgba(244,245,248,0.68);
+        }
+
+        .brandmirror-title {
+            margin: 0 0 1.05rem;
+            font-family: var(--font-serif);
+            font-size: clamp(5rem, 9vw, 7.2rem);
+            font-weight: 600;
+            line-height: 0.78;
+            letter-spacing: -0.055em;
+            color: #f4f5f8;
+        }
+
+        .brandmirror-subtitle {
+            max-width: 8.5ch;
+            margin: 0 0 1.55rem;
+            font-family: var(--font-serif);
+            font-size: clamp(3.05rem, 5.4vw, 4.7rem);
+            font-weight: 600;
+            line-height: 0.9;
+            letter-spacing: -0.055em;
+            color: #f4f5f8;
+        }
+
+        .brandmirror-lede {
+            max-width: 36rem;
+            margin: 0 0 1.8rem;
+            font-size: clamp(1rem, 1.4vw, 1.18rem);
+            font-weight: 700;
+            line-height: 1.55;
+            color: rgba(244,245,248,0.72);
+        }
+
+        .brandmirror-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.2rem;
+            padding: 1.35rem 0;
+            border-top: 1px solid rgba(244,245,248,0.12);
+            border-bottom: 1px solid rgba(244,245,248,0.12);
+            margin-bottom: 1.5rem;
+        }
+
+        .brandmirror-proof-grid p {
+            margin: 0;
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1.55;
+            color: rgba(244,245,248,0.66);
+        }
+
+        .brandmirror-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .brandmirror-primary,
+        .brandmirror-secondary {
+            min-height: 3rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 0.72rem 1.4rem;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 800;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .brandmirror-primary {
+            border: 1px solid rgba(244,245,248,0.94);
+            background: #e9eef7;
+            color: #11151d;
+            box-shadow: 0 16px 34px rgba(0,0,0,0.24);
+        }
+
+        .brandmirror-secondary {
+            border: 1px solid rgba(244,245,248,0.22);
+            background: transparent;
+            color: #f4f5f8;
+        }
+
+        .brandmirror-primary:hover,
+        .brandmirror-secondary:hover {
+            transform: translateY(-1px);
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(197,160,89,0.08);
+        }
+
+        .brandmirror-scan-wrap {
+            min-width: 0;
+        }
+
+        .brandmirror-sample .brand-scan-card {
+            max-width: 560px;
+            min-height: 620px;
+            margin-left: auto;
+            padding: clamp(1.25rem, 1.8vw, 1.55rem);
+            border-radius: 1.45rem;
+            gap: 1.05rem;
+        }
+
+        .brandmirror-sample .brand-scan-title {
+            font-size: clamp(2.85rem, 4.2vw, 3.85rem);
+        }
+
+        .brandmirror-sample .brand-scan-gauge {
+            width: min(12.4rem, 48%);
+            margin-top: 0.55rem;
+        }
+
+        .brandmirror-sample .brand-scan-score-row {
+            grid-template-columns: minmax(8rem, 0.35fr) minmax(9rem, 1fr) 3.6rem;
+            min-height: 3.35rem;
+        }
+
+        .brandmirror-sample .brand-scan-score-label {
+            letter-spacing: 0.2em;
+        }
+
+        .brand-report-sample {
+            display: grid;
+            grid-template-columns: minmax(24rem, 0.88fr) minmax(34rem, 1.12fr);
+            gap: clamp(2rem, 4vw, 4.2rem);
+            align-items: center;
+            padding: clamp(3rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
+            scroll-margin-top: 8rem;
+        }
+
+        .brand-report-copy {
+            max-width: 34rem;
+        }
+
+        .brand-report-copy h2 {
+            margin: 0 0 1.55rem;
+            font-family: var(--font-serif);
+            font-size: clamp(3.1rem, 5.2vw, 4.65rem);
+            font-weight: 600;
+            line-height: 0.9;
+            letter-spacing: -0.055em;
+            color: #f4f5f8;
+        }
+
+        .brand-report-copy p {
+            margin: 0;
+            max-width: 36rem;
+            font-size: clamp(1rem, 1.4vw, 1.18rem);
+            font-weight: 700;
+            line-height: 1.55;
+            color: rgba(244,245,248,0.72);
+        }
+
+        .brand-report-panel {
+            position: relative;
+            border: 1px solid rgba(197, 160, 89, 0.44);
+            border-radius: 1.75rem;
+            background: #050609;
+            padding: clamp(1.55rem, 2.4vw, 2.4rem);
+            box-shadow: 0 34px 100px rgba(0, 0, 0, 0.42);
+            overflow: hidden;
+        }
+
+        .brand-report-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0.65rem;
+            border-radius: 1.15rem;
+            background:
+                linear-gradient(var(--gold), var(--gold)) left top / 1px 1.05rem no-repeat,
+                linear-gradient(var(--gold), var(--gold)) left top / 1.05rem 1px no-repeat,
+                linear-gradient(var(--gold), var(--gold)) right top / 1px 1.05rem no-repeat,
+                linear-gradient(var(--gold), var(--gold)) right top / 1.05rem 1px no-repeat,
+                linear-gradient(var(--gold), var(--gold)) left bottom / 1px 1.05rem no-repeat,
+                linear-gradient(var(--gold), var(--gold)) left bottom / 1.05rem 1px no-repeat,
+                linear-gradient(var(--gold), var(--gold)) right bottom / 1px 1.05rem no-repeat,
+                linear-gradient(var(--gold), var(--gold)) right bottom / 1.05rem 1px no-repeat;
+            opacity: 0.85;
+            pointer-events: none;
+        }
+
+        .brand-report-heading,
+        .brand-report-list,
+        .brand-report-foot {
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-report-heading {
+            padding: 0.9rem 0 1.35rem;
+            border-bottom: 1px solid rgba(244,245,248,0.15);
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: rgba(244,245,248,0.78);
+        }
+
+        .brand-report-list div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.4rem;
+            min-height: 3.3rem;
+            border-bottom: 1px solid rgba(197, 160, 89,0.18);
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+        }
+
+        .brand-report-list span {
+            font-size: 0.88rem;
+            font-weight: 800;
+            letter-spacing: 0.27em;
+            color: rgba(244,245,248,0.78);
+        }
+
+        .brand-report-list strong {
+            flex: 0 0 auto;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.36em;
+            color: var(--gold);
+        }
+
+        .brand-report-foot {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.2rem;
+            padding-top: 1.4rem;
+        }
+
+        .brand-report-foot p {
+            margin: 0;
+            font-size: 0.92rem;
+            font-weight: 700;
+            line-height: 1.45;
+            color: rgba(244,245,248,0.66);
+        }
+
+        .brand-report-actions {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            padding-top: 1.45rem;
+            margin-top: 1.1rem;
+            border-top: 1px solid rgba(244,245,248,0.12);
+        }
+
+        .brand-pricing-sample {
+            padding: clamp(2.5rem, 6vw, 5.6rem) 0 clamp(4rem, 8vw, 7rem);
+            border-top: 1px solid rgba(244,245,248,0.11);
+        }
+
+        .brand-pricing-head {
+            max-width: 42rem;
+            margin-bottom: 1.9rem;
+        }
+
+        .brand-pricing-head h2 {
+            margin: 0 0 0.75rem;
+            font-family: var(--font-serif);
+            font-size: clamp(2.7rem, 4.5vw, 4.2rem);
+            font-weight: 600;
+            line-height: 0.92;
+            letter-spacing: -0.045em;
+            color: #f4f5f8;
+        }
+
+        .brand-pricing-head p {
+            margin: 0;
+            max-width: 42rem;
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.65;
+            color: rgba(244,245,248,0.66);
+        }
+
+        .brand-pricing-table {
+            border-top: 1px solid rgba(244,245,248,0.16);
+        }
+
+        .brand-pricing-row {
+            display: grid;
+            grid-template-columns: minmax(18rem, 0.37fr) minmax(7rem, 0.13fr) minmax(24rem, 0.5fr);
+            gap: clamp(1.2rem, 2.4vw, 3rem);
+            align-items: start;
+            padding: clamp(1.7rem, 3vw, 2.4rem) 0;
+            border-bottom: 1px solid rgba(244,245,248,0.16);
+        }
+
+        .brand-pricing-name h3 {
+            margin: 0 0 0.42rem;
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3vw, 2.55rem);
+            font-weight: 600;
+            line-height: 0.95;
+            letter-spacing: -0.035em;
+            color: #f4f5f8;
+        }
+
+        .brand-pricing-layer {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.34em;
+            text-transform: uppercase;
+            color: rgba(244,245,248,0.62);
+        }
+
+        .brand-pricing-price {
+            justify-self: start;
+            font-family: var(--font-serif);
+            font-size: clamp(2.9rem, 4vw, 3.8rem);
+            font-weight: 600;
+            line-height: 0.9;
+            letter-spacing: -0.045em;
+            color: var(--gold);
+        }
+
+        .brand-pricing-copy {
+            max-width: 38rem;
+        }
+
+        .brand-pricing-copy p {
+            margin: 0;
+            font-size: 0.98rem;
+            font-weight: 650;
+            line-height: 1.6;
+            color: rgba(244,245,248,0.68);
+        }
+
+        .brand-pricing-copy p + p {
+            margin-top: 0.9rem;
+            color: rgba(244,245,248,0.78);
+        }
+
+        .brand-pricing-copy .brandmirror-secondary {
+            margin-top: 1.15rem;
+            min-height: 2.55rem;
+            padding: 0.65rem 1.15rem;
+            font-size: 0.82rem;
+        }
+
+        .brand-read-support {
+            display: none;
+        }
+
+        @media (max-width: 1100px) {
+            .brandmirror-hero,
+            .brand-report-sample,
+            .brand-pricing-row {
+                grid-template-columns: 1fr;
+            }
+
+            .brandmirror-copy,
+            .brand-report-copy {
+                max-width: 45rem;
+            }
+
+            .brand-pricing-price {
+                justify-self: start;
+            }
+
+            .brandmirror-sample .brand-scan-card {
+                margin: 0;
+                max-width: none;
+                min-height: 620px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .brandmirror-container {
+                padding: 0 1.1rem;
+            }
+
+            .brandmirror-hero {
+                min-height: auto;
+                padding: 2rem 0 3rem;
+                gap: 2rem;
+            }
+
+            .brandmirror-copy {
+                order: 2;
+            }
+
+            .brandmirror-scan-wrap {
+                order: 1;
+            }
+
+            .brandmirror-kicker {
+                font-size: 0.64rem;
+                letter-spacing: 0.3em;
+            }
+
+            .brandmirror-title {
+                font-size: clamp(4.1rem, 20vw, 5.2rem);
+            }
+
+            .brandmirror-subtitle,
+            .brand-report-copy h2 {
+                font-size: clamp(2.7rem, 14vw, 3.65rem);
+            }
+
+            .brandmirror-proof-grid,
+            .brand-report-foot {
+                grid-template-columns: 1fr;
+            }
+
+            .brandmirror-primary,
+            .brandmirror-secondary {
+                width: 100%;
+            }
+
+            .brandmirror-sample .brand-scan-card {
+                min-height: 0;
+                padding: 1.05rem;
+                border-radius: 1.2rem;
+                gap: 0.7rem;
+            }
+
+            .brandmirror-sample .brand-scan-title {
+                font-size: clamp(2rem, 10vw, 2.55rem);
+                letter-spacing: -0.065em;
+            }
+
+            .brandmirror-sample .brand-scan-hero {
+                gap: 0.48rem;
+                margin-top: 0.55rem;
+            }
+
+            .brandmirror-sample .brand-scan-gauge {
+                width: min(9.5rem, 45%);
+                margin-top: 0.15rem;
+            }
+
+            .brandmirror-sample .brand-scan-gauge-value strong {
+                font-size: 2.55rem;
+            }
+
+            .brandmirror-sample .brand-scan-snapshot {
+                margin-bottom: 0.45rem;
+            }
+
+            .brandmirror-sample .brand-scan-snapshot p {
+                font-size: 1.02rem;
+                line-height: 1.25;
+            }
+
+            .brandmirror-sample .brand-scan-type,
+            .brandmirror-sample .brand-scan-kicker,
+            .brandmirror-sample .brand-scan-label {
+                letter-spacing: 0.26em;
+            }
+
+            .brandmirror-sample .brand-scan-score-row {
+                grid-template-columns: minmax(7.2rem, 0.4fr) minmax(5rem, 1fr) 3rem;
+                gap: 0.6rem;
+                min-height: 2.85rem;
+            }
+
+            .brandmirror-sample .brand-scan-score-track {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .brandmirror-sample .brand-scan-score-label {
+                font-size: 0.68rem;
+                letter-spacing: 0.16em;
+            }
+
+            .brandmirror-sample .brand-scan-score-value {
+                font-size: 1.85rem;
+            }
+
+            .brandmirror-sample .brand-scan-cta-row {
+                min-height: 2.65rem;
+                padding: 0.6rem 0.72rem;
+            }
+
+            .brandmirror-sample .brand-scan-cta {
+                font-size: 0.82rem;
+            }
+
+            .brand-report-panel {
+                border-radius: 1.2rem;
+                padding: 1.15rem;
+            }
+
+            .brand-report-list div {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.45rem;
+                padding: 1rem 0;
+            }
+
+            .brand-report-list span {
+                font-size: 0.76rem;
+                letter-spacing: 0.2em;
+            }
+
+            .brand-pricing-sample {
+                padding-top: 3rem;
+            }
+
+            .brand-pricing-row {
+                gap: 0.8rem;
+                padding: 1.65rem 0;
+            }
+
+            .brand-pricing-name h3 {
+                font-size: clamp(2rem, 11vw, 2.75rem);
+            }
+
+            .brand-pricing-layer {
+                font-size: 0.68rem;
+                letter-spacing: 0.28em;
+            }
+
+            .brand-pricing-price {
+                font-size: 3.1rem;
+            }
+        }
     </style>
 </head>
 <body class="inner-page">
@@ -2427,7 +3259,7 @@
             <a href="/">Home</a>
             <a href="/packages/">What We Do</a>
             <a href="/work/">Work</a>
-            <a href="/brand-review/">Brand Review</a>
+            <a href="/brand-review/">Brand Mirror</a>
             <a href="/contact/">Contact</a>
         </div>
         <div class="nav-right">
@@ -2435,131 +3267,178 @@
         </div>
     </nav>
 
-    <section id="brand-read" class="brand-read-section">
-        <div class="container">
-            <div class="brand-read-shell">
-                <div class="brand-read-intro">
-                    <div class="brand-read-intro-top">
-                        <div class="brand-read-intro-copy">
-                            <span class="brand-read-kicker">Brand Review</span>
-                            <h1 class="brand-read-title">Enter the website and generate the first read.</h1>
-                            <p class="brand-read-sub">A first poster, a first diagnosis, and then the fuller review.</p>
-                        </div>
-                        <a href="/" class="back-home">Back To Home</a>
+    <section id="brand-read" class="brand-read-section brandmirror-sample">
+        <div class="container brandmirror-container">
+            <div class="brandmirror-hero">
+                <div class="brandmirror-copy">
+                    <span class="brandmirror-kicker">BrandMirror shows what to fix first.</span>
+                    <h1 class="brandmirror-title">BrandMirror</h1>
+                    <h2 class="brandmirror-subtitle">AI Brand Audit for Any Website</h2>
+                    <p class="brandmirror-lede">Your website may have a leak visitors can feel before they can name it. Enter any homepage and get a free first read of its positioning, AI visibility, offer clarity, visual trust, and conversion readiness.</p>
+
+                    <div class="brandmirror-proof-grid" aria-label="What the free read includes">
+                        <p>Free first read: 5 scores, strongest asset, main friction.</p>
+                        <p>$197 full report: website evidence, fix stack, competitor read, PDF.</p>
+                        <p>Built for any site that needs to explain value and convert.</p>
+                    </div>
+
+                    <div class="brandmirror-actions">
+                        <a href="https://brandmirror.app/first-read" class="brandmirror-primary">▶ Read My Brand</a>
+                        <a href="https://brandmirror.app/sample-report" class="brandmirror-secondary">See sample report →</a>
                     </div>
                 </div>
 
-                <div class="brand-read-main">
-                    <div class="brand-read-panel">
-                        <form class="brand-read-form" id="brand-read-form">
-                            <div>
-                                <label class="brand-read-label" for="brand-read-url">Enter your website</label>
-                                <input id="brand-read-url" class="brand-read-input" type="text" placeholder="https://yourbrand.com" />
+                <div class="brandmirror-scan-wrap">
+                    <div class="brand-scan-card brand-read-reveal is-placeholder" data-world="portal" id="brand-read-poster-card">
+                        <div class="brand-scan-head">
+                            <span class="brand-scan-kicker">Live Scan</span>
+                            <span class="brand-scan-label">BrandMirror</span>
+                        </div>
+                        <div class="brand-scan-hero">
+                            <h3 class="brand-scan-title" id="brand-read-title">your first read</h3>
+                            <span class="brand-scan-type" id="brand-read-genre">Homepage / AI Visibility / Offer / Conversion</span>
+                        </div>
+                        <div class="brand-scan-gauge" aria-label="Overall sample score 68 out of 100">
+                            <svg viewBox="0 0 220 120" aria-hidden="true">
+                                <path d="M 25 100 A 85 85 0 0 1 195 100" pathLength="100" fill="none" stroke="rgba(244,245,248,0.13)" stroke-width="14" stroke-linecap="round" />
+                                <path d="M 25 100 A 85 85 0 0 1 195 100" pathLength="100" fill="none" stroke="#f5b83b" stroke-width="14" stroke-linecap="round" stroke-dasharray="68 100" />
+                            </svg>
+                            <div class="brand-scan-gauge-value">
+                                <strong>68</strong>
+                                <span>/ 100</span>
                             </div>
-
-                            <p class="brand-read-helper">Enter your website to get a first poster and a sharper first read.</p>
-                            <p class="brand-read-status" id="brand-read-status" aria-live="polite"></p>
-
-                            <div class="brand-read-actions">
-                                <button type="submit" class="btn" id="brand-read-generate">Create Poster</button>
-                                <span class="brand-read-secondary">A first poster. Then the full review.</span>
+                        </div>
+                        <div class="brand-scan-snapshot">
+                            <p id="brand-read-tagline">The buyer senses value. The offer still needs words AI can repeat.</p>
+                        </div>
+                        <div class="brand-scan-score-list">
+                            <div class="brand-scan-score-row" style="--score-width: 72%; --score-color: var(--gold);">
+                                <span class="brand-scan-score-label">Positioning</span>
+                                <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
+                                <span class="brand-scan-score-value" id="brand-scan-positioning">72</span>
                             </div>
-                        </form>
-                    </div>
-
-                    <div class="brand-read-panel">
-                            <div class="brand-read-result">
-                                <div class="brand-read-overview">
-                                <div class="brand-read-poster brand-read-reveal is-placeholder" data-world="portal" id="brand-read-poster-card">
-                                    <video class="brand-read-poster-video" autoplay muted loop playsinline preload="auto" poster="/Portal.png" aria-hidden="true">
-                                        <source src="/cube-assembly.mp4" type="video/mp4" />
-                                    </video>
-                                    <span class="brand-read-poster-kicker" id="brand-read-kicker">Your Brand, On Screen</span>
-                                    <div class="brand-read-poster-copy">
-                                        <h3 class="brand-read-poster-title" id="brand-read-title">The Open Threshold</h3>
-                                        <span class="brand-read-poster-genre" id="brand-read-genre">Cinematic Reveal</span>
-                                    </div>
-                                    <div class="brand-read-poster-footer">
-                                        <p class="brand-read-poster-tagline" id="brand-read-tagline">The world is already there; the message now needs to meet its level of impact.</p>
-                                        <span class="brand-read-poster-credit">Created by SAHAR</span>
-                                    </div>
-                                </div>
-
-                                <div class="brand-read-mini brand-read-reveal" id="brand-read-first-read">
-                                <h4>First Read</h4>
-                                <p id="brand-read-summary">This brand already looks considered and polished. The words now need to carry the same confidence.</p>
-                                </div>
-                                </div>
-
-                                <div class="brand-read-rail brand-read-reveal" id="brand-read-rail">
-                                <div class="brand-read-email-gate" id="brand-read-gate">
-                                    <span class="brand-read-gate-title">Unlock the Full Review</span>
-                                    <p class="brand-read-gate-copy">The full read opens here and lands in your inbox.</p>
-                                    <div class="brand-read-gate-row">
-                                        <input id="brand-read-email" class="brand-read-email" type="email" placeholder="Your email address" />
-                                        <button type="button" class="btn" id="brand-read-unlock">Unlock Full Review</button>
-                                    </div>
-                                    <p class="brand-read-status" id="brand-read-gate-status" aria-live="polite"></p>
-                                </div>
-                                </div>
+                            <div class="brand-scan-score-row" style="--score-width: 54%; --score-color: #f5b83b;">
+                                <span class="brand-scan-score-label">AI Visibility</span>
+                                <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
+                                <span class="brand-scan-score-value" id="brand-scan-ai">54</span>
+                            </div>
+                            <div class="brand-scan-score-row" style="--score-width: 75%; --score-color: var(--gold);">
+                                <span class="brand-scan-score-label">Visual</span>
+                                <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
+                                <span class="brand-scan-score-value" id="brand-scan-visual">75</span>
+                            </div>
+                            <div class="brand-scan-score-row" style="--score-width: 64%; --score-color: #f5b83b;">
+                                <span class="brand-scan-score-label">Offer</span>
+                                <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
+                                <span class="brand-scan-score-value" id="brand-scan-offer">64</span>
+                            </div>
+                            <div class="brand-scan-score-row" style="--score-width: 72%; --score-color: var(--gold);">
+                                <span class="brand-scan-score-label">Conversion</span>
+                                <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
+                                <span class="brand-scan-score-value" id="brand-scan-conversion">72</span>
+                            </div>
+                        </div>
+                        <div class="brand-scan-cta-row">
+                            <span class="brand-scan-cta-label">Free First Read</span>
+                            <a href="https://brandmirror.app/first-read" class="brand-scan-cta">Read My Brand →</a>
                         </div>
                     </div>
                 </div>
-                <div class="brand-read-deep-area">
-                    <div class="brand-read-deep-wrap">
-                        <div class="brand-read-deep-head">
-                            <div class="brand-read-deep-intro">
-                                <div class="brand-read-deep-title">Full Review</div>
-                                <p class="brand-read-status brand-read-delivery-status" id="brand-read-delivery-status" aria-live="polite"></p>
-                            </div>
-                            <p class="brand-read-deep-note">A practical studio review of what is working, what is unclear, and what should change first.</p>
-                        </div>
+            </div>
 
-                        <div class="brand-read-deep" id="brand-read-deep">
-                            <div class="brand-read-deep-card">
-                                <h4>What It Signals</h4>
-                                <p id="brand-read-current">Right now, the brand feels tasteful and well put together, but the offer is still not fully clear at first glance.</p>
-                            </div>
-                            <div class="brand-read-deep-card">
-                                <h4>How It Comes Across</h4>
-                                <p id="brand-read-strength">The strongest part is the overall mood. It already feels considered, elevated, and visually self-aware.</p>
-                            </div>
-                            <div class="brand-read-deep-card">
-                                <h4>What Is Missing</h4>
-                                <p id="brand-read-gap">The look says “premium.” The message does not always say exactly why. That gap weakens clarity and slows trust.</p>
-                            </div>
-                            <div class="brand-read-deep-card">
-                                <h4>Mixed Signals</h4>
-                                <p id="brand-read-mismatch">Some parts of the brand are aiming for polish and authority, while others still feel softer or less sure of themselves.</p>
-                            </div>
-                            <div class="brand-read-deep-card">
-                                <h4>Tone Check</h4>
-                                <p id="brand-read-voice">The visual language feels assured. The copy still needs more clarity, confidence, and less filler.</p>
-                            </div>
-                            <div class="brand-read-deep-card">
-                                <h4>What To Do Next</h4>
-                                <p id="brand-read-direction">Say the core promise faster, trim the extra noise, and make every part of the brand point to the same big idea.</p>
-                            </div>
-                            <div class="brand-read-deep-card">
-                                <h4>What To Amplify</h4>
-                                <p id="brand-read-amplify">Lean harder into what already feels distinct, polished, and memorable. That is where the real brand equity is hiding.</p>
-                            </div>
-                            <div class="brand-read-deep-card">
-                                <h4>What To Drop</h4>
-                                <p id="brand-read-drop">Pull back anything vague, over-explained, or too careful. If it weakens the main impression, it should probably go.</p>
-                            </div>
-                        </div>
+            <section class="brand-report-sample" id="brand-report-sample">
+                <div class="brand-report-copy">
+                    <span class="brandmirror-kicker">Full Report</span>
+                    <h2>Start free. Go deeper only if the signal hits.</h2>
+                    <p>The free read shows you the signal. The $197 report names the leak, the fix, and the commercial cost of doing nothing. One or the other. You pick.</p>
+                </div>
+                <div class="brand-report-panel">
+                    <div class="brand-report-heading">BrandMirror Report — $197</div>
+                    <div class="brand-report-list">
+                        <div><span>What works / what's broken</span><strong>Included</strong></div>
+                        <div><span>Why clients don't choose you</span><strong>Included</strong></div>
+                        <div><span>Audience mismatch</span><strong>Included</strong></div>
+                        <div><span>Positioning read</span><strong>Included</strong></div>
+                        <div><span>AI visibility audit</span><strong>Included</strong></div>
+                        <div><span>Visual identity read</span><strong>Included</strong></div>
+                        <div><span>Above-the-fold audit</span><strong>Included</strong></div>
+                        <div><span>Priority fix stack</span><strong>Included</strong></div>
+                        <div><span>Commercial impact estimate</span><strong>Included</strong></div>
+                        <div><span>Competitor comparison</span><strong>Included</strong></div>
+                        <div><span>Implementation playbook</span><strong>Included</strong></div>
+                        <div><span>PDF export</span><strong>Included</strong></div>
+                    </div>
+                    <div class="brand-report-foot">
+                        <p>Core scope: one homepage / one primary brand surface.</p>
+                        <p>Built to be affordable enough to buy, but sharp enough to act on.</p>
+                    </div>
+                    <div class="brand-report-actions">
+                        <a href="https://brandmirror.app/first-read" class="brandmirror-primary">Start Free</a>
+                        <a href="https://brandmirror.app/sample-report" class="brandmirror-secondary">See Sample Report →</a>
+                    </div>
+                </div>
+            </section>
 
-                        <div class="brand-read-session">
-                            <p class="brand-read-session-copy"><span class="brand-read-session-kicker">Strategic Session</span>A paid 60-minute session to turn the read into priorities: what to sharpen, what to simplify, and where to focus first.</p>
-                            <div class="brand-read-session-cta">
-                                <a href="https://calendly.com/maryna-dabrytskaya/sahar-strategic-session" target="_blank" rel="noopener noreferrer" class="btn">Book a Strategic Session</a>
-                                <span class="brand-read-secondary">$197 / 60 min</span>
-                            </div>
-                            <p class="brand-read-session-note">$197 is paid at booking. If we continue into a project, the fee goes toward the work. Or email <a href="mailto:hello@saharstudio.com" class="brand-read-secondary">hello@saharstudio.com</a>.</p>
+            <section class="brand-pricing-sample" id="brand-pricing">
+                <div class="brand-pricing-head">
+                    <span class="brandmirror-kicker">Pricing</span>
+                    <h2>The free read shows you the signal.</h2>
+                    <p>The $197 report turns that signal into a full commercial diagnosis: what is working, what is leaking trust, what to fix first, and what the upside looks like when the brand becomes easier to understand, recommend, and choose.</p>
+                </div>
+
+                <div class="brand-pricing-table">
+                    <div class="brand-pricing-row">
+                        <div class="brand-pricing-name">
+                            <h3>Free First Read</h3>
+                            <span class="brand-pricing-layer">Diagnostic Layer</span>
+                        </div>
+                        <div class="brand-pricing-price">$0</div>
+                        <div class="brand-pricing-copy">
+                            <p>A fast outside read of the homepage: first-screen signal, 5 scores, strongest asset, main friction, and the first reason buyers may hesitate.</p>
+                            <p>Best for seeing whether the diagnosis feels specific before you pay.</p>
+                        </div>
+                    </div>
+
+                    <div class="brand-pricing-row">
+                        <div class="brand-pricing-name">
+                            <h3>BrandMirror Report</h3>
+                            <span class="brand-pricing-layer">Diagnostic Layer</span>
+                        </div>
+                        <div class="brand-pricing-price">$197</div>
+                        <div class="brand-pricing-copy">
+                            <p>The paid diagnosis: score dashboard, website evidence, 5 commercial deep dives, AI visibility read, competitor intelligence, commercial impact, priority fix stack, one-page brand brief, and implementation playbook.</p>
+                            <p>Best for any website owner, team, founder, studio, consultant, or service brand that needs to know what to fix, why it matters, and what to do next.</p>
+                        </div>
+                    </div>
+
+                    <div class="brand-pricing-row">
+                        <div class="brand-pricing-name">
+                            <h3>Sahar Follow-Through</h3>
+                            <span class="brand-pricing-layer">Implementation Layer</span>
+                        </div>
+                        <div class="brand-pricing-price">Optional</div>
+                        <div class="brand-pricing-copy">
+                            <p>If you want help implementing the fixes, Sahar can sharpen the positioning, visibility signals, offer clarity, messaging, proof, CTA path, website structure, and broader brand strategy.</p>
+                            <p>Best when you want the diagnosis turned into visible changes, not just a report.</p>
+                            <a href="mailto:hello@saharstudio.com?subject=BrandMirror%20implementation" class="brandmirror-secondary">Discuss implementation</a>
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <div class="brand-read-support" aria-hidden="true">
+                <p id="brand-read-summary">The buyer senses value. The offer still needs words AI can repeat.</p>
+                <p id="brand-read-current">Right now, the brand feels tasteful and well put together, but the offer is still not fully clear at first glance.</p>
+                <p id="brand-read-strength">The strongest part is the overall mood. It already feels considered, elevated, and visually self-aware.</p>
+                <p id="brand-read-gap">The page creates interest, but the offer, proof, or next step may still need to land faster.</p>
+                <p id="brand-read-mismatch">Some parts of the brand are aiming for polish and authority, while others still feel softer or less sure of themselves.</p>
+                <p id="brand-read-voice">AI visibility depends on clearer category language, stronger metadata, and a page structure that can be understood without guesswork.</p>
+                <p id="brand-read-direction">Say the core promise faster, trim the extra noise, and make every part of the brand point to the same big idea.</p>
+                <p id="brand-read-amplify">Lean harder into what already feels distinct, polished, and memorable. That is where the real brand equity is hiding.</p>
+                <p id="brand-read-drop">Pull back anything vague, over-explained, or too careful. If it weakens the main impression, it should probably go.</p>
+                <p id="brand-scan-strongest">The brand already feels controlled, premium, and visually intentional.</p>
+                <p id="brand-scan-friction">The homepage lets atmosphere lead too long before the offer becomes commercially explicit.</p>
+                <p id="brand-scan-next">Tighten the first headline so a buyer understands the value before they admire the style.</p>
             </div>
         </div>
     </section>
@@ -2586,198 +3465,19 @@
         (() => {
             const form = document.getElementById('brand-read-form');
             const input = document.getElementById('brand-read-url');
-            const emailInput = document.getElementById('brand-read-email');
-            const unlockButton = document.getElementById('brand-read-unlock');
-            const generateButton = document.getElementById('brand-read-generate');
-            const gate = document.getElementById('brand-read-gate');
-            const deep = document.getElementById('brand-read-deep');
-            const poster = document.querySelector('.brand-read-poster');
+            const unlockButtons = [
+                document.getElementById('brand-read-unlock'),
+                document.getElementById('brand-read-unlock-top')
+            ].filter(Boolean);
             const status = document.getElementById('brand-read-status');
-            const gateStatus = document.getElementById('brand-read-gate-status');
-            const deliveryStatus = document.getElementById('brand-read-delivery-status');
             const posterCard = document.getElementById('brand-read-poster-card');
-            const firstReadCard = document.getElementById('brand-read-first-read');
-            const rail = document.getElementById('brand-read-rail');
 
-            const fields = {
-                kicker: document.getElementById('brand-read-kicker'),
-                title: document.getElementById('brand-read-title'),
-                genre: document.getElementById('brand-read-genre'),
-                tagline: document.getElementById('brand-read-tagline'),
-                summary: document.getElementById('brand-read-summary'),
-                current: document.getElementById('brand-read-current'),
-                strength: document.getElementById('brand-read-strength'),
-                gap: document.getElementById('brand-read-gap'),
-                mismatch: document.getElementById('brand-read-mismatch'),
-                voice: document.getElementById('brand-read-voice'),
-                direction: document.getElementById('brand-read-direction'),
-                amplify: document.getElementById('brand-read-amplify'),
-                drop: document.getElementById('brand-read-drop')
-            };
-
-            const reads = [
-                {
-                    brandName: 'Your Brand',
-                    visualWorld: 'portal',
-                    symbol: 'spectacle',
-                    title: 'The Open Threshold',
-                    genre: 'Cinematic Reveal',
-                    tagline: 'The world is already there; the message now needs to meet its level of impact.',
-                    summary: 'This brand already knows how to make an entrance. Now the message needs to land with the same force.',
-                    current: 'The current signal feels premium, expansive, and high-impact. Visually, it arrives. Verbally, it is still softer than it should be.',
-                    strength: 'The strongest part is the sense of presence. The brand already knows how to make an entrance.',
-                    gap: 'The visual world hits first. The message should hit just as clearly. Right now the reveal is strong, but the takeaway is softer than it should be.',
-                    mismatch: 'The image promises confidence and clarity. The copy sometimes pulls back just when it should land the point.',
-                    voice: 'The copy should sound more decisive, more distinct, and more assured.',
-                    direction: 'Turn the visual drama into a sharper claim. Say what is valuable, say it plainly, and let the elegance come from precision.',
-                    amplify: 'Amplify the presence, the drama, and the sense of scale. The brand already knows how to catch attention.',
-                    drop: 'Drop any copy that stays vague for too long. Mystery can work. Confusion does not.'
-                },
-                {
-                    brandName: 'Your Brand',
-                    visualWorld: 'creator',
-                    symbol: 'story',
-                    title: 'Between the Lines',
-                    genre: 'Narrative Tension',
-                    tagline: 'There is movement, allure, and intention, but the story wants a clearer spine.',
-                    summary: 'The brand has mood, motion, and charm. It now needs a clearer line of meaning.',
-                    current: 'At first glance, the brand feels expressive, layered, and interesting. But the meaning can still drift a little behind the styling.',
-                    strength: 'The strongest part is the atmosphere. There is already personality here, and people can feel that quickly.',
-                    gap: 'The atmosphere is doing its job. The message is not always keeping up. Beautiful, yes. Fully clear, not yet.',
-                    mismatch: 'The mood suggests a strong point of view, but parts of the message still feel a little vague. That softens the impact.',
-                    voice: 'The tone has charm, but it meanders. It needs a cleaner point of view and more precision.',
-                    direction: 'Keep the richness, but sharpen the line of thought. People should understand both the mood and the value quickly.',
-                    amplify: 'Amplify the personality, the texture, and the emotional pull. Those are the parts people will remember.',
-                    drop: 'Drop any lines that feel decorative but non-committal. If it sounds lovely but says little, it is not helping.'
-                },
-                {
-                    brandName: 'Your Brand',
-                    visualWorld: 'magician',
-                    symbol: 'spectacle',
-                    title: 'The Open Threshold',
-                    genre: 'Cinematic Reveal',
-                    tagline: 'The world is already there; the message now needs to meet its level of impact.',
-                    summary: 'This brand already knows how to make an entrance. Now the message needs to land with the same force.',
-                    current: 'The current signal feels premium, expansive, and high-impact. Visually, it arrives. Verbally, it is still softer than it should be.',
-                    strength: 'The strongest part is the sense of presence. The brand already knows how to make an entrance.',
-                    gap: 'The visual world hits first. The message should hit just as clearly. Right now the reveal is strong, but the takeaway is softer than it should be.',
-                    mismatch: 'The image promises confidence and clarity. The copy sometimes pulls back just when it should land the point.',
-                    voice: 'The copy should sound more decisive, more distinct, and more assured.',
-                    direction: 'Turn the visual drama into a sharper claim. Say what is valuable, say it plainly, and let the elegance come from precision.',
-                    amplify: 'Amplify the presence, the drama, and the sense of scale. The brand already knows how to catch attention.',
-                    drop: 'Drop any copy that stays vague for too long. Mystery can work. Confusion does not.'
-                }
-            ];
-
-            const VISUAL_VAULT = {
-                ruler: { symbol: 'strategy' },
-                sage: { symbol: 'strategy' },
-                magician: { symbol: 'spectacle' },
-                creator: { symbol: 'story' },
-                lover: { symbol: 'spectacle' },
-                caregiver: { symbol: 'strategy' },
-                hero: { symbol: 'spectacle' },
-                rebel: { symbol: 'spectacle' },
-                explorer: { symbol: 'story' },
-                everyman: { symbol: 'strategy' },
-                innocent: { symbol: 'strategy' },
-                jester: { symbol: 'story' },
-                portal: { symbol: 'spectacle' }
-            };
-
-            const heroSection = document.querySelector('.hero');
-            const brandReadSection = document.getElementById('brand-read');
-            if (heroSection && brandReadSection && heroSection.nextElementSibling !== brandReadSection) {
-                heroSection.insertAdjacentElement('afterend', brandReadSection);
-            }
-
-            const isLocalPreview = window.location.protocol === 'file:';
-            let currentResult = reads[0];
-            let currentUrl = '';
-            let revealTimers = [];
+            if (!form || !input || !unlockButtons.length || !status || !posterCard) return;
 
             const setStatus = (element, message = '', tone = '') => {
-                if (!element) return;
                 element.textContent = message;
                 if (tone) element.dataset.tone = tone;
                 else element.removeAttribute('data-tone');
-            };
-
-            const setLoading = (button, loading, idleLabel, loadingLabel) => {
-                button.disabled = loading;
-                button.textContent = loading ? loadingLabel : idleLabel;
-            };
-
-            const startLoadingStatus = (element, messages, intervalMs = 2200) => {
-                if (!element || !messages?.length) return () => {};
-                let index = 0;
-                setStatus(element, messages[index], 'loading');
-                const timer = setInterval(() => {
-                    index = (index + 1) % messages.length;
-                    setStatus(element, messages[index], 'loading');
-                }, intervalMs);
-                return () => clearInterval(timer);
-            };
-
-            const revealNodes = [posterCard, firstReadCard, rail].filter(Boolean);
-
-            const clearRevealTimers = () => {
-                revealTimers.forEach((timer) => window.clearTimeout(timer));
-                revealTimers = [];
-            };
-
-            const setRevealHidden = (hidden) => {
-                revealNodes.forEach((node) => {
-                    node.classList.toggle('is-hidden', hidden);
-                });
-            };
-
-            const playRevealSequence = () => {
-                clearRevealTimers();
-                setRevealHidden(true);
-                revealNodes.forEach((node, index) => {
-                    const timer = window.setTimeout(() => {
-                        node.classList.remove('is-hidden');
-                    }, 160 + (index * 180));
-                    revealTimers.push(timer);
-                });
-            };
-
-            const pickRead = (value) => {
-                const normalized = (value || '').trim().toLowerCase();
-                let score = 0;
-                for (let i = 0; i < normalized.length; i += 1) score += normalized.charCodeAt(i);
-                return reads[score % reads.length];
-            };
-
-            const renderRead = (read, { staged = false } = {}) => {
-                currentResult = read;
-                posterCard.classList.remove('is-placeholder');
-                fields.kicker.textContent = `${read.brandName || 'Your Brand'}, On Screen`;
-                fields.title.textContent = read.title;
-                fields.genre.textContent = read.genre;
-                fields.tagline.textContent = read.tagline;
-                fields.summary.textContent = read.summary;
-                fields.current.textContent = read.current;
-                fields.strength.textContent = read.strength;
-                fields.gap.textContent = read.gap;
-                fields.mismatch.textContent = read.mismatch;
-                fields.voice.textContent = read.voice;
-                fields.direction.textContent = read.direction;
-                fields.amplify.textContent = read.amplify;
-                fields.drop.textContent = read.drop;
-                const world = VISUAL_VAULT[read.visualWorld] ? read.visualWorld : 'sage';
-                poster.dataset.world = world;
-                deep.classList.remove('visible');
-                gate.classList.remove('hidden');
-                emailInput.value = '';
-                setStatus(gateStatus, '');
-                setStatus(deliveryStatus, '');
-                if (staged) playRevealSequence();
-                else {
-                    clearRevealTimers();
-                    setRevealHidden(false);
-                }
             };
 
             const validateUrl = (value) => {
@@ -2793,156 +3493,35 @@
                 }
             };
 
-            const requestJson = async (path, payload, timeoutMs = 30000) => {
-                const controller = new AbortController();
-                const timeout = setTimeout(() => controller.abort(), timeoutMs);
-                let response;
-
-                try {
-                    response = await fetch(path, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload),
-                        signal: controller.signal
-                    });
-                } catch (error) {
-                    clearTimeout(timeout);
-                    if (error?.name === 'AbortError') {
-                        throw new Error('The request took too long. Try again in a moment.');
-                    }
-                    throw error;
-                }
-
-                clearTimeout(timeout);
-
-                const data = await response.json().catch(() => ({}));
-
-                if (!response.ok) {
-                    const message = data.detail ? `${data.error || 'Something went wrong.'} ${data.detail}` : (data.error || 'Something went wrong.');
-                    throw new Error(message);
-                }
-
-                return data;
+            const buildBrandMirrorUrl = () => {
+                const destination = new URL('https://brandmirror.app/first-read');
+                const urlToSend = validateUrl(input.value.trim());
+                if (urlToSend) destination.searchParams.set('url', urlToSend);
+                return destination.toString();
             };
 
-            form.addEventListener('submit', async (event) => {
+            form.addEventListener('submit', (event) => {
                 event.preventDefault();
                 const normalizedUrl = validateUrl(input.value.trim());
 
                 if (!normalizedUrl) {
-                    setStatus(status, 'Enter a valid website URL to generate the poster.', 'error');
+                    setStatus(status, 'Enter a valid website URL to scan in Brand Mirror.', 'error');
                     input.focus();
                     return;
                 }
 
-                currentUrl = normalizedUrl;
-                setStatus(status, '');
-                setStatus(gateStatus, '');
-                setStatus(deliveryStatus, '');
-                setLoading(generateButton, true, 'Create Poster', 'Creating...');
-                const stopGenerateStatus = startLoadingStatus(status, [
-                    'Reading the site and pulling the strongest signals.',
-                    'Shaping the poster direction.',
-                    'Refining the first read.'
-                ]);
-
-                if (isLocalPreview) {
-                    renderRead(pickRead(normalizedUrl), { staged: true });
-                    stopGenerateStatus();
-                    setStatus(status, 'Showing a local sample result. Connect the live API to analyze real websites.', 'success');
-                    setLoading(generateButton, false, 'Create Poster', 'Creating...');
-                    return;
-                }
-
-                try {
-                    const data = await requestJson('/api/brand-read', {
-                        source: 'website',
-                        url: normalizedUrl
-                    }, 45000);
-                    currentUrl = data.url || normalizedUrl;
-                    renderRead(data.result, { staged: true });
-                    stopGenerateStatus();
-                    setStatus(status, 'Poster generated from the current website signal.', 'success');
-                } catch (error) {
-                    stopGenerateStatus();
-                    if (isLocalPreview) {
-                        renderRead(pickRead(normalizedUrl), { staged: true });
-                        setStatus(status, 'Showing a local sample result. Connect the live API to analyze real websites.', 'success');
-                    } else {
-                        setStatus(status, error.message || 'Unable to generate the poster right now.', 'error');
-                    }
-                } finally {
-                    setLoading(generateButton, false, 'Create Poster', 'Creating...');
-                }
+                setStatus(status, 'Opening Brand Mirror with this website.', 'success');
+                window.location.href = buildBrandMirrorUrl();
             });
 
-            unlockButton.addEventListener('click', async () => {
-                const email = emailInput.value.trim();
-
-                if (!email) {
-                    setStatus(gateStatus, 'Enter your email to open the full read.', 'error');
-                    emailInput.focus();
-                    return;
-                }
-
-                if (!currentResult) {
-                    setStatus(gateStatus, 'Generate the poster first.', 'error');
-                    return;
-                }
-
-                setStatus(gateStatus, '');
-                setStatus(deliveryStatus, '');
-                setLoading(unlockButton, true, 'Unlock Full Review', 'Opening...');
-
-                if (isLocalPreview) {
-                    gate.classList.add('hidden');
-                    deep.classList.add('visible');
-                    setLoading(unlockButton, false, 'Unlock Full Review', 'Opening...');
-                    setStatus(deliveryStatus, 'Local preview open. Connect the live API to send the PDF.', 'success');
-                    return;
-                }
-
-                gate.classList.add('hidden');
-                deep.classList.add('visible');
-                setLoading(unlockButton, false, 'Unlock Full Review', 'Opening...');
-                const stopUnlockStatus = startLoadingStatus(deliveryStatus, [
-                    'The full read is open.',
-                    'Building the PDF now.',
-                    'Sending it to your inbox.'
-                ], 1900);
-
-                void (async () => {
-                    try {
-                        const leadResponse = await requestJson('/api/brand-read-lead', {
-                            source: 'website',
-                            url: currentUrl || validateUrl(input.value.trim()) || input.value.trim(),
-                            email,
-                            result: currentResult
-                        }, 15000);
-                        stopUnlockStatus();
-                        if (leadResponse?.emailed) {
-                            setStatus(deliveryStatus, 'The PDF has been sent to your email.', 'success');
-                        } else if (leadResponse?.savedLead) {
-                            setStatus(deliveryStatus, 'The full read is open. Email delivery can be retried from our side.', 'success');
-                        } else {
-                            setStatus(deliveryStatus, 'The full read is open.', 'success');
-                        }
-                    } catch (error) {
-                        stopUnlockStatus();
-                        if (isLocalPreview) {
-                            setStatus(deliveryStatus, 'Local preview open. Connect Google Sheets to capture leads.', 'success');
-                        } else {
-                            setStatus(deliveryStatus, 'The full read is open. We could not send the PDF this time.', 'success');
-                        }
-                    }
-                })();
+            unlockButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    setStatus(status, 'Opening Brand Mirror.', 'success');
+                    window.location.href = buildBrandMirrorUrl();
+                });
             });
 
-            posterCard.classList.add('is-placeholder');
-            renderRead(currentResult);
-            posterCard.classList.add('is-placeholder');
+            posterCard.classList.remove('is-hidden');
         })();
 
         (() => {
