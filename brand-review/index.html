@@ -81,7 +81,7 @@
     <!-- Premium Typography System -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
     <style>
         /* --- DESIGN TOKENS --- */
@@ -1034,7 +1034,7 @@
             position: relative;
             width: 100%;
             min-height: 720px;
-            border: 1px solid rgba(197, 160, 89, 0.44);
+            border: 1px solid rgba(111, 224, 194, 0.44);
             border-radius: 1.8rem;
             background: #050609;
             padding: 2.15rem 1.8rem 1.7rem;
@@ -1052,14 +1052,14 @@
             inset: 0.65rem;
             border-radius: 1.25rem;
             background:
-                linear-gradient(var(--gold), var(--gold)) left top / 1px 1.05rem no-repeat,
-                linear-gradient(var(--gold), var(--gold)) left top / 1.05rem 1px no-repeat,
-                linear-gradient(var(--gold), var(--gold)) right top / 1px 1.05rem no-repeat,
-                linear-gradient(var(--gold), var(--gold)) right top / 1.05rem 1px no-repeat,
-                linear-gradient(var(--gold), var(--gold)) left bottom / 1px 1.05rem no-repeat,
-                linear-gradient(var(--gold), var(--gold)) left bottom / 1.05rem 1px no-repeat,
-                linear-gradient(var(--gold), var(--gold)) right bottom / 1px 1.05rem no-repeat,
-                linear-gradient(var(--gold), var(--gold)) right bottom / 1.05rem 1px no-repeat;
+                linear-gradient(#6fe0c2, #6fe0c2) left top / 1px 1.05rem no-repeat,
+                linear-gradient(#6fe0c2, #6fe0c2) left top / 1.05rem 1px no-repeat,
+                linear-gradient(#6fe0c2, #6fe0c2) right top / 1px 1.05rem no-repeat,
+                linear-gradient(#6fe0c2, #6fe0c2) right top / 1.05rem 1px no-repeat,
+                linear-gradient(#6fe0c2, #6fe0c2) left bottom / 1px 1.05rem no-repeat,
+                linear-gradient(#6fe0c2, #6fe0c2) left bottom / 1.05rem 1px no-repeat,
+                linear-gradient(#6fe0c2, #6fe0c2) right bottom / 1px 1.05rem no-repeat,
+                linear-gradient(#6fe0c2, #6fe0c2) right bottom / 1.05rem 1px no-repeat;
             opacity: 0.85;
             pointer-events: none;
         }
@@ -1070,7 +1070,7 @@
             inset: auto -12% -18% auto;
             width: 42%;
             height: 36%;
-            background: radial-gradient(circle, rgba(197, 160, 89,0.12), rgba(197, 160, 89,0));
+            background: radial-gradient(circle, rgba(111,224,194,0.12), rgba(111,224,194,0));
             opacity: 0.65;
             pointer-events: none;
         }
@@ -1141,7 +1141,7 @@
 
         .brand-scan-gauge-value {
             position: absolute;
-            inset: 56% 0 auto;
+            inset: 66% 0 auto;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
@@ -1225,7 +1225,7 @@
             inset: 0 auto 0 0;
             width: var(--score-width, 50%);
             border-radius: inherit;
-            background: var(--score-color, var(--gold));
+            background: var(--score-color, #6fe0c2);
         }
 
         .brand-scan-score-value {
@@ -1235,7 +1235,7 @@
             font-weight: 700;
             line-height: 1;
             letter-spacing: -0.04em;
-            color: var(--score-color, var(--gold));
+            color: var(--score-color, #6fe0c2);
             text-align: right;
         }
 
@@ -1263,7 +1263,7 @@
             appearance: none;
             border: 0;
             background: transparent;
-            color: var(--gold);
+            color: #6fe0c2;
             font-family: var(--font-sans);
             font-size: 0.98rem;
             font-weight: 700;
@@ -2725,10 +2725,10 @@
         .brandmirror-title {
             margin: 0 0 1.05rem;
             font-family: var(--font-serif);
-            font-size: clamp(5rem, 9vw, 7.2rem);
-            font-weight: 600;
-            line-height: 0.78;
-            letter-spacing: -0.055em;
+            font-size: clamp(4.7rem, 8vw, 6.6rem);
+            font-weight: 400;
+            line-height: 0.84;
+            letter-spacing: -0.03em;
             color: #f4f5f8;
         }
 
@@ -2736,10 +2736,10 @@
             max-width: 8.5ch;
             margin: 0 0 1.55rem;
             font-family: var(--font-serif);
-            font-size: clamp(3.05rem, 5.4vw, 4.7rem);
-            font-weight: 600;
-            line-height: 0.9;
-            letter-spacing: -0.055em;
+            font-size: clamp(2.8rem, 4.7vw, 4.05rem);
+            font-weight: 400;
+            line-height: 0.96;
+            letter-spacing: -0.025em;
             color: #f4f5f8;
         }
 
@@ -2747,7 +2747,7 @@
             max-width: 36rem;
             margin: 0 0 1.8rem;
             font-size: clamp(1rem, 1.4vw, 1.18rem);
-            font-weight: 700;
+            font-weight: 500;
             line-height: 1.55;
             color: rgba(244,245,248,0.72);
         }
@@ -2765,7 +2765,7 @@
         .brandmirror-proof-grid p {
             margin: 0;
             font-size: 0.88rem;
-            font-weight: 700;
+            font-weight: 500;
             line-height: 1.55;
             color: rgba(244,245,248,0.66);
         }
@@ -2816,6 +2816,9 @@
 
         .brandmirror-scan-wrap {
             min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.95rem;
         }
 
         .brandmirror-sample .brand-scan-card {
@@ -2845,26 +2848,78 @@
             letter-spacing: 0.2em;
         }
 
+        .brand-indicator-scale {
+            width: 100%;
+            padding: 0.72rem 0 0;
+            border-top: 1px solid rgba(111,224,194,0.22);
+        }
+
+        .brand-indicator-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: rgba(244,245,248,0.58);
+        }
+
+        .brand-indicator-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 0.28rem;
+        }
+
+        .brand-indicator-item {
+            min-height: 2.05rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.14rem;
+            border: 1px solid rgba(244,245,248,0.08);
+            border-radius: 0.3rem;
+            background: rgba(255,255,255,0.018);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            text-align: center;
+        }
+
+        .brand-indicator-range {
+            font-size: 0.52rem;
+            letter-spacing: 0.14em;
+            color: var(--indicator-color);
+        }
+
+        .brand-indicator-name {
+            font-size: 0.47rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--indicator-color);
+        }
+
         .brand-report-sample {
             display: grid;
-            grid-template-columns: minmax(24rem, 0.88fr) minmax(34rem, 1.12fr);
+            grid-template-columns: minmax(28rem, 1fr) minmax(32rem, 0.95fr);
             gap: clamp(2rem, 4vw, 4.2rem);
-            align-items: center;
+            align-items: start;
             padding: clamp(3rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
             scroll-margin-top: 8rem;
         }
 
         .brand-report-copy {
-            max-width: 34rem;
+            max-width: 41rem;
+            padding-top: clamp(0.25rem, 1vw, 1rem);
         }
 
         .brand-report-copy h2 {
             margin: 0 0 1.55rem;
             font-family: var(--font-serif);
             font-size: clamp(3.1rem, 5.2vw, 4.65rem);
-            font-weight: 600;
-            line-height: 0.9;
-            letter-spacing: -0.055em;
+            font-weight: 400;
+            line-height: 0.96;
+            letter-spacing: -0.025em;
             color: #f4f5f8;
         }
 
@@ -2872,9 +2927,32 @@
             margin: 0;
             max-width: 36rem;
             font-size: clamp(1rem, 1.4vw, 1.18rem);
-            font-weight: 700;
+            font-weight: 500;
             line-height: 1.55;
             color: rgba(244,245,248,0.72);
+        }
+
+        .brand-report-side-note {
+            margin-top: 2rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid rgba(244,245,248,0.13);
+        }
+
+        .brand-report-side-note h3 {
+            margin: 0 0 0.65rem;
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: #f4f5f8;
+        }
+
+        .brand-report-side-note p {
+            max-width: 36rem;
+            font-size: 0.96rem;
+            line-height: 1.68;
+            color: rgba(244,245,248,0.62);
         }
 
         .brand-report-panel {
@@ -2885,6 +2963,7 @@
             padding: clamp(1.55rem, 2.4vw, 2.4rem);
             box-shadow: 0 34px 100px rgba(0, 0, 0, 0.42);
             overflow: hidden;
+            margin-top: 0;
         }
 
         .brand-report-panel::before {
@@ -2989,9 +3068,9 @@
             margin: 0 0 0.75rem;
             font-family: var(--font-serif);
             font-size: clamp(2.7rem, 4.5vw, 4.2rem);
-            font-weight: 600;
-            line-height: 0.92;
-            letter-spacing: -0.045em;
+            font-weight: 400;
+            line-height: 0.98;
+            letter-spacing: -0.025em;
             color: #f4f5f8;
         }
 
@@ -2999,7 +3078,7 @@
             margin: 0;
             max-width: 42rem;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 500;
             line-height: 1.65;
             color: rgba(244,245,248,0.66);
         }
@@ -3010,8 +3089,8 @@
 
         .brand-pricing-row {
             display: grid;
-            grid-template-columns: minmax(18rem, 0.37fr) minmax(7rem, 0.13fr) minmax(24rem, 0.5fr);
-            gap: clamp(1.2rem, 2.4vw, 3rem);
+            grid-template-columns: minmax(18rem, 0.34fr) minmax(5.5rem, 0.1fr) minmax(25rem, 0.56fr);
+            gap: clamp(0.9rem, 1.8vw, 2.2rem);
             align-items: start;
             padding: clamp(1.7rem, 3vw, 2.4rem) 0;
             border-bottom: 1px solid rgba(244,245,248,0.16);
@@ -3020,10 +3099,10 @@
         .brand-pricing-name h3 {
             margin: 0 0 0.42rem;
             font-family: var(--font-serif);
-            font-size: clamp(2rem, 3vw, 2.55rem);
-            font-weight: 600;
-            line-height: 0.95;
-            letter-spacing: -0.035em;
+            font-size: clamp(1.85rem, 2.5vw, 2.25rem);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.02em;
             color: #f4f5f8;
         }
 
@@ -3040,10 +3119,10 @@
         .brand-pricing-price {
             justify-self: start;
             font-family: var(--font-serif);
-            font-size: clamp(2.9rem, 4vw, 3.8rem);
-            font-weight: 600;
+            font-size: clamp(2.1rem, 3vw, 2.85rem);
+            font-weight: 400;
             line-height: 0.9;
-            letter-spacing: -0.045em;
+            letter-spacing: -0.02em;
             color: var(--gold);
         }
 
@@ -3054,7 +3133,7 @@
         .brand-pricing-copy p {
             margin: 0;
             font-size: 0.98rem;
-            font-weight: 650;
+            font-weight: 500;
             line-height: 1.6;
             color: rgba(244,245,248,0.68);
         }
@@ -3096,6 +3175,11 @@
                 max-width: none;
                 min-height: 620px;
             }
+
+            .brand-indicator-scale {
+                width: 100%;
+                margin-left: 0;
+            }
         }
 
         @media (max-width: 768px) {
@@ -3128,7 +3212,7 @@
 
             .brandmirror-subtitle,
             .brand-report-copy h2 {
-                font-size: clamp(2.7rem, 14vw, 3.65rem);
+                font-size: clamp(2.35rem, 12vw, 3.2rem);
             }
 
             .brandmirror-proof-grid,
@@ -3165,6 +3249,10 @@
 
             .brandmirror-sample .brand-scan-gauge-value strong {
                 font-size: 2.55rem;
+            }
+
+            .brandmirror-sample .brand-scan-gauge-value {
+                inset: 66% 0 auto;
             }
 
             .brandmirror-sample .brand-scan-snapshot {
@@ -3216,6 +3304,11 @@
                 padding: 1.15rem;
             }
 
+            .brand-report-side-note {
+                margin-top: 1.35rem;
+                padding-top: 1rem;
+            }
+
             .brand-report-list div {
                 align-items: flex-start;
                 flex-direction: column;
@@ -3238,7 +3331,7 @@
             }
 
             .brand-pricing-name h3 {
-                font-size: clamp(2rem, 11vw, 2.75rem);
+                font-size: clamp(1.85rem, 10vw, 2.45rem);
             }
 
             .brand-pricing-layer {
@@ -3247,7 +3340,32 @@
             }
 
             .brand-pricing-price {
-                font-size: 3.1rem;
+                font-size: 2.45rem;
+            }
+
+            .brand-indicator-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 0.18rem;
+            }
+
+            .brand-indicator-item {
+                min-height: 2rem;
+                align-items: center;
+                padding: 0 0.18rem;
+            }
+
+            .brand-indicator-label {
+                font-size: 0.56rem;
+                letter-spacing: 0.28em;
+            }
+
+            .brand-indicator-range {
+                font-size: 0.46rem;
+            }
+
+            .brand-indicator-name {
+                font-size: 0.4rem;
+                letter-spacing: 0.12em;
             }
         }
     </style>
@@ -3312,7 +3430,7 @@
                             <p id="brand-read-tagline">The buyer senses value. The offer still needs words AI can repeat.</p>
                         </div>
                         <div class="brand-scan-score-list">
-                            <div class="brand-scan-score-row" style="--score-width: 72%; --score-color: var(--gold);">
+                            <div class="brand-scan-score-row" style="--score-width: 72%; --score-color: #6fe0c2;">
                                 <span class="brand-scan-score-label">Positioning</span>
                                 <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
                                 <span class="brand-scan-score-value" id="brand-scan-positioning">72</span>
@@ -3322,7 +3440,7 @@
                                 <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
                                 <span class="brand-scan-score-value" id="brand-scan-ai">54</span>
                             </div>
-                            <div class="brand-scan-score-row" style="--score-width: 75%; --score-color: var(--gold);">
+                            <div class="brand-scan-score-row" style="--score-width: 75%; --score-color: #6fe0c2;">
                                 <span class="brand-scan-score-label">Visual</span>
                                 <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
                                 <span class="brand-scan-score-value" id="brand-scan-visual">75</span>
@@ -3332,7 +3450,7 @@
                                 <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
                                 <span class="brand-scan-score-value" id="brand-scan-offer">64</span>
                             </div>
-                            <div class="brand-scan-score-row" style="--score-width: 72%; --score-color: var(--gold);">
+                            <div class="brand-scan-score-row" style="--score-width: 72%; --score-color: #6fe0c2;">
                                 <span class="brand-scan-score-label">Conversion</span>
                                 <span class="brand-scan-score-track"><span class="brand-scan-score-fill"></span></span>
                                 <span class="brand-scan-score-value" id="brand-scan-conversion">72</span>
@@ -3341,6 +3459,31 @@
                         <div class="brand-scan-cta-row">
                             <span class="brand-scan-cta-label">Free First Read</span>
                             <a href="https://brandmirror.app/first-read" class="brand-scan-cta">Read My Brand →</a>
+                        </div>
+                        <div class="brand-indicator-scale" aria-label="BrandMirror indicator scale">
+                            <span class="brand-indicator-label">Indicator Scale</span>
+                            <div class="brand-indicator-grid">
+                                <div class="brand-indicator-item" style="--indicator-color: #d45f59;">
+                                    <span class="brand-indicator-range">0-30</span>
+                                    <span class="brand-indicator-name">Flatlining</span>
+                                </div>
+                                <div class="brand-indicator-item" style="--indicator-color: #d08a5a;">
+                                    <span class="brand-indicator-range">30-50</span>
+                                    <span class="brand-indicator-name">Fragile</span>
+                                </div>
+                                <div class="brand-indicator-item" style="--indicator-color: #f5b83b;">
+                                    <span class="brand-indicator-range">50-70</span>
+                                    <span class="brand-indicator-name">Developing</span>
+                                </div>
+                                <div class="brand-indicator-item" style="--indicator-color: #6fe0c2;">
+                                    <span class="brand-indicator-range">70-85</span>
+                                    <span class="brand-indicator-name">Stable</span>
+                                </div>
+                                <div class="brand-indicator-item" style="--indicator-color: rgba(244,245,248,0.62);">
+                                    <span class="brand-indicator-range">85-100</span>
+                                    <span class="brand-indicator-name">Leading</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3351,6 +3494,10 @@
                     <span class="brandmirror-kicker">Full Report</span>
                     <h2>Start free. Go deeper only if the signal hits.</h2>
                     <p>The free read shows you the signal. The $197 report names the leak, the fix, and the commercial cost of doing nothing. One or the other. You pick.</p>
+                    <div class="brand-report-side-note">
+                        <h3>What the report gives you</h3>
+                        <p>A complete read of the homepage: what works, what leaks trust, why buyers hesitate, and which fixes should move first.</p>
+                    </div>
                 </div>
                 <div class="brand-report-panel">
                     <div class="brand-report-heading">BrandMirror Report — $197</div>
@@ -3413,10 +3560,10 @@
 
                     <div class="brand-pricing-row">
                         <div class="brand-pricing-name">
-                            <h3>Sahar Follow-Through</h3>
+                            <h3>SAHAR FOLLOW-THROUGH</h3>
                             <span class="brand-pricing-layer">Implementation Layer</span>
                         </div>
-                        <div class="brand-pricing-price">Optional</div>
+                        <div class="brand-pricing-price">By Scope</div>
                         <div class="brand-pricing-copy">
                             <p>If you want help implementing the fixes, Sahar can sharpen the positioning, visibility signals, offer clarity, messaging, proof, CTA path, website structure, and broader brand strategy.</p>
                             <p>Best when you want the diagnosis turned into visible changes, not just a report.</p>
