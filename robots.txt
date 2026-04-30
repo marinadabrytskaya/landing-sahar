@@ -8,3 +8,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.saharstudio.com/sitemap.xml
+# LLM reference: https://www.saharstudio.com/llms.txt
