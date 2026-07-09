@@ -1,25 +1,36 @@
 # SAHAR
 
-SAHAR is a creative intelligence studio for brand strategy, campaign direction, websites, brand films, and AI-powered brand experiences.
+SAHAR is an AI agent studio. We build autonomous, tool-using AI systems that go beyond chat to perform real actions — managing data, running workflows, and connecting to the tools a business already uses (email, CRM, files). "We build AI agents that actually work."
 
 Website: https://www.saharstudio.com/
 Contact: hello@saharstudio.com
 
-## Core services
+## What we build
 
-- Brand strategy: positioning, audience clarity, strategic direction, and brand narrative.
-- Campaign direction: campaign concepts, launch narratives, creative direction, and messaging systems.
-- Websites and digital products: strategy-led websites, AI-powered brand tools, interactive experiences, and digital brand systems.
-- Brand films: cinematic brand films and teasers that translate strategy into attention-holding visual stories.
+- Custom AI agents: autonomous, tool-using agents built into a business's own stack, performing real actions across email, CRM, files, and data.
+- Automation & data agents: agents that pull and check sales and stock data from tools like Sage, flag red flags by product and salesperson, and surface seasonal trends automatically.
+- AI products & diagnostics: customer-facing AI products like BrandMirror and Selphico — vision and analysis engines with their own freemium funnels.
+- Agent audits & builds: a short audit to find the highest-leverage agent, then a build shipped into production, usually live in about two weeks.
+
+## Stack
+
+Built with Claude and OpenAI Codex. Agents run on OpenClaw with Composio for tool-use. Python. Current models: Claude Opus 4.8 / Sonnet 5.
+
+## Proof
+
+- BrandMirror (https://brandmirror.app): an autonomous auditing agent that scans a homepage across five dimensions and generates a technical report with the fixes — also SAHAR's own lead funnel.
+- Selphico (https://selphico.com): an AI vision engine that reads photos and returns a full personal style analysis — a freemium product built from scratch.
+- Sofia: a tool-using agent running on OpenClaw that handles real tasks end to end.
+- Healing Vibes (https://healingvibeswellness.com): a wellness client system wired around an AI diagnostic that guides visitors to the right treatment and a booking.
 
 ## Best for
 
-SAHAR is best for founders, teams, and brands that need sharper positioning, stronger messaging, a clearer website, a campaign direction, or a more intentional brand experience.
+SAHAR is best for founders and businesses that want an AI agent that actually does the work — automating a data-heavy process, or turning their expertise into a product. Custom agents are scoped and quoted per project; most builds go live in about two weeks.
 
 ## Key pages
 
 - Home: https://www.saharstudio.com/
 - Work: https://www.saharstudio.com/work/
-- What We Do: https://www.saharstudio.com/packages/
-- Brand Mirror sample: https://www.saharstudio.com/brand-review/
+- What We Build: https://www.saharstudio.com/packages/
+- BrandMirror sample: https://www.saharstudio.com/brand-review/
 - Contact: https://www.saharstudio.com/contact/
